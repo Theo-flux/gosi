@@ -6,7 +6,7 @@ import {
   ZoomControl,
   GeoJSON,
   useMapEvents,
-  Popup
+  Popup,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import nigeriaLgaGeoJSON from "../data/nigeria-lga.json";
@@ -41,15 +41,15 @@ export default function MapWrapper() {
   // useRef doesn't work so we have to save the map instance.
   const [mapRefObject, setMapRefObject] = useState();
 
-  // useEffect(() => {
-  //   if (mapRefObject)
-  //     setTimeout(() => {
-  //       mapRefObject?.flyTo(FUTA, 14, {
-  //         duration: 2.5,
-  //       });
-  //     }, 1500);
-  //   nigeriaStatesGeoJSON;
-  // }, [mapRefObject]);
+  useEffect(() => {
+    if (mapRefObject)
+      setTimeout(() => {
+        mapRefObject?.flyTo(FUTA, 14, {
+          duration: 2.5,
+        });
+      }, 1500);
+    nigeriaStatesGeoJSON;
+  }, [mapRefObject]);
 
   return (
     <MapContainer
@@ -69,7 +69,7 @@ export default function MapWrapper() {
       {/* <Marker position={location} /> */}
       <ZoomControl position="bottomright" />
       <GeoJSON data={nigeriaStatesGeoJSON} />
-      <LocationMarker />
+      {/* <LocationMarker /> */}
     </MapContainer>
   );
 }
