@@ -24,20 +24,23 @@ export default function MapWrapper() {
   const [mapRefObject, setMapRefObject] = useState();
 
   return (
-    <MapContainer
-      className="markercluster-map"
-      center={location}
-      zoom={zoom}
-      maxZoom={18}
-      zoomControl={false}
-    >
-      <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-      />
-      <ZoomControl position="bottomright" />
-      <TopoJSON data={nigeriaLgaTopoJSON} />
-      <Tooltip>I appear on mouse over</Tooltip>
-    </MapContainer>
+    <>
+    <h1 className="text-xl text-[#e5f] bg-red-500">qwertyuio</h1>
+      <MapContainer
+        className="markercluster-map"
+        center={location}
+        zoom={zoom}
+        maxZoom={18}
+        zoomControl={false}
+      >
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        />
+        <ZoomControl position="bottomright" />
+        <TopoJSON data={nigeriaLgaTopoJSON} />
+        <Tooltip>I appear on mouse over</Tooltip>
+      </MapContainer>
+    </>
   );
 }
