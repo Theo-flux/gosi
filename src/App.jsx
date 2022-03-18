@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import MapWrapper from "./container/MapContainer";
+import MapWrapper from "./container/MapWrapper";
 
 function App() {
   return (
