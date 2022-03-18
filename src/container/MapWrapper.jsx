@@ -25,7 +25,7 @@ export default function MapWrapper() {
 
   return (
     <>
-    <h1 className="text-xl text-[#e5f] bg-red-500">qwertyuio</h1>
+      <h1 className="text-xl text-[#e5f] bg-red-500">qwertyuio</h1>
       <MapContainer
         className="markercluster-map"
         center={location}
@@ -38,7 +38,7 @@ export default function MapWrapper() {
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
         <ZoomControl position="bottomright" />
-        <TopoJSON data={nigeriaLgaTopoJSON} />
+        <TopoJSON className="polgon-style" data={nigeriaStatesTopoJSON} />
         <Tooltip>I appear on mouse over</Tooltip>
       </MapContainer>
     </>
