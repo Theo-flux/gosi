@@ -18,7 +18,18 @@
 }
 
 .leaflet-popup-content-wrapper {
-  border-radius: 3px;
+  border-radius: 3px !important;
+}
+.polgon-style {
+  fill: rgba(0, 98, 204, 0.2);
+  stroke: #0062cc;
+  stroke-width: 1px;
+  transition: stroke-width 0.5s;
+}
+
+.polgon-style:hover {
+  fill: rgba(0, 98, 204, 1);
+  fill-opacity: 0.6;
 }
 
 /* TODO: color and borders */
