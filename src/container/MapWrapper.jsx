@@ -7,15 +7,16 @@ import {
   GeoJSON,
   useMapEvents,
   Popup,
+  useMapEvent,
+  Tooltip,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import TopoJSON from "../components/TopoJSON"
+import TopoJSON from "../components/TopoJSON";
 import nigeriaStatesTopoJSON from "../data/nigeria-states-topo.json";
 import nigeriaLgaTopoJSON from "../data/nigeria-lga-topo.json";
 
 const zoom = 6;
 const location = [9, 8];
-
 
 export default function MapWrapper() {
   // https://github.com/PaulLeCam/react-leaflet/issues/841
@@ -36,6 +37,7 @@ export default function MapWrapper() {
       />
       <ZoomControl position="bottomright" />
       <TopoJSON data={nigeriaLgaTopoJSON} />
+      <Tooltip>I appear on mouse over</Tooltip>
     </MapContainer>
   );
 }
