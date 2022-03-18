@@ -30,8 +30,12 @@ export default function TopoJSON(props) {
   }
 
   function handleHover(e, layer) {
-    const { NAME_0, NAME_1, NAME_2 } = e?.target?.feature?.properties;
-    layer.bindPopup(`${NAME_2}, ${NAME_1} state, ${NAME_0}`).openPopup(); // here add openPopup()
+    // for LGA data
+    // const { NAME_0, NAME_1 } = e?.target?.feature?.properties;
+    // layer.bindPopup(`${NAME_2}, ${NAME_1} state, ${NAME_0}`).openPopup(); // here add openPopup()
+
+    const { state } = e?.target?.feature?.properties;
+    layer.bindPopup(`${state} state`).openPopup(); // here add openPopup()
   }
 
   function onEachFeature(feature, layer) {
