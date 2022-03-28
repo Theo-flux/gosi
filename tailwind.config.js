@@ -8,7 +8,7 @@ module.exports = {
       current: "currentColor",
 
       neutral: {
-        50: "var(--color-neutral-50",
+        50: "var(--color-neutral-50)",
         100: "var(--color-neutral-100)",
         200: "var(--color-neutral-200)",
         300: "var(--color-neutral-300)",

@@ -1,10 +1,9 @@
 import React from "react";
+import {HomeContainer} from '../container/index.jsx';
 
 function Home() {
   return (
-    <div>
-      <h1>This is the home page</h1>
-    </div>
+    <div><HomeContainer/></div>
   );
 }
 
