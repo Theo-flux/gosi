@@ -1,11 +1,14 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from "react";
+import ReactDOM from "react-dom";
 import "./assets/css/zobomap.css";
-import App from './App'
+import Router from "./Router";
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById('root')
-)
+  document.getElementById("root")
+);

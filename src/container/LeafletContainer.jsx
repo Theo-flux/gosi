@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from "react";
 import {
   MapContainer,
-  Marker,
   TileLayer,
   ZoomControl,
-  GeoJSON,
-  useMapEvents,
-  Popup,
-  useMapEvent,
   Tooltip,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
@@ -18,10 +13,10 @@ import nigeriaLgaTopoJSON from "../data/nigeria-lga-topo.json";
 const zoom = 6;
 const location = [9, 8];
 //TODO Routing
-export default function MapWrapper() {
+export default function LeafletContainer() {
   // https://github.com/PaulLeCam/react-leaflet/issues/841
   // useRef doesn't work so we have to save the map instance.
-  const [mapRefObject, setMapRefObject] = useState();
+  // const [mapRefObject, setMapRefObject] = useState();
 
   return (
     <>
