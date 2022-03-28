@@ -25,7 +25,7 @@ export default function MapWrapper() {
 
   return (
     <>
-      <h1 className="text-xl text-[#e5f] bg-red-500">
+      <h1 className="text-xl text-warning-500 bg-red-500">
         The quick brown fox Jumps over the lazy dog
       </h1>
       <MapContainer

@@ -1,5 +1,43 @@
 @import "./main.css";
 
+/* Zobomap Default Settings */
+:root {
+  /*Default  Colors */
+  --color-neutral-50: #F9FAFB;
+  --color-neutral-100: #F3F4F6;
+  --color-neutral-200: #EDF0F2;
+  --color-neutral-300: #D1D5DB;
+  --color-neutral-400: #9CA3AF;
+  --color-neutral-500: #6B7280;
+  --color-neutral-600: #4B5563;
+  --color-neutral-700: #374151;
+  --color-neutral-800: #1F2937;
+  --color-neutral-900: #111827;
+
+  --color-primary-50: #FCFEFF;
+  --color-primary-100: #E5F2FF;
+  --color-primary-200: #CCE4FF;
+  --color-primary-300: #B2D7FF;
+  --color-primary-400: #99CAFF;
+  --color-primary-500: #007AFF;
+  --color-primary-600: #0062CC;
+  --color-primary-700: #004FA6;
+  --color-primary-800: #003D80;
+  --color-primary-900: #131740;
+
+  --color-warning-500: #FFD337;
+  --color-warning-900: #FBBF24;
+  --color-success-500: #22CC5E;
+  --color-success-800: #35A648;
+  --color-success-900: #4EA635;
+  --color-danger-100: #FF6666;
+  --color-danger-400: #FF0000;
+  --color-danger-800: #990000;
+
+  --color-white: #FFFFFF;
+  --color-black: #020202;
+
+}
 
 @tailwind base;
 @tailwind components;
