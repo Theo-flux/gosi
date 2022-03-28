@@ -1,8 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-import About from "./pages/about";
-import Application from "./pages/Application";
-import Home from "./pages/home";
-import Publication from "./pages/publication";
+import About from "./pages/About";
+import Home from "./pages/Home";
+import Publication from "./pages/Publication";
 
 function Router() {
   return (
@@ -18,4 +17,3 @@ function Router() {
 }
 
 export default Router;
-
