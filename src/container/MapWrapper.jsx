@@ -17,7 +17,7 @@ import nigeriaLgaTopoJSON from "../data/nigeria-lga-topo.json";
 
 const zoom = 6;
 const location = [9, 8];
-
+//TODO Routing
 export default function MapWrapper() {
   // https://github.com/PaulLeCam/react-leaflet/issues/841
   // useRef doesn't work so we have to save the map instance.
@@ -25,7 +25,9 @@ export default function MapWrapper() {
 
   return (
     <>
-      <h1 className="text-xl text-[#e5f] bg-red-500">qwertyuio</h1>
+      <h1 className="text-xl text-[#e5f] bg-red-500">
+        The quick brown fox Jumps over the lazy dog
+      </h1>
       <MapContainer
         className="markercluster-map"
         center={location}
