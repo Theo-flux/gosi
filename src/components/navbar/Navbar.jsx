@@ -76,7 +76,7 @@ function Navbar() {
         <div
           ref={drawer}
           className="absolute z-40 top-0 left-[-100%] w-[65%] h-[100vh]  py-4 flex flex-col bg-neutral-50"
-          style={{boxShadow: '0px 1px 10px #999'}}
+          style={{boxShadow: '0px 1px 2px #999'}}
         >
           <Hyperlink to="/about" className="w-full py-4 px-8 mb-4 mt-24">
             About us
