@@ -23,13 +23,13 @@ function Footer(){
                                 </Hyperlink>
 
                                 <div className="flex flex-col justify-start items-start w-fit md:flex-row justify-between items-center w-[209px]">
-                                    <a className="mb-4  self-start md:mb-0 mr-4">
+                                    <a className="mb-4 self-start md:mb-0 mr-4">
                                         <figure>
                                             <img src={gjid} className="w-100%" alt="gjid-logo"/>
                                         </figure>
                                     </a>
 
-                                    <a className="">
+                                    <a className="self-start">
                                         <figure>
                                             <img src={dti} className="w-100%" alt="dti-logo"/>
                                         </figure>
