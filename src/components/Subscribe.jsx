@@ -14,7 +14,7 @@ const Field = ({className}) => {
 
 function Subscribe({className}){
     return(
-        <div className={`bg-primary-100 ${className} rounded-md lg:w-[360px]`}>
+        <div className={`bg-primary-100 ${className} rounded-md w-[100%] md:w-[360px]`}>
             <div className="font-gilmer mx-auto p-8 lg:p-12">
                 <p className="text-lg text-primary-900 font-gilmer font-bold mb-8">Subscribe</p>
                 <Field className="mb-8"/>

@@ -11,8 +11,8 @@ function Footer(){
             <Div className="w-11/12">
                 <div className="py-[2.3em]">
 
-                    <div className="flex flex-col md:flex-row justify-between items-start mb-8">
-                        <div className="flex justify-between items-start mb-8 w-full md:w-[50%]">
+                    <div className="flex flex-col lg:flex-row justify-between items-start mb-8">
+                        <div className="flex justify-between items-start mb-8 w-full lg:w-[50%]">
                             <div>
                                 <Hyperlink to="/" className="z-50 flex justify-between items-center cursor-pointer w-[137px] mb-8">
                                     <figure>
@@ -46,9 +46,7 @@ function Footer(){
                             </div>
                         </div>
 
-                        <div className="w-[100%]">
-                            <Subscribe/>
-                        </div>
+                        <Subscribe/>
                         
                     </div>
 

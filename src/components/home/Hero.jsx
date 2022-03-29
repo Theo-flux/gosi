@@ -4,7 +4,7 @@ import Search from "../Search";
 
 function Hero(){
     return(
-        <Section className="h-[100%]" style={{backgroundColor: "linear-gradient(180deg, #FFFFFF 0%, rgba(232, 232, 232, 0) 100%)"}}>
+        <Section className="h-[80%]" style={{backgroundColor: "linear-gradient(180deg, #FFFFFF 0%, rgba(232, 232, 232, 0) 100%)"}}>
             <Div className="py-48 w-11/12 mx-auto">
                 <div className="flex flex-col justify-center items-center mb-16">
                     <Title className="text-center max-w-[886px] mb-8">Discover amazing data about your country</Title>
