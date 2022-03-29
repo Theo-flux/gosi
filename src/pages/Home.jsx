@@ -1,11 +1,11 @@
 import React from "react";
-import { HomeContainer } from "../container/index.jsx";
+import {HomeContainer, Layout} from "../container";
 
 function Home() {
   return (
-    <div>
-      <HomeContainer />
-    </div>
+    <Layout>
+      <HomeContainer/>
+    </Layout>
   );
 }
 

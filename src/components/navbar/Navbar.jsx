@@ -23,7 +23,7 @@ function Navbar() {
   }, [toggle]);
 
   return (
-    <Section className="bg-primary-white relative">
+    <Section className="bg-white fixed w-full">
       <Div className="py-4 relative md:static flex justify-between items-center w-11/12 ">
         <Hyperlink
           to="/"
@@ -32,7 +32,7 @@ function Navbar() {
           <figure>
             <img src={zoboLogo} className="w-100%" alt="zobo-logo" />
           </figure>
-
+        
           <p className="font-gilmer font-bold text-primary-600 text-xl">
             Zobomap
           </p>
