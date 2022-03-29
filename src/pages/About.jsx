@@ -1,10 +1,11 @@
 import React from "react";
+import { Layout } from "../container";
 
 function About() {
   return (
-    <div>
+    <Layout>
       <h1>This is the about page</h1>
-    </div>
+    </Layout>
   );
 }
 

@@ -1,10 +1,10 @@
 import React from 'react';
-import {Navbar} from '../components';
+import { Hero } from '../components/home';
 
 function HomeContainer(){
     return(
         <div>
-            <Navbar/>
+            <Hero/>
         </div>
     );
 }
