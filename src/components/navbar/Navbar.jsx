@@ -3,12 +3,14 @@ import { useMediaQuery } from "react-responsive";
 import { Section, Div, Hyperlink, Button } from "../../shared";
 import zoboLogo from "../../images/zobomap-icon.svg";
 import menu from "../../images/menu.svg";
+import "./floatingNav.css";
 
 function Navbar() {
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const isDesktop = useMediaQuery({ minWidth: 768 });
   const [toggle, setToggle] = useState(false);
   const drawer = useRef();
+  const navRef = useRef();
 
   useEffect(() => {
     if (drawer.current) {
@@ -22,8 +24,21 @@ function Navbar() {
     }
   }, [toggle]);
 
+  useEffect(() =>{
+    window.addEventListener("scroll", () => {
+      // console.log(window.scrollY >)
+      if (window.scrollY > 10) {
+          navRef.current.classList.add('floatingNav');
+      } else {
+          navRef.current.classList.remove('floatingNav');
+      }
+    });
+  })
+  
+
+
   return (
-    <Section className="bg-white fixed w-full">
+    <section ref={navRef} className="bg-white fixed w-full">
       <Div className="py-4 relative md:static flex justify-between items-center w-11/12 ">
         <Hyperlink
           to="/"
@@ -61,6 +76,7 @@ function Navbar() {
         <div
           ref={drawer}
           className="absolute z-40 top-0 left-[-100%] w-[65%] h-[100vh]  py-4 flex flex-col bg-neutral-50"
+          style={{boxShadow: '0px 1px 2px #999'}}
         >
           <Hyperlink to="/about" className="w-full py-4 px-8 mb-4 mt-24">
             About us
@@ -70,7 +86,7 @@ function Navbar() {
           </Hyperlink>
         </div>
       )}
-    </Section>
+    </section>
   );
 }
 

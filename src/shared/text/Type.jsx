@@ -10,7 +10,7 @@ const Title = ({children, className}) => {
 
 const SubTitle = ({children, className}) => {
     return(
-        <p className={`font-gilmer ${className} md:text-lg`}>    
+        <p className={`font-gilmer ${className} text-sm md:text-lg`}>    
             {children}
         </p>
     );

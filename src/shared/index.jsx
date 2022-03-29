@@ -1,6 +1,6 @@
-export { Section } from "./containers/Section.jsx";
-export { Div } from "./containers/Div.jsx";
-export { Hyperlink } from "./text/Hyperlink.jsx";
-export { Title, SubTitle } from "./text/Type.jsx"
-export { Button } from "./containers/Button.jsx"
+export { Section } from "./containers/Section";
+export { Div } from "./containers/Div";
+export { Hyperlink } from "./text/Hyperlink";
+export { Title, SubTitle } from "./text/Type"
+export { Button } from "./containers/Button"
 
