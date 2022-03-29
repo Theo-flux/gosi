@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./assets/css/zobomap.css";
-import Router from "./Router";
+import Router from "./router.jsx";
 import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
