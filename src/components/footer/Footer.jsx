@@ -46,7 +46,7 @@ function Footer(){
                             </div>
                         </div>
 
-                        <div>
+                        <div className="w-[100%]">
                             <Subscribe/>
                         </div>
                         
