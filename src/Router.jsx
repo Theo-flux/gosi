@@ -1,9 +1,8 @@
 import { Routes, Route } from "react-router-dom";
-import About from "./pages/about.jsx";
-import Home from "./pages/home.jsx";
-import Publication from "./pages/publication.jsx";
-import Application from "./pages/application.jsx"
-
+import About from "./pages/About";
+import Home from "./pages/Home";
+import Publication from "./pages/Publication";
+import Application from "./pages/Application";
 
 function Router() {
   return (
