@@ -1,6 +1,6 @@
 import React from "react";
 import { Section, Div, Title, SubTitle } from "../../shared";
-import Search from "../Search.jsx";
+import Search from "../Search";
 
 function Hero(){
     return(
