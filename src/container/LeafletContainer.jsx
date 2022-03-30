@@ -1,19 +1,15 @@
 import React, { useEffect, useState } from "react";
-import {
-  MapContainer,
-  TileLayer,
-  ZoomControl,
-  Tooltip,
-} from "react-leaflet";
+import { MapContainer, TileLayer, ZoomControl, Tooltip } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import TopoJSON from "../components/TopoJSON";
 import nigeriaStatesTopoJSON from "../data/nigeria-states-topo.json";
 import nigeriaLgaTopoJSON from "../data/nigeria-lga-topo.json";
+import { locationLevels } from "../utils/constants";
 
 const zoom = 6;
 const location = [9, 8];
 //TODO Routing
-export default function LeafletContainer() {
+export default function LeafletContainer({ locationLevel }) {
   // https://github.com/PaulLeCam/react-leaflet/issues/841
   // useRef doesn't work so we have to save the map instance.
   // const [mapRefObject, setMapRefObject] = useState();
@@ -35,7 +31,15 @@ export default function LeafletContainer() {
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
         <ZoomControl position="bottomright" />
-        <TopoJSON className="polgon-style" data={nigeriaStatesTopoJSON} />
+        <TopoJSON
+          className="polgon-style"
+          locationLevel={locationLevel}
+          data={
+            locationLevel === locationLevels[0]
+              ? nigeriaStatesTopoJSON
+              : nigeriaLgaTopoJSON
+          }
+        />
         <Tooltip>I appear on mouse over</Tooltip>
       </MapContainer>
     </>
