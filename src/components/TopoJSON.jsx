@@ -128,11 +128,11 @@ export default function TopoJSON(props) {
 
   return (
     <GeoJSON
-      key={locationLevel === locationLevels[0] ? "country" : "state"}
+      // key={locationLevel === locationLevels[0] ? "country" : "state"}
       ref={layerRef}
       {...otherProps}
       onEachFeature={
-        locationLevel === locationLevels[0]
+        locationLevel.name === locationLevels.one.name
           ? onEachFeatureCountry
           : onEachFeature
       }

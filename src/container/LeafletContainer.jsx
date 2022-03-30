@@ -6,7 +6,7 @@ import nigeriaStatesTopoJSON from "../data/nigeria-states-topo.json";
 import nigeriaLgaTopoJSON from "../data/nigeria-lga-topo.json";
 import { locationLevels } from "../utils/constants";
 
-const zoom = 6;
+const zoom = 7;
 const location = [9, 8];
 //TODO Routing
 export default function LeafletContainer({ locationLevel }) {
@@ -16,13 +16,14 @@ export default function LeafletContainer({ locationLevel }) {
 
   return (
     <>
-      <h1 className="text-xl text-warning-500 bg-red-500">
+      {/* <h1 className="text-xl text-warning-500 bg-red-500">
         The quick brown fox Jumps over the lazy dog
-      </h1>
+      </h1> */}
       <MapContainer
+        key={locationLevel.zoom}
         className="markercluster-map"
         center={location}
-        zoom={zoom}
+        zoom={locationLevel.zoom}
         maxZoom={18}
         zoomControl={false}
       >
@@ -34,12 +35,15 @@ export default function LeafletContainer({ locationLevel }) {
         <TopoJSON
           className="polgon-style"
           locationLevel={locationLevel}
-          data={
-            locationLevel === locationLevels[0]
-              ? nigeriaStatesTopoJSON
-              : nigeriaLgaTopoJSON
-          }
+          data={nigeriaStatesTopoJSON}
         />
+        {locationLevel.name !== locationLevels.one.name && (
+          <TopoJSON
+            className="polgon-style2"
+            locationLevel={locationLevel}
+            data={nigeriaLgaTopoJSON}
+          />
+        )}
         <Tooltip>I appear on mouse over</Tooltip>
       </MapContainer>
     </>

@@ -6,7 +6,7 @@ import LeafletContainer from "../container/LeafletContainer";
 import { increment, decrement } from "../redux/slices/locationSlice";
 
 function Application() {
-  const [locationLevel, setLocationLevel] = useState(locationLevels[0]); // available levels are country, state, lga
+  const [locationLevel, setLocationLevel] = useState(locationLevels.one); // available levels are country, state, lga
   const { slug, slug2 } = useParams();
   console.log(slug, slug2);
   // handle case nigeria, state and lga
@@ -16,9 +16,9 @@ function Application() {
   useEffect(() => {
     let isSubscribed = true;
     if (slug) {
-      if (slug === "nigeria") setLocationLevel(locationLevels[0]);
-      else setLocationLevel(locationLevels[1]);
-      if (slug2) setLocationLevel(locationLevels[2]);
+      if (slug === "nigeria") setLocationLevel(locationLevels.one);
+      else setLocationLevel(locationLevels.two);
+      if (slug2) setLocationLevel(locationLevels.three);
       return () => {
         isSubscribed = false;
       };
@@ -27,7 +27,7 @@ function Application() {
 
   return (
     <div className="App">
-      <button
+      {/* <button
         className="m-3 bg-neutral-200 p-2"
         aria-label="Increment value"
         onClick={() => dispatch(increment())}
@@ -41,7 +41,7 @@ function Application() {
         onClick={() => dispatch(decrement())}
       >
         Decrement
-      </button>
+      </button> */}
       <LeafletContainer locationLevel={locationLevel} />
     </div>
   );
