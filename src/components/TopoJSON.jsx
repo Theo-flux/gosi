@@ -34,12 +34,26 @@ export default function TopoJSON(props) {
     //Todo: Add FCT exception
 
     if (locationData.state) {
-      navigate(`/profiles/${locationData.state}${stateSuffix}`.toLowerCase());
-    }
-    if (locationData.NAME_0) {
-      navigate(
-        `/profiles/${locationData.NAME_1}${stateSuffix}/${locationData.NAME_2}${lgaSuffix}`.toLowerCase()
-      );
+      if (locationData.state.toLowerCase() === "Fct, Abuja".toLowerCase())
+        navigate(`/profiles/${"Fct-Abuja"}`.toLowerCase());
+      else
+        navigate(`/profiles/${locationData.state}${stateSuffix}`.toLowerCase());
+    } else if (locationData.NAME_0) {
+      console.log(locationData.NAME_1);
+
+      if (
+        locationData.NAME_1.toLowerCase() ===
+        "Federal Capital Territory".toLowerCase()
+      )
+        navigate(
+          `/profiles/${"Fct-Abuja"}/${
+            locationData.NAME_2
+          }${lgaSuffix}`.toLowerCase()
+        );
+      else
+        navigate(
+          `/profiles/${locationData.NAME_1}${stateSuffix}/${locationData.NAME_2}${lgaSuffix}`.toLowerCase()
+        );
     }
     const dataState = {
       objectid: "1255",
@@ -75,11 +89,11 @@ export default function TopoJSON(props) {
   }
 
   function onEachFeatureCountry(feature, layer) {
-    console.log("calledCountry");
-
     function handleHover(e, layer) {
       const { state } = e?.target?.feature?.properties;
-      layer.bindPopup(`${state} state`).openPopup(); // here add openPopup()
+      if (state.toLowerCase() === "Fct, Abuja".toLowerCase())
+        layer.bindPopup("Fct-Abuja").openPopup()
+      else layer.bindPopup(`${state} state`).openPopup(); // here add openPopup()
     }
 
     //bind click
@@ -90,12 +104,15 @@ export default function TopoJSON(props) {
   }
 
   function onEachFeature(feature, layer) {
-    console.log("calledSate or lga");
-
     function handleHover(e, layer) {
       // for LGA data
       const { NAME_0, NAME_1, NAME_2 } = e?.target?.feature?.properties;
-      layer.bindPopup(`${NAME_2}, ${NAME_1} state, ${NAME_0}`).openPopup(); // here add openPopup()
+      if (
+        NAME_1.toLowerCase() ===
+        "Federal Capital Territory".toLowerCase()
+      )
+      layer.bindPopup(`${NAME_2}, Fct-Abuja, ${NAME_0}`).openPopup();
+      else layer.bindPopup(`${NAME_2}, ${NAME_1} state, ${NAME_0}`).openPopup(); // here add openPopup()
     }
     //bind click
     layer.on({
