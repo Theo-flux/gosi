@@ -8,7 +8,6 @@ import { increment, decrement } from "../redux/slices/locationSlice";
 function Application() {
   const [locationLevel, setLocationLevel] = useState(locationLevels.one); // available levels are country, state, lga
   const { slug, slug2 } = useParams();
-  console.log(slug, slug2);
   // handle case nigeria, state and lga
   const count = useSelector((state) => state.location.value);
   const dispatch = useDispatch();
