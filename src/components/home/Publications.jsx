@@ -14,7 +14,7 @@ function Publications(){
 
                     <ButtonWithIcon>
                         Publication Hub
-                        <i className="text-sm ri-arrow-right-circle-line"></i>
+                        <i className="ml-2 text-lg ri-arrow-right-circle-line"></i>
                     </ButtonWithIcon>
                 </div>
             </Div>
