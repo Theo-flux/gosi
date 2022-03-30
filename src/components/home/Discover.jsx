@@ -5,9 +5,8 @@ function Discover(){
         <Section className="">
             <Div className="">
                 <div className="font-gilmer flex flex-col justify-center items-center">
-                    <SmallText className="mb-8">GETTING STARTED</SmallText>
-                    <Title className="text-center mb-4 w-full md:max-w-[650px]">Discover the story behind the data.</Title>
-                    <SubTitle className="mb-8 text-center w-[full] md:max-w-[500px]">What looked like a small patch of purple grass, above five feet square, was moving across the sand </SubTitle>
+                    <SmallText className="">TRY ZOBOMAP</SmallText>
+                    <Title className="text-center my-8 w-full md:max-w-[650px]">Discover the story behind the data.</Title>
                     <Button>Try Zobomap</Button>
                 </div>
             </Div>
