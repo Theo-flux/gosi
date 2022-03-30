@@ -3,7 +3,7 @@ import { Section, Div, Title, Button, SubTitle, SmallText } from "../../shared";
 function Discover(){
     return(
         <Section className="">
-            <Div className="py-16">
+            <Div className="">
                 <div className="font-gilmer flex flex-col justify-center items-center">
                     <SmallText className="mb-8">GETTING STARTED</SmallText>
                     <Title className="text-center mb-4 w-full md:max-w-[650px]">Discover the story behind the data.</Title>
