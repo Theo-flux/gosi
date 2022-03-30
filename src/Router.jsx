@@ -11,7 +11,8 @@ function Router() {
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Publication />} />
-        <Route path="app" element={<Application />} />
+        <Route path="profiles/:slug" element={<Application />} />
+        <Route path="profiles/:slug/:slug2" element={<Application />} />
       </Routes>
     </div>
   );

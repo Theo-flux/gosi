@@ -26,7 +26,6 @@ function Navbar() {
 
   useEffect(() =>{
     window.addEventListener("scroll", () => {
-      // console.log(window.scrollY >)
       if (window.scrollY > 10) {
           navRef.current.classList.add('floatingNav');
       } else {
