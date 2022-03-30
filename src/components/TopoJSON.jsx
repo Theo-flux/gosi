@@ -76,37 +76,6 @@ export default function TopoJSON(props) {
           }).toString(),
         });
     }
-    const dataState = {
-      objectid: "1255",
-      statecode: "NI",
-      state: "Niger",
-      capcity: "Minna",
-      source: "eHA-Tosin",
-      timestamp: "1613551800",
-      globalid: "{EEC25567-4A6E-4752-81E3-04821ECCC3FD}",
-      shape_area: "5.80315166504688",
-      shape_len: "18.6370512945355",
-      geozone: "NCZ",
-      cartodb_id: 36,
-      created_at: "2015-04-03T18:35:50",
-      updated_at: "2015-04-03T18:35:50",
-    };
-    const dataLga = {
-      ID_0: 163,
-      ISO: "NGA",
-      NAME_0: "Nigeria",
-      ID_1: 27,
-      NAME_1: "Niger",
-      ID_2: 543,
-      NAME_2: "Borgu",
-      CCN_2: 0,
-      TYPE_2: "Local Authority",
-      ENGTYPE_2: "Local Authority",
-      VARNAME_2: null,
-      HASC_2: null,
-      CCA_2: null,
-      NL_NAME_2: null,
-    };
   }
 
   function onEachFeatureCountry(feature, layer) {
