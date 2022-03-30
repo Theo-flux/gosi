@@ -16,7 +16,16 @@ const SubTitle = ({children, className}) => {
     );
 }
 
+const SmallText = ({ children, className }) => {
+    return(
+        <small className={`font-gilmer text-neutral-500 font-medium text-sm ${className}`}>
+            { children }
+        </small>
+    );
+}
+
 export { 
     Title,
-    SubTitle 
+    SubTitle,
+    SmallText
 }
