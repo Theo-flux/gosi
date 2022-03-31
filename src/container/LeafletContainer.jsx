@@ -5,11 +5,13 @@ import {
   ZoomControl,
   Tooltip,
   useMapEvents,
+  GeoJSON,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import TopoJSON from "../components/TopoJSON";
 import nigeriaStatesTopoJSON from "../data/nigeria-states-topo.json";
 import nigeriaLgaTopoJSON from "../data/nigeria-lga-topo.json";
+import abujaLgaTopoJSON from "../data/lgaByState/Federal Capital Territory.json";
 import { locationLevels } from "../utils/constants";
 import { useSearchParams } from "react-router-dom";
 
@@ -60,6 +62,12 @@ export default function LeafletContainer({ locationLevel }) {
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
         <ZoomControl position="bottomright" />
+        <GeoJSON
+          data={abujaLgaTopoJSON}
+          locationLevel={locationLevel}
+          className="polgon-style"
+        />
+
         <TopoJSON
           className="polgon-style"
           locationLevel={locationLevel}
