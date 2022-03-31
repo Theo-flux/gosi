@@ -44,15 +44,15 @@ export default function TopoJSON(props) {
         });
       else
         navigate({
-          pathname:
-            `/profiles/${locationData.state}${stateSuffix}`.toLowerCase(),
+          pathname: `/profiles/${encodeURIComponent(
+            locationData.state
+          )}${stateSuffix}`.toLowerCase(),
           search: createSearchParams({
             lng,
             lat,
           }).toString(),
         });
     } else if (locationData.NAME_0) {
-
       if (
         locationData.NAME_1.toLowerCase() ===
         "Federal Capital Territory".toLowerCase()
@@ -68,8 +68,11 @@ export default function TopoJSON(props) {
         });
       else
         navigate({
-          pathname:
-            `/profiles/${locationData.NAME_1}${stateSuffix}/${locationData.NAME_2}${lgaSuffix}`.toLowerCase(),
+          pathname: `/profiles/${encodeURIComponent(
+            locationData.NAME_1
+          )}${stateSuffix}/${encodeURIComponent(
+            locationData.NAME_2
+          )}${lgaSuffix}`.toLowerCase(),
           search: createSearchParams({
             lng,
             lat,
