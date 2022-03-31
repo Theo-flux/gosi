@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
-import { Section, Div, Hyperlink, Button } from "../../shared";
+import { Nav, Hyperlink, Button } from "../../shared";
 import zoboLogo from "../../images/zobomap-icon.svg";
 import menu from "../../images/menu.svg";
 import "./floatingNav.css";
@@ -38,7 +38,7 @@ function Navbar() {
 
   return (
     <section ref={navRef} className="bg-white fixed w-full">
-      <Div className="py-4 relative md:static flex justify-between items-center w-11/12 ">
+      <Nav className="relative md:static flex justify-between items-center w-11/12 ">
         <Hyperlink
           to="/"
           className="z-50 flex justify-between items-center cursor-pointer w-[137px]"
@@ -69,7 +69,7 @@ function Navbar() {
             </figure>
           )}
         </div>
-      </Div>
+      </Nav>
 
       {isMobile && (
         <div
