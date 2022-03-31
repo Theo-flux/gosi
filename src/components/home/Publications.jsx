@@ -29,7 +29,7 @@ function Publications(){
             <Div className="">
                 <div className="grid grid-cols-1 grid-rows-[minmax(0,200px)_minmax(0,_1fr)] gap-4 md:grid-cols-2 grid-rows-2 md:gap-8">
                
-                    <div className="row-start-1 row-end-2 col-start-1 justify-self-start md:col-start-1 md:max-w-[489px]">
+                    <div className="row-start-1 row-end-2 col-start-1 justify-self-start self-center md:col-start-1 md:max-w-[489px]">
                         <SmallText className="">OUR PUBLICATIONS</SmallText>
                         <Title className="max-w-[462px] my-4">Zobomaps out in the fields</Title>
                         <SubTitle className="">Read up for updates on new features and user manuals</SubTitle>
