@@ -10,7 +10,7 @@ function Search() {
                     placeholder="Search for a location e.g lagos"
                 />
             </div>
-            <button className="bg-primary-600 text-white rounded-md py-2 px-4 md:py-4 md:px-8">
+            <button className="outline-0 bg-primary-600 text-white rounded-md py-2 px-4 md:py-4 md:px-8">
                 Search
             </button>
         </div>
