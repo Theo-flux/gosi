@@ -57,7 +57,7 @@ function Story(){
             <Div>
             <div className="grid grid-cols-1 grid-rows-[minmax(0,200px)_minmax(0,_1fr)] gap-4 md:grid-cols-2 grid-rows-[minmax(0,200px)_minmax(0,_1fr)] md:gap-8">
                
-               <div className="row-start-1 row-end-2 col-start-1 justify-self-start mb-16 self-center md:mb-0 md:col-start-1 md:max-w-[489px]">
+               <div className="row-start-1 row-end-2 col-start-1 justify-self-start mb-16 self-center md:col-start-1 md:max-w-[489px]">
                    <SmallText className="">OUR EXTENSIVE FEATURES</SmallText>
                    <Title className="max-w-[462px] my-4">Discover the story behind the data.</Title>
                    <SubTitle className="">What looked like a small patch of purple grass, above five feet square, was moving across the sand.</SubTitle>
