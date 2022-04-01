@@ -11,40 +11,20 @@ import "leaflet/dist/leaflet.css";
 import TopoJSON from "../components/TopoJSON";
 import nigeriaStatesTopoJSON from "../data/nigeria-states-topo.json";
 import nigeriaLgaTopoJSON from "../data/nigeria-lga-topo.json";
+
+// we will change to this next week -----------------------------------------------------
+// import nigeriaLgaGeoJSON from "../data/nigeria_lga_boundaries.json";
+// import nigeriaStatesGeoJSON from "../data/nigeria_state_boundaries.json";
+// import nigeriaStatesTopoJSON from "../data/nigeria_state_boundaries.topo.json";
+// import nigeriaLgaTopoJSON from "../data/nigeria_lga_boundaries.topo.json";
+//---------------------------------------------------------------------------------------
 import { locationLevels } from "../utils/constants";
 import { useParams, useSearchParams } from "react-router-dom";
-
-const getJSONFile = async (state) => {
-  const FilePath = `../data/lgaByStateTopoJSON/${state}.topo.json`;
-  const File = await import(`../data/lgaByStateTopoJSON/${state}.topo.json`);
-  return File;
-};
-
-function capitalizeFirstLetter(string) {
-  return string[0].toUpperCase() + string.slice(1);
-}
+import { capitalizeFirstLetter, getJSONFile } from "../utils/helpers";
 
 const location = [9, 8];
 const FUTA = [7.307, 5.1398];
 
-function LocationMarker({ zoom }) {
-  const [position, setPosition] = useState(null);
-  const map = useMapEvents({
-    click() {
-      map.locate();
-    },
-    locationfound(e) {
-      setPosition(e.latlng);
-      map.panTo(e.latlng, zoom);
-    },
-  });
-
-  return position === null ? null : (
-    <Marker position={position}>
-      <Popup>You are here</Popup>
-    </Marker>
-  );
-}
 export default function LeafletContainer({ locationLevel }) {
   // https://github.com/PaulLeCam/react-leaflet/issues/841
   // useRef doesn't work so we have to save the map instance.
@@ -96,7 +76,6 @@ export default function LeafletContainer({ locationLevel }) {
           />
         )}
         <Tooltip>I appear on mouse over</Tooltip>
-        {/* <LocationMarker zoom={locationLevel.zoom} /> */}
       </MapContainer>
     </>
   );
