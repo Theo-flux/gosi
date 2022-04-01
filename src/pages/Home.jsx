@@ -1,11 +1,9 @@
 import React from "react";
-import {HomeContainer, Layout} from "../container";
+import {HomeContainer} from "../container";
 
 function Home() {
   return (
-    <Layout>
-      <HomeContainer/>
-    </Layout>
+    <HomeContainer/>
   );
 }
 

@@ -37,7 +37,7 @@ function Navbar() {
 
 
   return (
-    <section ref={navRef} className="bg-white fixed w-full">
+    <section ref={navRef} className="z-40 bg-white fixed w-full">
       <Nav className="relative md:static flex justify-between items-center w-11/12 ">
         <Hyperlink
           to="/"
@@ -54,8 +54,8 @@ function Navbar() {
 
         {isDesktop && (
           <div className="flex w-[238px] justify-around items-center">
-            <Hyperlink to="/about">About us</Hyperlink>
-            <Hyperlink to="/contact">Publication Hub</Hyperlink>
+            <Hyperlink to="/about" activeClassName="active">About us</Hyperlink>
+            <Hyperlink to="/contact" activeClassName="active">Publication Hub</Hyperlink>
           </div>
         )}
         <div className="flex justify-between items-center w-[175px] md:w-fit">

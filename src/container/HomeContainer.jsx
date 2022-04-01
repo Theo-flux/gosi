@@ -1,14 +1,16 @@
 import React from "react";
-import { Discover, Easy, Hero, Publications } from "../components/home";
+import { Discover, Easy, Hero, Publications, Story } from "../components/home";
+import {Layout} from "../shared";
 
 function HomeContainer(){
     return(
-        <div>
+        <Layout>
             <Hero/>
+            <Story/>
             <Easy/>
             <Publications/>
             <Discover/>
-        </div>
+        </Layout>
     );
 }
 
