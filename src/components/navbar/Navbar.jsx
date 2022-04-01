@@ -37,7 +37,7 @@ function Navbar() {
 
 
   return (
-    <section ref={navRef} className="bg-white fixed w-full">
+    <section ref={navRef} className="z-40 bg-white fixed w-full">
       <Nav className="relative md:static flex justify-between items-center w-11/12 ">
         <Hyperlink
           to="/"
