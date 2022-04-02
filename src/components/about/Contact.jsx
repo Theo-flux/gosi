@@ -7,7 +7,7 @@ function Contact() {
       <Div>
         <div className="md:flex justify-between gap-x-8 items-start">
 
-          <form className="flex flex-col w-full md:max-w-[400px] lg:max-w-[500px]" name="simple-contact-form" accept-charset="utf-8" method="POST" action="#">
+          <form className="flex flex-col w-full md:max-w-[400px] lg:max-w-[500px]" name="simple-contact-form" accept-charset="utf-8" method="POST">
             <fieldset className="flex flex-col font-gilmer">
               <label for="name" className="mb-2 text-xs text-black font-bold">Name</label>
            <input className="mb-8 bg-neutral-50 p-4 rounded focus:outline-2 outline-neutral-400" id="name" type="text" placeholder="name"/>
