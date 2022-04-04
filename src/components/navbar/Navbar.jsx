@@ -54,8 +54,8 @@ function Navbar() {
 
         {isDesktop && (
           <div className="flex w-[238px] justify-around items-center">
-            <Hyperlink to="/about" activeClassName="active">About us</Hyperlink>
-            <Hyperlink to="/contact" activeClassName="active">Publication Hub</Hyperlink>
+            <Hyperlink to="/about">About us</Hyperlink>
+            <Hyperlink to="/contact">Publication Hub</Hyperlink>
           </div>
         )}
         <div className="flex justify-between items-center w-[175px] md:w-fit">

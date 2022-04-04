@@ -5,6 +5,7 @@ function AboutContainer() {
   return (
     <Layout>
         <Hero/>
+        <Contact/>
     </Layout>
   );
 }
