@@ -69,7 +69,7 @@ function ExploreNav({className}) {
                         </p>
                     </Hyperlink>
                 </nav>
-                <aside className="fixed z-[402] top-0 left-0 bg-neutral-50 w-[260px] h-[100vh]">
+                <aside className="hidden md:fixed z-[402] top-0 left-0 bg-neutral-50 w-[260px] h-[100vh]">
                     
                     <div className="p-4 border-b border-b-[#EAEAEA]">
                         <Hyperlink
