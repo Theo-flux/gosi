@@ -23,49 +23,49 @@ const data = [
     {
         id: "1",
         parent: "Election",
-        icon: [electionActive, electionInactive],
+        icon: [electionInactive, electionActive],
         children: ["2015 General Election", "2019 General Election"]
     },
 
     {
         id: "2",
         parent: "Demography",
-        icon: [demographyActive, demographyInctive],
+        icon: [demographyInctive, demographyActive],
         children: ["Age", "Population", "Language", "Migration", "Citizenship"]
     },
 
     {
         id: "3",
         parent: "Economics",
-        icon: [economicsActive, economicsInactive],
+        icon: [economicsInactive, economicsActive],
         children: ["Employment", "Annual Income", "Internet Access"]
     },
 
     {
         id: "4",
         parent: "Service Delivery",
-        icon: [serviceActive, serviceInactive],
+        icon: [serviceInactive, serviceActive],
         children: ["Water", "Electricity", "Toilet Facilities", "Refuse Disposal"]
     },
 
     {
         id: "5",
         parent: "Household",
-        icon: [homeActive, homeInactive],
+        icon: [homeInactive, homeActive],
         children: ["Houseolds", "Houseold Ownership", "Houseold Income", "House Goods"]
     },
 
     {
         id: "6",
         parent: "Education",
-        icon: [educationActive, educationInactive],
+        icon: [educationInactive, educationActive],
         children: ["Education Level"]
     },
 
     {
         id: "7",
         parent: "Children",
-        icon: [childrenActive, childrenInactive],
+        icon: [childrenInactive, childrenActive],
         children: ["Child Population", "Parents", "School Attendance", "Employment of 15-17 years"]
     }
 ]
