@@ -10,6 +10,7 @@ import {
   usePostStateDataMutation,
 } from "../api/zobomapApi";
 import { capitalizeFirstLetter } from "../utils/helpers";
+import ApplicationContainer from "../container/ApplicationContainer";
 
 function Application() {
   const [getCountryData, CountryResult] = useLazyGetNigeriaDataQuery(); // TODO:Theo this is the data here got Nigeria
@@ -20,7 +21,7 @@ function Application() {
   }); // TODO:Theo this is the data here got Nigeria
 
   console.log(CountryResult);
-  const [NigeriaData, setNigeriaData] = useState({});
+  // const [NigeriaData, setNigeriaData] = useState({});
 
   const [locationLevel, setLocationLevel] = useState(locationLevels.one); // available levels are country, state, lga
   const { slug, slug2 } = useParams();
@@ -52,24 +53,12 @@ function Application() {
   }, [slug, slug2]);
 
   return (
-    <div className="App">
-      {/* <button
-        className="m-3 bg-neutral-200 p-2"
-        aria-label="Increment value"
-        onClick={() => dispatch(increment())}
-      >
-        Increment
-      </button>
-      <span className="tex-xl">{count}</span>
-      <button
-        className="m-3 bg-neutral-200 p-2"
-        aria-label="Decrement value"
-        onClick={() => dispatch(decrement())}
-      >
-        Decrement
-      </button> */}
-      <LeafletContainer locationLevel={locationLevel} />
-    </div>
+    <ApplicationContainer 
+      locationLevel={locationLevel}
+      countryResult={CountryResult}
+      stateResult={stateResult}
+      lgaResult={lgaResult}
+    />
   );
 }
 
