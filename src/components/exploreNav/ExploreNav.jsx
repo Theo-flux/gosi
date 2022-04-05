@@ -31,7 +31,7 @@ const DataStyle = ({item, index, openChild, handleChild}) => {
                             return(
                                 
                                 <div className="border-l border-b w-[100px] border-[#989CA5]">
-                                    <p className="bg-neutral-50 relative mx-4 top-[25px] w-[180px] left-0 mb-2"><small className="text-neutral-400 text-xs rounded-md py-2 px-4 flex w-[200px] hover:bg-neutral-100 hover:text-primary-600 active:bg-neutral-100 active:text-primary-600 focus:bg-neutral-100 focus:text-primary-600">{child}</small></p>
+                                    <p className="bg-neutral-50 relative mx-4 top-[25px] w-[180px] left-0 mb-2"><small className="cursor-pointer text-neutral-400 text-xs rounded-md py-2 px-4 flex w-[190px] hover:bg-neutral-100 hover:text-primary-600 active:bg-neutral-100 active:text-primary-600 focus:bg-neutral-100 focus:text-primary-600">{child}</small></p>
                                 </div>
                                 
                             )
