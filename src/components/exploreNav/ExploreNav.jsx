@@ -10,8 +10,8 @@ const DataStyle = ({item, index, openChild, handleChild}) => {
     const {parent, icon, children} = item;
 
     return(
-        <div className={`cursor-pointer mb-2 font-gilmer group`}>
-            <div onClick={() => handleChild(index)} className={`${openChild === index && "bg-primary-100 border-r border-primary-600"} py-2 px-8 flex justify-between items-center hover:bg-primary-100 hover:border-r hover:border-primary-600 active:bg-primary-100 active:border-r active:border-primary-600 focus:bg-primary-100 focus:border-r focus:border-primary-600`}>
+        <div className={`mb-2 font-gilmer group`}>
+            <div onClick={() => handleChild(index)} className={`${openChild === index && "bg-primary-100 border-r border-primary-600"} cursor-pointer py-2 px-8 flex justify-between items-center hover:bg-primary-100 hover:border-r hover:border-primary-600 active:bg-primary-100 active:border-r active:border-primary-600 focus:bg-primary-100 focus:border-r focus:border-primary-600`}>
                 <div className={`flex justify-between items-center`}>
                     <figure className="mr-2">
                         <img src={openChild === index ? icon[1]:icon[0]} alt={`${parent}-icon`}/>
