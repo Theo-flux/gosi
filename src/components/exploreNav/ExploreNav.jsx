@@ -9,17 +9,35 @@ function ExploreNav({className}) {
             <nav className="">
                 <Hyperlink
                     to="/"
-                    className="z-50 flex justify-between items-center cursor-pointer w-[137px]"
+                    className="flex justify-between items-center cursor-pointer w-[137px]"
                 >
                     <figure>
                         <img src={zoboLogo} className="w-100%" alt="zobo-logo" />
                     </figure>
                 
-                    <p className="font-gilmer font-bold text-primary-600 text-xl">
+                    <p className="font-gilmer  font-bold text-primary-600 text-xl">
                         Zobomap
                     </p>
                 </Hyperlink>
             </nav>
+            <aside className="absolute z-[402] top-0 left-0 bg-neutral-50 w-[200px] h-[100vh]">
+                <div className="">
+                    <div className="p-4 border-b border-b-[#EAEAEA]">
+                        <Hyperlink
+                            to="/"
+                            className="flex justify-between items-center cursor-pointer w-[137px]"
+                        >
+                            <figure>
+                                <img src={zoboLogo} className="w-100%" alt="zobo-logo" />
+                            </figure>
+                        
+                            <p className="font-gilmer  font-bold text-primary-600 text-xl">
+                                Zobomap
+                            </p>
+                        </Hyperlink>
+                    </div>
+                </div>
+            </aside>
         </div>
     </section>
   );
