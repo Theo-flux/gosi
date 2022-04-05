@@ -70,4 +70,41 @@ const data = [
     }
 ]
 
-export {data};
+const help = [
+    {
+        id: "1",
+        icon: "ri-question-fill",
+        name: "Home"
+    },
+
+    {
+        id: "2",
+        icon: "ri-question-fill",
+        name: "Tutorial"
+    }
+]
+
+const socials = [
+    {
+        id: "1",
+        icon: "ri-twitter-fill",
+    },
+
+    {
+        id: "2",
+        icon: "ri-facebook-fill",
+    },
+
+    {
+        id: "3",
+        icon: "ri-instagram-fill",
+    },
+
+    {
+        id: "4",
+        icon: "ri-youtube-fill",
+    }
+
+]
+
+export {data, help, socials};
