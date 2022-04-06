@@ -55,7 +55,7 @@ function ExploreNav({className}) {
     return (
         <section className={className}>
             <div className="py-4 mx-auto w-11/12">
-                <nav className="">
+                <nav className="flex justify-between items-center">
                     <Hyperlink
                         to="/"
                         className="flex justify-between items-center cursor-pointer w-[137px]"
@@ -68,6 +68,25 @@ function ExploreNav({className}) {
                             Zobomap
                         </p>
                     </Hyperlink>
+
+                    <div className="hidden md:flex justify-between items-center w-[80%]">
+                        <span className="hidden lg:block">
+                            {/* Breadcrumbs to be completed later */}
+                            <small className="text-primary-900 font-medium text-sm font-gilmer">Nigeria</small> 
+                        </span>
+                        <div className="lg:hidden"></div>
+
+                        <div className="px-2 rounded-md overflow-hidden bg-neutral-100 flex justify-between items-center w-[350px]">
+                        
+                            <i className="text-xl font-medium mr-2 text-neutral-400 ri-search-2-line"></i>
+                            <input 
+                                className="py-2 text-sm outline-0 w-full bg-neutral-100"
+                                placeholder="Search for a location e.g Lagos"
+                                
+                            />
+                            
+                        </div>
+                    </div>
                 </nav>
                 <aside className="hidden md:fixed z-[402] top-0 left-0 bg-neutral-50 w-[260px] h-[100vh]">
                     

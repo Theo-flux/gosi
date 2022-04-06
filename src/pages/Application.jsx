@@ -28,7 +28,7 @@ function Application() {
   // handle case nigeria, state and lga
   // const count = useSelector((state) => state.location.value);
   // const dispatch = useDispatch();
-  console.log(slug, slug2);
+  // console.log(slug, slug2);
 
   useEffect(() => {
     let isSubscribed = true;
