@@ -1,10 +1,13 @@
+import { useContext } from "react";
 import LeafletContainer from "./LeafletContainer";
 import ExploreNav from "../components/exploreNav/ExploreNav";
 import CountryContainer from "./CountryContainer";
 import ExtrasOnMobile from "./ExtrasOnMobile";
 
 
+
 function ApplicationContainer({locationLevel, countryResult, stateResult, lgaResult}) {
+
   let countryData = {total_population: "0", size:"0"};
   console.log(countryResult)
 

@@ -1,10 +1,11 @@
-import {useState} from "react";
+import {useState, useContext} from "react";
 import { Hyperlink } from "../../shared";
 import zoboLogo from "../../images/zobomap-icon.svg";
 import menu from "../../images/menu.svg";
 import downArrow from "../../images/explorenav/arrow-down.png";
 import upArrow from "../../images/explorenav/arrow-up.png";
 import {data, help, socials} from "./sidebarcontent";
+import {App} from "../../context/applicationContext";
 
 const DataStyle = ({item, index, openChild, handleChild}) => {
     const {parent, icon, children} = item;
@@ -43,6 +44,7 @@ const DataStyle = ({item, index, openChild, handleChild}) => {
 }
 
 function ExploreNav({className}) {
+    const {showSidebar} = useContext(App);
     const [openChild, setChild] = useState(false);
     
     function handleChild(arg){
@@ -58,7 +60,7 @@ function ExploreNav({className}) {
                 <nav className="flex justify-between items-center">
                     <Hyperlink
                         to="/"
-                        className="flex justify-between items-center cursor-pointer w-[137px]"
+                        className="flex z-[500] justify-between items-center cursor-pointer w-[137px]"
                     >
                         <figure>
                             <img src={zoboLogo} className="w-100%" alt="zobo-logo" />
@@ -88,10 +90,10 @@ function ExploreNav({className}) {
                         </div>
                     </div>
                 </nav>
-                <aside className="hidden md:fixed z-[402] top-0 left-0 bg-neutral-50 w-[260px] h-[100vh]">
+                <aside className={`fixed ${showSidebar ? "left-0" : "left-[-400px]"} transition-all duration-300 md:z-[402] top-0 md:left-0 bg-neutral-50 w-[260px] h-[100vh]`}>
                     
-                    <div className="p-4 border-b border-b-[#EAEAEA]">
-                        <Hyperlink
+                    <div className="py-[2.1em] border-b border-b-[#EAEAEA]">
+                        {/* <Hyperlink
                             to="/"
                             className="flex justify-between items-center cursor-pointer w-[137px]"
                         >
@@ -102,7 +104,7 @@ function ExploreNav({className}) {
                             <p className="font-gilmer  font-bold text-primary-600 text-xl">
                                 Zobomap
                             </p>
-                        </Hyperlink>
+                        </Hyperlink> */}
                     </div>
 
                     <div className="overflow-x-hidden py-2 h-[65%] scrollbar-thin scrollbar-thumb-blue-700 scrollbar-track-blue-300">
