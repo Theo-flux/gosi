@@ -20,7 +20,7 @@ function ApplicationContainer({locationLevel, countryResult, stateResult, lgaRes
       <div className="relative h-[100vh] w-[100vw]">
           <ExploreNav className="absolute w-full z-[402] bg-white"/>
           <CountryContainer countryData={countryData} className="absolute z-[401] left-[20px] top-[100px] w-[200px] md:w-[300px] md:top-[80px] md:left-[280px] bg-white" />
-          <ExtrasOnMobile className="absolute z-[405] top-[100px] right-[20px] md:hidden" />
+          <ExtrasOnMobile className="absolute z-[401] top-[100px] right-[20px] md:hidden" />
           <LeafletContainer locationLevel={locationLevel} />
       </div>
   );

@@ -14,8 +14,8 @@ const DataStyle = ({item, index, openChild, handleChild}) => {
         <div className={`mb-2 font-gilmer group`}>
             <div onClick={() => handleChild(index)} className={`${openChild === index && "bg-primary-100 border-r border-primary-600"} cursor-pointer py-2 px-8 flex justify-between items-center hover:bg-primary-100 hover:border-r hover:border-primary-600 active:bg-primary-100 active:border-r active:border-primary-600 focus:bg-primary-100 focus:border-r focus:border-primary-600`}>
                 <div className={`flex justify-between items-center`}>
-                    <figure className="mr-2">
-                        <img src={openChild === index ? icon[1]:icon[0]} alt={`${parent}-icon`}/>
+                    <figure className="w-[20%] border mr-2">
+                        <img className="w-[100%]" src={openChild === index ? icon[1]:icon[0]} alt={`${parent}-icon`}/>
                     </figure>
                     <p className={`${openChild === index ? "text-primary-600" : "text-neutral-400"} text-sm font-medium`}>{parent}</p>
                 </div>
@@ -44,7 +44,7 @@ const DataStyle = ({item, index, openChild, handleChild}) => {
 }
 
 function ExploreNav({className}) {
-    const {showSidebar} = useContext(App);
+    const {showSidebar, handleSidebar} = useContext(App);
     const [openChild, setChild] = useState(false);
     
     function handleChild(arg){
@@ -60,7 +60,7 @@ function ExploreNav({className}) {
                 <nav className="flex justify-between items-center">
                     <Hyperlink
                         to="/"
-                        className="flex z-[500] justify-between items-center cursor-pointer w-[137px]"
+                        className="flex z-[405] justify-between items-center cursor-pointer w-[137px]"
                     >
                         <figure>
                             <img src={zoboLogo} className="w-100%" alt="zobo-logo" />
@@ -90,7 +90,10 @@ function ExploreNav({className}) {
                         </div>
                     </div>
                 </nav>
-                <aside className={`fixed ${showSidebar ? "left-0" : "left-[-400px]"} transition-all duration-300 md:z-[402] top-0 md:left-0 bg-neutral-50 w-[260px] h-[100vh]`}>
+
+                
+
+                <aside className={`fixed z-[404] ${showSidebar ? "left-0" : "left-[-400px]"} transition-all duration-300 md:z-[402] top-0 md:left-0 bg-neutral-50 w-[260px] h-[100vh]`}>
                     
                     <div className="py-[2.1em] border-b border-b-[#EAEAEA]">
                         {/* <Hyperlink
@@ -107,7 +110,7 @@ function ExploreNav({className}) {
                         </Hyperlink> */}
                     </div>
 
-                    <div className="overflow-x-hidden py-2 h-[65%] scrollbar-thin scrollbar-thumb-blue-700 scrollbar-track-blue-300">
+                    <div className="overflow-x-hidden py-2 h-[65%]">
                         {
                             data.map((item, index) => {
                                 return(
@@ -142,9 +145,13 @@ function ExploreNav({className}) {
                             }
                         </div>
                     </div>
-                    
                 
                 </aside>
+                
+                <div onClick={() => handleSidebar()} className={`${showSidebar ? "left-0" : "left-[-400px]"} transition-all duration-200 absolute top-0  w-full h-[100vh] md:hidden`}>
+
+                </div>
+                
             </div>
         </section>
     );
