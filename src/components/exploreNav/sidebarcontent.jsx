@@ -1,5 +1,5 @@
-import electionActive from "../../images/explorenav/noun-election-active.png";
-import electionInactive from "../../images/explorenav/noun-election-inactive.png";
+import electionActive from "../../images/explorenav/noun-election-active.svg";
+import electionInactive from "../../images/explorenav/noun-election-inactive.svg";
 
 import demographyActive from "../../images/explorenav/noun-demography-active.png";
 import demographyInctive from "../../images/explorenav/noun-demography-inactive.png";
