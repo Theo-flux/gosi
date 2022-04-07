@@ -12,7 +12,7 @@ const DataStyle = ({item, index, openChild, handleChild}) => {
     const {parent, icon, children} = item;
 
     return(
-        <div className={`mb-2 font-gilmer group`}>
+        <div className={`mb-2 font-gilmer`}>
             <div onClick={() => handleChild(index)} className={`${openChild === index && "bg-primary-100 border-r border-primary-600"} cursor-pointer py-2 px-8 flex justify-between items-center hover:bg-primary-100 hover:border-r hover:border-primary-600 active:bg-primary-100 active:border-r active:border-primary-600 focus:bg-primary-100 focus:border-r focus:border-primary-600`}>
                 <div className={`flex justify-between items-center`}>
                     <figure className="mr-2">
@@ -28,16 +28,18 @@ const DataStyle = ({item, index, openChild, handleChild}) => {
 
             {
                 openChild === index && 
-                    <div className="transition-all duration-300 ml-[2em] mb-4">
-                        {children.map((child) => {
-                            return(
-                                
-                                <div className="border-l border-b w-[100px] border-[#989CA5]">
-                                    <p className="bg-neutral-50 relative mx-4 top-[25px] w-[180px] left-0 mb-2"><small className="cursor-pointer text-neutral-400 text-xs rounded-md py-2 px-4 flex w-[190px] hover:bg-neutral-100 hover:text-primary-600 active:bg-neutral-100 active:text-primary-600 focus:bg-neutral-100 focus:text-primary-600">{child}</small></p>
-                                </div>
-                                
-                            )
-                        })}
+                    <div className={`w-full transition-all duration-300 ml-[2em] mb-4`}>
+                        <div className={``}>
+                            {children.map((child) => {
+                                return(
+                                    
+                                    <div className="border-l border-b w-[100px] border-[#989CA5]">
+                                        <p className="bg-neutral-50 relative mx-4 top-[25px] w-[180px] left-0 mb-2"><small className="cursor-pointer text-neutral-400 text-xs rounded-md py-2 px-4 flex w-[190px] hover:bg-neutral-100 hover:text-primary-600 active:bg-neutral-100 active:text-primary-600 focus:bg-neutral-100 focus:text-primary-600">{child}</small></p>
+                                    </div>
+                                    
+                                )
+                            })}
+                        </div>
                     </div>    
             }
         </div>
@@ -61,7 +63,7 @@ function ExploreNav({className}) {
                 <nav className="flex justify-between items-center">
                     <Hyperlink
                         to="/"
-                        className="flex z-[405] justify-between items-center cursor-pointer w-[137px]"
+                        className="flex z-[405] justify-between items-center cursor-pointer w-[137px] md:z-[402]"
                     >
                         <figure>
                             <img src={zoboLogo} className="w-100%" alt="zobo-logo" />
@@ -72,7 +74,7 @@ function ExploreNav({className}) {
                         </p>
                     </Hyperlink>
 
-                    <div className="hidden md:flex justify-between items-center w-[80%]">
+                    <div className="hidden md:flex justify-between items-center md:w-[80%]">
                         <span className="hidden lg:block">
                             {/* Breadcrumbs to be completed later */}
                             <small className="text-primary-900 font-medium text-sm font-gilmer">Nigeria</small> 
@@ -96,10 +98,10 @@ function ExploreNav({className}) {
 
                 <aside className={`fixed z-[404] ${showSidebar ? "left-0" : "left-[-400px]"} transition-all duration-300 md:z-[402] top-0 md:left-0 bg-neutral-50 w-[260px] h-[100vh]`}>
                     
-                    <div className="py-[2.1em] border-b border-b-[#EAEAEA]">
-                        {/* <Hyperlink
+                    <div className="py-[2.1em] md:p-4 border-b border-b-[#EAEAEA]">
+                        <Hyperlink
                             to="/"
-                            className="flex justify-between items-center cursor-pointer w-[137px]"
+                            className="hidden md:flex justify-between items-center cursor-pointer w-[137px]"
                         >
                             <figure>
                                 <img src={zoboLogo} className="w-100%" alt="zobo-logo" />
@@ -108,7 +110,7 @@ function ExploreNav({className}) {
                             <p className="font-gilmer  font-bold text-primary-600 text-xl">
                                 Zobomap
                             </p>
-                        </Hyperlink> */}
+                        </Hyperlink>
                     </div>
 
                     <div className="overflow-x-hidden py-2 h-[65%]">

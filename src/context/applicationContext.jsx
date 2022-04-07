@@ -10,7 +10,7 @@ function ApplicationProvider({children}){
 
 
     return(
-        <App.Provider value={{showSidebar, handleSidebar}}>
+        <App.Provider value={{showSidebar:showSidebar, handleSidebar:handleSidebar}}>
             {children}
         </App.Provider>
     );
