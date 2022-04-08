@@ -4,6 +4,7 @@ import { Nav, Hyperlink, Button } from "../../shared";
 import zoboLogo from "../../images/zobomap-icon.svg";
 import menu from "../../images/menu.svg";
 import "./floatingNav.css";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const isMobile = useMediaQuery({ maxWidth: 767 });
@@ -59,7 +60,7 @@ function Navbar() {
           </div>
         )}
         <div className="flex justify-between items-center w-[175px] md:w-fit">
-          <Button>Try Zobomap</Button>
+          <Link to="/profiles/nigeria"><Button>Try Zobomap</Button></Link>
           {isMobile && (
             <figure
               onClick={() => setToggle(!toggle)}

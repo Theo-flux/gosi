@@ -1,23 +1,23 @@
-import electionActive from "../../images/explorenav/noun-election-active.png";
-import electionInactive from "../../images/explorenav/noun-election-inactive.png";
+import electionActive from "../../images/explorenav/noun-election-active.svg";
+import electionInactive from "../../images/explorenav/noun-election-inactive.svg";
 
-import demographyActive from "../../images/explorenav/noun-demography-active.png";
-import demographyInctive from "../../images/explorenav/noun-demography-inactive.png";
+import demographyActive from "../../images/explorenav/noun-demography-active.svg";
+import demographyInctive from "../../images/explorenav/noun-demography-inactive.svg";
 
-import economicsActive from "../../images/explorenav/noun-economics-active.png";
-import economicsInactive from "../../images/explorenav/noun-economics-inactive.png";
+import economicsActive from "../../images/explorenav/noun-economics-active.svg";
+import economicsInactive from "../../images/explorenav/noun-economics-inactive.svg";
 
-import serviceActive from "../../images/explorenav/noun-service-active.png";
-import serviceInactive from "../../images/explorenav/noun-service-inactive.png";
+import serviceActive from "../../images/explorenav/noun-service-active.svg";
+import serviceInactive from "../../images/explorenav/noun-service-inactive.svg";
 
-import homeActive from "../../images/explorenav/noun-home-active.png";
-import homeInactive from "../../images/explorenav/noun-home-inactive.png";
+import homeActive from "../../images/explorenav/noun-home-active.svg";
+import homeInactive from "../../images/explorenav/noun-home-inactive.svg";
 
-import educationActive from "../../images/explorenav/noun-education-active.png";
-import educationInactive from "../../images/explorenav/noun-education-inactive.png";
+import educationActive from "../../images/explorenav/noun-education-active.svg";
+import educationInactive from "../../images/explorenav/noun-education-inactive.svg";
 
-import childrenActive from "../../images/explorenav/noun-children-active.png";
-import childrenInactive from "../../images/explorenav/noun-children-inactive.png";
+import childrenActive from "../../images/explorenav/noun-children-active.svg";
+import childrenInactive from "../../images/explorenav/noun-children-inactive.svg";
 
 const data = [
     {

@@ -11,6 +11,7 @@ import {
 } from "../api/zobomapApi";
 import { capitalizeFirstLetter } from "../utils/helpers";
 import ApplicationContainer from "../container/ApplicationContainer";
+import { ApplicationProvider } from "../context/applicationContext";
 
 function Application() {
   const [getCountryData, CountryResult] = useLazyGetNigeriaDataQuery(); // TODO:Theo this is the data here got Nigeria
@@ -28,7 +29,7 @@ function Application() {
   // handle case nigeria, state and lga
   // const count = useSelector((state) => state.location.value);
   // const dispatch = useDispatch();
-  console.log(slug, slug2);
+  // console.log(slug, slug2);
 
   useEffect(() => {
     let isSubscribed = true;
@@ -53,12 +54,14 @@ function Application() {
   }, [slug, slug2]);
 
   return (
-    <ApplicationContainer 
+    <ApplicationProvider>
+      <ApplicationContainer 
       locationLevel={locationLevel}
       countryResult={CountryResult}
       stateResult={stateResult}
       lgaResult={lgaResult}
     />
+    </ApplicationProvider>
   );
 }
 
