@@ -6,9 +6,11 @@ import downArrow from "../../images/explorenav/arrow-down.png";
 import upArrow from "../../images/explorenav/arrow-up.png";
 import {data, help, socials} from "./sidebarcontent";
 import {App} from "../../context/applicationContext";
+import ExtrasOnMobile from "../../container/ExtrasOnMobile";
 
 
-const DataStyle = ({item, index, openChild, handleChild}) => {
+
+const DataStyle = ({item, index, openChild, handleChild, handleShowchart}) => {
     const {parent, icon, children} = item;
 
     return(
@@ -34,7 +36,7 @@ const DataStyle = ({item, index, openChild, handleChild}) => {
                                 return(
                                     
                                     <div className="border-l border-b w-[100px] border-[#989CA5]">
-                                        <p className="bg-neutral-50 relative mx-4 top-[25px] w-[180px] left-0 mb-2"><small className="cursor-pointer text-neutral-400 text-xs rounded-md py-2 px-4 flex w-[190px] hover:bg-neutral-100 hover:text-primary-600 active:bg-neutral-100 active:text-primary-600 focus:bg-neutral-100 focus:text-primary-600">{child}</small></p>
+                                        <p className="bg-neutral-50 relative mx-4 top-[25px] w-[180px] left-0 mb-2"><small onClick={() => handleShowchart()} className="cursor-pointer text-neutral-400 text-xs rounded-md py-2 px-4 flex w-[190px] hover:bg-neutral-100 hover:text-primary-600 active:bg-neutral-100 active:text-primary-600 focus:bg-neutral-100 focus:text-primary-600">{child}</small></p>
                                     </div>
                                     
                                 )
@@ -46,7 +48,7 @@ const DataStyle = ({item, index, openChild, handleChild}) => {
     );
 }
 
-function ExploreNav({className}) {
+function ExploreNav({className, handleShowchart}) {
     const {showSidebar, handleSidebar} = useContext(App);
     const [openChild, setChild] = useState(false);
     
@@ -73,6 +75,7 @@ function ExploreNav({className}) {
                             Zobomap
                         </p>
                     </Hyperlink>
+                    <ExtrasOnMobile className=" md:hidden" />
 
                     <div className="hidden md:flex justify-between items-center md:w-[80%]">
                         <span className="hidden lg:block">
@@ -117,7 +120,7 @@ function ExploreNav({className}) {
                         {
                             data.map((item, index) => {
                                 return(
-                                    <DataStyle handleChild={handleChild} openChild={openChild} key={item.id} index={index} item={item}/>
+                                    <DataStyle handleShowchart={handleShowchart} handleChild={handleChild} openChild={openChild} key={item.id} index={index} item={item}/>
                                 );
                             })
                         }

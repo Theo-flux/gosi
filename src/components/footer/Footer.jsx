@@ -29,7 +29,7 @@ function Footer(){
                                         </figure>
                                     </a>
 
-                                    <a className="self-start">
+                                    <a href="https://www.datatrendsintelligence.com" className="self-start">
                                         <figure>
                                             <img src={dti} className="w-100%" alt="dti-logo"/>
                                         </figure>
