@@ -5,8 +5,6 @@ import CountryContainer from "./CountryContainer";
 import ExtrasOnMobile from "./ExtrasOnMobile";
 import { GraphicalData } from "../components";
 
-
-
 function ApplicationContainer({locationLevel, countryResult, stateResult, lgaResult}) {
   let countryData = {total_population: "0", size:"0"};
   console.log(countryResult)
