@@ -99,7 +99,7 @@ function ExploreNav({className, handleShowchart}) {
 
                 
 
-                <aside className={`fixed z-[404] ${showSidebar ? "left-0" : "left-[-400px]"} transition-all duration-300 md:z-[402] top-0 md:left-0 bg-neutral-50 w-[260px] h-[100vh]`}>
+                <aside className={`fixed z-[404] ${showSidebar ? "left-0" : "left-[-400px]"} transition-all duration-300 md:z-[402] top-0 md:left-0 bg-neutral-50 md:w-[260px] h-[100vh]`}>
                     
                     <div className="py-[2.1em] md:p-4 border-b border-b-[#EAEAEA]">
                         <Hyperlink

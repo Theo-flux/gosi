@@ -1,6 +1,10 @@
 
-function CountryContainer({className, countryData}) {
-    const {total_population, size} = countryData;
+function CountryContainer({className, countryResult, stateResult, lgaResult}) {
+    // console.log(countryResult);
+    // console.log(stateResult);
+    console.log(lgaResult);
+
+
 
     return (
         <section className={`${className} rounded-lg overflow-hidden bg-white md:bg-neutral-100`} style={{boxShadow: "0px 4px 24px rgba(0, 0, 0, 0.1)"}}>
@@ -20,12 +24,12 @@ function CountryContainer({className, countryData}) {
                 <div className="flex font-gilmer justify-between items-center">
                     <span className="">
                         <small className="text-xs text-neutral-500 md:font-bold md:text-sm">Population</small>
-                        <p className="text-md font-bold">{total_population.toLocaleString()}</p>
+                        <p className="text-md font-bold">215,427,804</p>
                     </span>
 
                     <span className="">
                         <small className="text-xs text-neutral-500 md:font-bold md:text-sm">Size</small>
-                        <p className="text-md font-bold">{size}</p>
+                        <p className="text-md font-bold">10 sq.km</p>
                     </span>
                 </div>
             </div>

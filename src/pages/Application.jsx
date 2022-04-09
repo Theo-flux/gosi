@@ -21,7 +21,7 @@ function Application() {
     lga: "",
   }); // TODO:Theo this is the data here got Nigeria
 
-  console.log(CountryResult);
+  // console.log(CountryResult);
   // const [NigeriaData, setNigeriaData] = useState({});
 
   const [locationLevel, setLocationLevel] = useState(locationLevels.one); // available levels are country, state, lga
