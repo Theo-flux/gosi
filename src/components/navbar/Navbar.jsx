@@ -42,7 +42,7 @@ function Navbar() {
       <Nav className="relative md:static flex justify-between items-center w-11/12 ">
         <Hyperlink
           to="/"
-          className="z-50 flex justify-between items-center cursor-pointer w-[137px]"
+          className="z-50 flex justify-between items-center cursor-pointer w-[136px]"
         >
           <figure>
             <img src={zoboLogo} className="w-100%" alt="zobo-logo" />

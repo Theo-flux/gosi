@@ -15,7 +15,7 @@ function ApplicationContainer({locationLevel, countryResult, stateResult, lgaRes
           <ExploreNav handleShowchart={handleShowchart} className="absolute w-full z-[403] bg-white"/>
           <MenuFold onClick={() => handleShowchart()} className={`sm:hidden md:flex md:justify-center md:items-center md:absolute md:z-[405] md:bg-white drop-shadow-md md:w-[40px] md:h-[40px] ${showChart ? "md:left-[864px] md:top-[45px]" :"md:left-[245px] md:top-[45px]"} md:transition-all md:duration-300`}/>
           {
-            showChart && <GraphicalData className={`absolute border-t border-t-[#EAEAEA] h-auto z-[404] bg-white top-[67px] md:z-[402] 
+            showChart && <GraphicalData className={`absolute border-t border-t-[#EAEAEA] h-[100%-67px] z-[404] bg-white top-[67px] md:z-[402] 
             ${showChart ? "left-0 md:left-[260px]" :"md:left-[-300px]"} transition-all duration-300`}/>      
           }
 
