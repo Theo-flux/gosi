@@ -41,7 +41,7 @@ function ApplicationContainer({
             locationLevel={locationLevel}
             slug={slug}
             slug2={slug2}
-            handleShowchart={handleShowchart} 
+            handleShowchart={handleShowchart}
             className="absolute w-full z-[403] bg-white"
           />
 

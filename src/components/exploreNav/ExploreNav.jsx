@@ -10,7 +10,7 @@ import ExtrasOnMobile from "../../container/ExtrasOnMobile";
 
 
 
-const DataStyle = ({item, index, openChild, handleChild, handleShowchart}) => {
+const DataStyle = ({item, index, openChild, handleChild, handleShowchart, graphData, setShowChart}) => {
     const {parent, icon, children} = item;
 
     return(
@@ -36,7 +36,7 @@ const DataStyle = ({item, index, openChild, handleChild, handleShowchart}) => {
                                 return(
                                     
                                     <div className="border-l border-b w-[100px] border-[#989CA5]">
-                                        <p className="bg-neutral-50 relative mx-4 top-[25px] w-[180px] left-0 mb-2"><small onClick={() => handleShowchart()} className="cursor-pointer text-neutral-400 text-xs rounded-md py-2 px-4 flex w-[190px] hover:bg-neutral-100 hover:text-primary-600 active:bg-neutral-100 active:text-primary-600 focus:bg-neutral-100 focus:text-primary-600">{child}</small></p>
+                                        <p className="bg-neutral-50 relative mx-4 top-[25px] w-[180px] left-0 mb-2"><small onClick={() => setShowChart(true)} className="cursor-pointer text-neutral-400 text-xs rounded-md py-2 px-4 flex w-[190px] hover:bg-neutral-100 hover:text-primary-600 active:bg-neutral-100 active:text-primary-600 focus:bg-neutral-100 focus:text-primary-600">{child}</small></p>
                                     </div>
                                     
                                 )
@@ -49,7 +49,7 @@ const DataStyle = ({item, index, openChild, handleChild, handleShowchart}) => {
 }
 
 function ExploreNav({className, handleShowchart}) {
-    const {showSidebar, handleSidebar, graphData, handleGraphData} = useContext(App);
+    const {showSidebar, handleSidebar, graphData, handleGraphData, setShowChart} = useContext(App);
     const [openChild, setChild] = useState(false);
     
     
@@ -121,7 +121,7 @@ function ExploreNav({className, handleShowchart}) {
                         {
                             data.map((item, index) => {
                                 return(
-                                    <DataStyle handleShowchart={handleShowchart} handleChild={handleChild} openChild={openChild} key={item.id} index={index} item={item}/>
+                                    <DataStyle setShowChart={setShowChart} graphData={graphData} handleShowchart={handleShowchart} handleChild={handleChild} openChild={openChild} key={item.id} index={index} item={item}/>
                                 );
                             })
                         }

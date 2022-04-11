@@ -23,6 +23,7 @@ function ApplicationProvider({children}){
             showSidebar: showSidebar, 
             handleSidebar: handleSidebar,
             showChart: showChart,
+            setShowChart: setShowChart,
             handleShowchart: handleShowchart,
             graphData: graphData,
             handleGraphData: handleGraphData
