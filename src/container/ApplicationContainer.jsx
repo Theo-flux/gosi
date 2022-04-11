@@ -39,7 +39,6 @@ function ApplicationContainer({
       <div className="relative h-[100vh] w-[100vw]">
           <ExploreNav 
             locationLevel={locationLevel}
-            graphData={graphData}
             slug={slug}
             slug2={slug2}
             handleShowchart={handleShowchart} 

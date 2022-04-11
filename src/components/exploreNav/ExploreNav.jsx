@@ -48,7 +48,7 @@ const DataStyle = ({item, index, openChild, handleChild, handleShowchart}) => {
     );
 }
 
-function ExploreNav({className, handleShowchart, graphData}) {
+function ExploreNav({className, handleShowchart}) {
     const {showSidebar, handleSidebar, graphData, handleGraphData} = useContext(App);
     const [openChild, setChild] = useState(false);
     
