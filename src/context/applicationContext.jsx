@@ -5,6 +5,12 @@ function ApplicationProvider({children}){
     let [showSidebar, setShowSidebar] = useState(false);
     const [showChart, setShowChart] = useState(false);
     const [graphData, setGraphData] = useState(false);
+    const [activeSidebar, setActiveSidebar] = useState("");
+
+    function handleActiveSidebar(arg){
+        
+        setActiveSidebar(arg)
+    }
 
     function handleSidebar(){
         setShowSidebar(!showSidebar);
@@ -26,7 +32,10 @@ function ApplicationProvider({children}){
             setShowChart: setShowChart,
             handleShowchart: handleShowchart,
             graphData: graphData,
-            handleGraphData: handleGraphData
+            handleGraphData: handleGraphData,
+            activeSidebar: activeSidebar,
+            setActiveSidebar: setActiveSidebar,
+            handleActiveSidebar: handleActiveSidebar
         }}>
             {children}
         </App.Provider>

@@ -1,5 +1,5 @@
-import electionActive from "../../images/explorenav/noun-election-active.svg";
-import electionInactive from "../../images/explorenav/noun-election-inactive.svg";
+// import electionActive from "../../images/explorenav/noun-election-active.svg";
+// import electionInactive from "../../images/explorenav/noun-election-inactive.svg";
 
 import demographyActive from "../../images/explorenav/noun-demography-active.svg";
 import demographyInctive from "../../images/explorenav/noun-demography-inactive.svg";
@@ -20,12 +20,12 @@ import childrenActive from "../../images/explorenav/noun-children-active.svg";
 import childrenInactive from "../../images/explorenav/noun-children-inactive.svg";
 
 const data = [
-    {
-        id: "1",
-        parent: "Election",
-        icon: [electionInactive, electionActive],
-        children: ["2015 General Election", "2019 General Election"]
-    },
+    // {
+    //     id: "1",
+    //     parent: "Election",
+    //     icon: [electionInactive, electionActive],
+    //     children: ["2015 General Election", "2019 General Election"]
+    // },
 
     {
         id: "2",

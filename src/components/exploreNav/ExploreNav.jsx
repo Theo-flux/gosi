@@ -1,17 +1,27 @@
 import {useState, useContext, useEffect} from "react";
+import {Link, NavLink} from "react-router-dom";
 import { Hyperlink } from "../../shared";
 import zoboLogo from "../../images/zobomap-icon.svg";
-import menu from "../../images/menu.svg";
 import downArrow from "../../images/explorenav/arrow-down.png";
 import upArrow from "../../images/explorenav/arrow-up.png";
 import {data, help, socials} from "./sidebarcontent";
 import {App} from "../../context/applicationContext";
 import ExtrasOnMobile from "../../container/ExtrasOnMobile";
+import { capitalizeFirstLetter } from "../../utils/helpers";
 
 
-
-const DataStyle = ({item, index, openChild, handleChild, handleShowchart, graphData, setShowChart}) => {
+const DataStyle = ({item, index, openChild, handleChild, handleShowchart, graphData, setShowChart, handleActiveSidebar}) => {
     const {parent, icon, children} = item;
+    const [openGrandChild, setGrandChild] = useState(false);
+    
+    
+    function handleGrandChild(arg){
+        if(openGrandChild === arg){
+            return setGrandChild(arg)
+        }
+        setGrandChild(arg)
+    }
+
 
     return(
         <div className={`mb-2 font-gilmer`}>
@@ -32,11 +42,22 @@ const DataStyle = ({item, index, openChild, handleChild, handleShowchart, graphD
                 openChild === index && 
                     <div className={`w-full transition-all duration-300 ml-[2em] mb-4`}>
                         <div className={``}>
-                            {children.map((child) => {
+                            {children.map((child, index) => {
                                 return(
                                     
                                     <div className="border-l border-b w-[100px] border-[#989CA5]">
-                                        <p className="bg-neutral-50 relative mx-4 top-[25px] w-[180px] left-0 mb-2"><small onClick={() => setShowChart(true)} className="cursor-pointer text-neutral-400 text-xs rounded-md py-2 px-4 flex w-[190px] hover:bg-neutral-100 hover:text-primary-600 active:bg-neutral-100 active:text-primary-600 focus:bg-neutral-100 focus:text-primary-600">{child}</small></p>
+                                        <p className="bg-neutral-50 relative mx-4 top-[25px] w-[180px] left-0 mb-2">
+                                            <small 
+                                                onClick={() => {
+                                                    setShowChart(true);
+                                                    handleActiveSidebar(`${parent} / ${child}`);
+                                                    handleGrandChild(index)
+                                                }} 
+                                                className={`cursor-pointer text-xs rounded-md py-2 px-4 flex w-[190px] ${openGrandChild === index ? "bg-neutral-100 text-primary-600" : "text-neutral-400 "} hover:bg-neutral-100 hover:text-primary-600 active:bg-neutral-100 active:text-primary-600 focus:bg-neutral-100 focus:text-primary-600`}
+                                            >
+                                                {child}
+                                            </small>
+                                        </p>
                                     </div>
                                     
                                 )
@@ -48,8 +69,8 @@ const DataStyle = ({item, index, openChild, handleChild, handleShowchart, graphD
     );
 }
 
-function ExploreNav({className, handleShowchart}) {
-    const {showSidebar, handleSidebar, graphData, handleGraphData, setShowChart} = useContext(App);
+function ExploreNav({className, handleShowchart, slug, slug2}) {
+    const {showSidebar, handleSidebar, graphData, handleGraphData, setShowChart, handleActiveSidebar} = useContext(App);
     const [openChild, setChild] = useState(false);
     
     
@@ -79,9 +100,8 @@ function ExploreNav({className, handleShowchart}) {
                     <ExtrasOnMobile className=" md:hidden" />
 
                     <div className="hidden md:flex justify-between items-center md:w-[80%]">
-                        <span className="hidden lg:block">
+                        <span className="hidden lg:flex justify-between items-center">
                             {/* Breadcrumbs to be completed later */}
-                            <small className="text-primary-900 font-medium text-sm font-gilmer">Nigeria</small> 
                         </span>
                         <div className="lg:hidden"></div>
 
@@ -121,7 +141,17 @@ function ExploreNav({className, handleShowchart}) {
                         {
                             data.map((item, index) => {
                                 return(
-                                    <DataStyle setShowChart={setShowChart} graphData={graphData} handleShowchart={handleShowchart} handleChild={handleChild} openChild={openChild} key={item.id} index={index} item={item}/>
+                                    <DataStyle
+                                        key={item.id} 
+                                        index={index} 
+                                        item={item}
+                                        handleActiveSidebar={handleActiveSidebar} 
+                                        setShowChart={setShowChart} 
+                                        graphData={graphData} 
+                                        handleShowchart={handleShowchart} 
+                                        handleChild={handleChild} 
+                                        openChild={openChild} 
+                                    />
                                 );
                             })
                         }
