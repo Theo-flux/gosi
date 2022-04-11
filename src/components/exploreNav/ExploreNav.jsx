@@ -9,7 +9,7 @@ import {App} from "../../context/applicationContext";
 import ExtrasOnMobile from "../../container/ExtrasOnMobile";
 
 
-const DataStyle = ({item, index, openChild, handleChild, handleShowchart, graphData, setShowChart, handleActiveSidebar}) => {
+const DataStyle = ({item, index, openChild, handleChild, showChart, handleShowchart, graphData, setShowChart, handleActiveSidebar}) => {
     const {parent, icon, children} = item;
     const [openGrandChild, setGrandChild] = useState(false);
     
@@ -20,10 +20,21 @@ const DataStyle = ({item, index, openChild, handleChild, handleShowchart, graphD
         setGrandChild(arg)
     }
 
+    function handleSidebarShowChart(arg){
+        if(openChild === index){
+            return setShowChart(null)
+        }
+        setShowChart(true)
+    }
 
     return(
         <div className={`mb-2 font-gilmer`}>
-            <div onClick={() => handleChild(index)} className={`${openChild === index && "bg-primary-100 border-r border-primary-600"} cursor-pointer py-2 px-8 flex justify-between items-center hover:bg-primary-100 hover:border-r hover:border-primary-600 active:bg-primary-100 active:border-r active:border-primary-600 focus:bg-primary-100 focus:border-r focus:border-primary-600`}>
+            <div 
+                onClick={() => {
+                    handleSidebarShowChart(index)
+                    handleChild(index);
+                    }
+                } className={`${openChild === index && "bg-primary-100 border-r border-primary-600"} cursor-pointer py-2 px-8 flex justify-between items-center hover:bg-primary-100 hover:border-r hover:border-primary-600 active:bg-primary-100 active:border-r active:border-primary-600 focus:bg-primary-100 focus:border-r focus:border-primary-600`}>
                 <div className={`flex justify-between items-center`}>
                     <figure className="mr-2">
                         <img className="w-[100%]" src={openChild === index ? icon[1]:icon[0]} alt={`${parent}-icon`}/>
@@ -47,7 +58,6 @@ const DataStyle = ({item, index, openChild, handleChild, handleShowchart, graphD
                                         <p className="bg-neutral-50 relative mx-4 top-[25px] w-[180px] left-0 mb-2">
                                             <small 
                                                 onClick={() => {
-                                                    setShowChart(true);
                                                     handleActiveSidebar(`${parent} / ${child}`);
                                                     handleGrandChild(index)
                                                 }} 
@@ -67,17 +77,20 @@ const DataStyle = ({item, index, openChild, handleChild, handleShowchart, graphD
     );
 }
 
-function ExploreNav({className, handleShowchart, slug, slug2}) {
-    const {showSidebar, handleSidebar, graphData, handleGraphData, setShowChart, handleActiveSidebar} = useContext(App);
-    const [openChild, setChild] = useState(false);
+function  ExploreNav({className, handleShowchart, slug, slug2}) {
+    const {
+        showSidebar, 
+        handleSidebar, 
+        graphData, 
+        handleGraphData, 
+        showChart,
+        setShowChart, 
+        handleActiveSidebar,
+        openChild,
+        setChild,
+        handleChild
+    } = useContext(App);
     
-    
-    function handleChild(arg){
-        if(openChild === arg){
-            return setChild(null)
-        }
-        setChild(arg)
-    }
 
     return (
         <section className={className}>
@@ -144,11 +157,12 @@ function ExploreNav({className, handleShowchart, slug, slug2}) {
                                         index={index} 
                                         item={item}
                                         handleActiveSidebar={handleActiveSidebar} 
+                                        showChart={showChart}
                                         setShowChart={setShowChart} 
                                         graphData={graphData} 
                                         handleShowchart={handleShowchart} 
                                         handleChild={handleChild} 
-                                        openChild={openChild} 
+                                        openChild={openChild}
                                     />
                                 );
                             })

@@ -14,7 +14,15 @@ function ApplicationContainer({
     slug2
   }) {
 
-  const {showChart, handleShowchart, graphData, handleGraphData, activeSidebar} = useContext(App);
+  const {
+    showChart, 
+    handleShowchart, 
+    graphData, 
+    handleGraphData, 
+    activeSidebar,
+    openChild,
+    handleChild
+  } = useContext(App);
   
   useEffect(() => {
     if(countryResult && locationLevel.name === "country"){
@@ -45,11 +53,17 @@ function ApplicationContainer({
             className="absolute w-full z-[403] bg-white"
           />
 
-          <MenuFold 
-            onClick={() => handleShowchart()} 
-            showChart={showChart}
-            className={`sm:hidden md:flex md:justify-center md:items-center md:absolute md:z-[405] md:bg-white drop-shadow-md md:w-[40px] md:h-[40px] ${showChart ? "md:left-[864px] md:top-[45px]" :"md:left-[245px] md:top-[45px]"} md:transition-all md:duration-75`}
-          />
+          {
+            showChart && <MenuFold 
+              onClick={() => {
+                handleShowchart()
+                handleChild(null)
+              }} 
+              showChart={showChart}
+              className={`sm:hidden md:flex md:justify-center md:items-center md:absolute md:z-[405] md:bg-white drop-shadow-md md:w-[40px] md:h-[40px] ${showChart ? "md:left-[864px] md:top-[45px]" :"md:left-[245px] md:top-[45px]"} md:transition-all md:duration-75`}
+            />
+          }
+
           {
             showChart && 
               <GraphicalData

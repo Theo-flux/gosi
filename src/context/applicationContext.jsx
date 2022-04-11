@@ -8,20 +8,8 @@ function ApplicationProvider({children}){
     const [activeSidebar, setActiveSidebar] = useState("");
     const [showChartOptions, setChartOptions] = useState(false);
     const [chartType, setChartType] = useState("bar");
-
-    function handleChartoptions(){
-        setChartOptions(!showChartOptions);
-    }
-
-    function handleChartType(type){
-        setChartOptions(!showChartOptions);
-        setChartType(type);
-    }
-
-    function handleActiveSidebar(arg){
-        
-        setActiveSidebar(arg)
-    }
+    const [openChild, setChild] = useState(false);
+    
 
     function handleSidebar(){
         setShowSidebar(!showSidebar);
@@ -33,6 +21,26 @@ function ApplicationProvider({children}){
 
     function handleGraphData(arg){
         setGraphData(arg);
+    }
+
+    function handleChartoptions(){
+        setChartOptions(!showChartOptions);
+    }
+
+    function handleChartType(type){
+        setChartOptions(!showChartOptions);
+        setChartType(type);
+    }
+
+    function handleActiveSidebar(arg){
+        setActiveSidebar(arg)
+    }
+
+    function handleChild(arg){
+        if(openChild === arg){
+            return setChild(null)
+        }
+        setChild(arg)
     }
 
     return(
@@ -57,7 +65,11 @@ function ApplicationProvider({children}){
 
             chartType: chartType,
             setChartType: setChartType,
-            handleChartType: handleChartType
+            handleChartType: handleChartType,
+
+            openChild: openChild,
+            setChild: setChild,
+            handleChild: handleChild
         }}>
             {children}
         </App.Provider>
