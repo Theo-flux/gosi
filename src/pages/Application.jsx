@@ -53,14 +53,18 @@ function Application() {
     }
   }, [slug, slug2]);
 
+  
+
   return (
     <ApplicationProvider>
       <ApplicationContainer 
-      locationLevel={locationLevel}
-      countryResult={CountryResult}
-      stateResult={stateResult}
-      lgaResult={lgaResult}
-    />
+        locationLevel={locationLevel}
+        countryResult={CountryResult}
+        stateResult={stateResult}
+        lgaResult={lgaResult}
+        slug={slug}
+        slug2={slug2}
+      />
     </ApplicationProvider>
   );
 }

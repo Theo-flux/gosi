@@ -1,4 +1,4 @@
-import {useState, useContext} from "react";
+import {useState, useContext, useEffect} from "react";
 import { Hyperlink } from "../../shared";
 import zoboLogo from "../../images/zobomap-icon.svg";
 import menu from "../../images/menu.svg";
@@ -48,9 +48,10 @@ const DataStyle = ({item, index, openChild, handleChild, handleShowchart}) => {
     );
 }
 
-function ExploreNav({className, handleShowchart}) {
-    const {showSidebar, handleSidebar} = useContext(App);
+function ExploreNav({className, handleShowchart, graphData}) {
+    const {showSidebar, handleSidebar, graphData, handleGraphData} = useContext(App);
     const [openChild, setChild] = useState(false);
+    
     
     function handleChild(arg){
         if(openChild === arg){
