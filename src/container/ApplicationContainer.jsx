@@ -52,7 +52,7 @@ function ApplicationContainer({
           {
             showChart && 
               <GraphicalData 
-                className={`absolute border-t border-t-[#EAEAEA] h-[100vh] md:h-[100%-67px] z-[404] bg-white top-[67px] md:z-[402] 
+                className={`absolute h-[calc(100%-67px)] z-[404] bg-white top-[67px] md:z-[404] 
                 ${showChart ? "left-0 md:left-[260px]" :"md:left-[-300px]"} transition-all duration-300`}
               />      
           }
