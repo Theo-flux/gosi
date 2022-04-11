@@ -7,13 +7,11 @@ import upArrow from "../../images/explorenav/arrow-up.png";
 import {data, help, socials} from "./sidebarcontent";
 import {App} from "../../context/applicationContext";
 import ExtrasOnMobile from "../../container/ExtrasOnMobile";
-import { capitalizeFirstLetter } from "../../utils/helpers";
 
 
 const DataStyle = ({item, index, openChild, handleChild, handleShowchart, graphData, setShowChart, handleActiveSidebar}) => {
     const {parent, icon, children} = item;
     const [openGrandChild, setGrandChild] = useState(false);
-    
     
     function handleGrandChild(arg){
         if(openGrandChild === arg){

@@ -6,6 +6,17 @@ function ApplicationProvider({children}){
     const [showChart, setShowChart] = useState(false);
     const [graphData, setGraphData] = useState(false);
     const [activeSidebar, setActiveSidebar] = useState("");
+    const [showChartOptions, setChartOptions] = useState(false);
+    const [chartType, setChartType] = useState("bar");
+
+    function handleChartoptions(){
+        setChartOptions(!showChartOptions);
+    }
+
+    function handleChartType(type){
+        setChartOptions(!showChartOptions);
+        setChartType(type);
+    }
 
     function handleActiveSidebar(arg){
         
@@ -28,14 +39,25 @@ function ApplicationProvider({children}){
         <App.Provider value={{
             showSidebar: showSidebar, 
             handleSidebar: handleSidebar,
+
             showChart: showChart,
             setShowChart: setShowChart,
             handleShowchart: handleShowchart,
+
             graphData: graphData,
             handleGraphData: handleGraphData,
+
             activeSidebar: activeSidebar,
             setActiveSidebar: setActiveSidebar,
-            handleActiveSidebar: handleActiveSidebar
+            handleActiveSidebar: handleActiveSidebar,
+
+            showChartOptions: showChartOptions,
+            setChartOptions: setChartOptions,
+            handleChartoptions: handleChartoptions,
+
+            chartType: chartType,
+            setChartType: setChartType,
+            handleChartType: handleChartType
         }}>
             {children}
         </App.Provider>

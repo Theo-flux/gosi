@@ -28,7 +28,7 @@ function DetailsCard({className, graphData, locationLevel}) {
             <div className="font-gilmer p-2 md:p-4">
                 <div className="mb-2 md:mb-4">
                     <small className="text-xs text-neutral-500 md:font-medium md:hidden">Location</small>
-                    <p className=" md:text-xl font-bold">{current.location}</p>
+                    <p className="text-sm md:text-lg font-bold">{current.location}</p>
                 </div>
 
                 <div className="flex font-gilmer justify-between items-center">

@@ -47,6 +47,7 @@ function ApplicationContainer({
 
           <MenuFold 
             onClick={() => handleShowchart()} 
+            showChart={showChart}
             className={`sm:hidden md:flex md:justify-center md:items-center md:absolute md:z-[405] md:bg-white drop-shadow-md md:w-[40px] md:h-[40px] ${showChart ? "md:left-[864px] md:top-[45px]" :"md:left-[245px] md:top-[45px]"} md:transition-all md:duration-75`}
           />
           {
