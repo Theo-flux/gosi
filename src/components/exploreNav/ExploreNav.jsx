@@ -1,5 +1,6 @@
 import {useState, useContext, useEffect} from "react";
 import {Link, NavLink} from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 import { Hyperlink } from "../../shared";
 import zoboLogo from "../../images/zobomap-icon.svg";
 import downArrow from "../../images/explorenav/arrow-down.png";
@@ -12,6 +13,7 @@ import ExtrasOnMobile from "../../container/ExtrasOnMobile";
 const DataStyle = ({item, index, openChild, handleChild, showChart, handleShowchart, graphData, setShowChart, handleActiveSidebar}) => {
     const {parent, icon, children} = item;
     const [openGrandChild, setGrandChild] = useState(false);
+    const isMobile = useMediaQuery({ maxWidth: 767 });
     
     function handleGrandChild(arg){
         if(openGrandChild === arg){
@@ -33,8 +35,8 @@ const DataStyle = ({item, index, openChild, handleChild, showChart, handleShowch
                 onClick={() => {
                     handleSidebarShowChart(index)
                     handleChild(index);
-                    }
-                } className={`${openChild === index && "bg-primary-100 border-r border-primary-600"} cursor-pointer py-2 px-8 flex justify-between items-center hover:bg-primary-100 hover:border-r hover:border-primary-600 active:bg-primary-100 active:border-r active:border-primary-600 focus:bg-primary-100 focus:border-r focus:border-primary-600`}>
+                }} 
+                className={`${openChild === index && "bg-primary-100 border-r border-primary-600"} cursor-pointer py-2 px-8 flex justify-between items-center hover:bg-primary-100 hover:border-r hover:border-primary-600 active:bg-primary-100 active:border-r active:border-primary-600 focus:bg-primary-100 focus:border-r focus:border-primary-600`}>
                 <div className={`flex justify-between items-center`}>
                     <figure className="mr-2">
                         <img className="w-[100%]" src={openChild === index ? icon[1]:icon[0]} alt={`${parent}-icon`}/>
@@ -53,21 +55,41 @@ const DataStyle = ({item, index, openChild, handleChild, showChart, handleShowch
                         <div className={``}>
                             {children.map((child, index) => {
                                 return(
-                                    
-                                    <div className="border-l border-b w-[100px] border-[#989CA5]">
-                                        <p className="bg-neutral-50 relative mx-4 top-[25px] w-[180px] left-0 mb-2">
-                                            <small 
-                                                onClick={() => {
-                                                    handleActiveSidebar(`${parent} / ${child}`);
-                                                    handleGrandChild(index)
-                                                }} 
-                                                className={`cursor-pointer text-xs rounded-md py-2 px-4 flex w-[190px] ${openGrandChild === index ? "bg-neutral-100 text-primary-600" : "text-neutral-400 "} hover:bg-neutral-100 hover:text-primary-600 active:bg-neutral-100 active:text-primary-600 focus:bg-neutral-100 focus:text-primary-600`}
-                                            >
-                                                {child}
-                                            </small>
-                                        </p>
-                                    </div>
-                                    
+                                    <>
+                                    {
+                                        isMobile ? 
+                                        <div className="border-l border-b w-[100px] border-[#989CA5]">
+                                            <p className="bg-neutral-50 relative mx-4 top-[25px] w-[180px] left-0 mb-2">
+                                                <small 
+                                                    onClick={() => {
+                                                        handleActiveSidebar(`${parent} / ${child}`);
+                                                        handleGrandChild(index)
+                                                        handleShowchart()
+                                                    }} 
+                                                    className={`cursor-pointer text-xs rounded-md py-2 px-4 flex w-[190px] ${openGrandChild === index ? "bg-neutral-100 text-primary-600" : "text-neutral-400 "} hover:bg-neutral-100 hover:text-primary-600 active:bg-neutral-100 active:text-primary-600 focus:bg-neutral-100 focus:text-primary-600`}
+                                                >
+                                                    {child}
+                                                </small>
+                                            </p>
+                                        </div> 
+                                        :
+                                        <div className="border-l border-b w-[100px] border-[#989CA5]">
+                                            <p className="bg-neutral-50 relative mx-4 top-[25px] w-[180px] left-0 mb-2">
+                                                <small 
+                                                    onClick={() => {
+                                                        handleActiveSidebar(`${parent} / ${child}`);
+                                                        handleGrandChild(index);
+                                                        handleShowchart()
+                                                    }} 
+                                                    className={`cursor-pointer text-xs rounded-md py-2 px-4 flex w-[190px] ${openGrandChild === index ? "bg-neutral-100 text-primary-600" : "text-neutral-400 "} hover:bg-neutral-100 hover:text-primary-600 active:bg-neutral-100 active:text-primary-600 focus:bg-neutral-100 focus:text-primary-600`}
+                                                >
+                                                    {child}
+                                                </small>
+                                            </p>
+                                        </div>
+                                        
+                                    }
+                                    </>
                                 )
                             })}
                         </div>

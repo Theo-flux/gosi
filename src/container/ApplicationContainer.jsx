@@ -75,7 +75,9 @@ function ApplicationContainer({
 
           {
             showChart && 
-            <div onClick={() => handleShowchart()} className={`${showChart ? "left-0" : "left-[-400px]"} transition-all duration-200 absolute top-0 w-full h-[100vh] z-[403] md:hidden`}>
+            <div onClick={() => {
+              handleShowchart()
+              }} className={`${showChart ? "left-0" : "left-[-400px]"} transition-all duration-200 absolute top-0 w-full h-[100vh] z-[403] md:hidden`}>
 
             </div>
           }
