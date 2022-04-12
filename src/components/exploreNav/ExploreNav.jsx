@@ -65,7 +65,7 @@ const DataStyle = ({
                                     <>
                                     {
                                         isMobile ? 
-                                        <div className="border-l border-b w-[100px] border-[#989CA5]">
+                                        <div key={index} className="border-l border-b w-[100px] border-[#989CA5]">
                                             <p className="bg-neutral-50 relative mx-4 top-[25px] w-[180px] left-0 mb-2">
                                                 <small 
                                                     onClick={() => {
@@ -80,7 +80,7 @@ const DataStyle = ({
                                             </p>
                                         </div> 
                                         :
-                                        <div className="border-l border-b w-[100px] border-[#989CA5]">
+                                        <div key={index} className="border-l border-b w-[100px] border-[#989CA5]">
                                             <p className="bg-neutral-50 relative mx-4 top-[25px] w-[180px] left-0 mb-2">
                                                 <small 
                                                     onClick={() => {

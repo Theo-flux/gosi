@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
-import {App} from "../../context/applicationContext";
-import {DataCardsContainer} from "../../shared/";
-import {BarGraph, Pie} from "../charts/";
+import {App} from "../../../context/applicationContext";
+import {DataCardsContainer, Pods} from "../../../shared";
+import {BarGraph, Pie} from "../../charts";
 
 function Election(){
     const {chartType, showChartOptions, handleChartType, handleChartoptions} = useContext(App);
@@ -9,15 +9,8 @@ function Election(){
     return (
         <DataCardsContainer>
             <div className="hidden lg:flex justify-between items-center w-[85%]">
-                <div className="bg-primary-100 text-primary-900 p-4 rounded-md">
-                    <p className="text-2xl font-bold">192,190</p>
-                    <small className="text-xs font-medium">Number of Registered Voters</small>    
-                </div>
-
-                <div className="bg-primary-100 text-primary-900 p-4 rounded-md">
-                    <p className="text-2xl font-bold">69.7%</p>
-                    <small className="text-xs font-medium">% of Registered Voters who cast their vote</small>
-                </div>
+                <Pods data="192,190" text="Number of Registered Voters"/>
+                <Pods data="69.7%" text="% of Registered Voters who cast their vote"/>
             </div>
 
             <div className="pt-1 md:pt-4 flex justify-between items-center mb-2">

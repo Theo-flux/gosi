@@ -2,7 +2,7 @@ import React from 'react'
 
 function DataCardsContainer({children}) {
   return (
-    <div className="pt-2 mdpt-8 overflow-y-hidden h-[477px]">
+    <div className="pt-2 md:pt-8 overflow-y-hidden h-[477px]">
         {children}
     </div>
   )
