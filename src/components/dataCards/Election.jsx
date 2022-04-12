@@ -1,12 +1,13 @@
 import React, {useContext} from "react";
 import {App} from "../../context/applicationContext";
+import {DataCardsContainer} from "../../shared/";
 import {BarGraph, Pie} from "../charts/";
 
 function Election(){
     const {chartType, showChartOptions, handleChartType, handleChartoptions} = useContext(App);
 
     return (
-        <div className="pt-2 mdpt-8 overflow-y-hidden h-[477px]">
+        <DataCardsContainer>
             <div className="hidden lg:flex justify-between items-center w-[85%]">
                 <div className="bg-primary-100 text-primary-900 p-4 rounded-md">
                     <p className="text-2xl font-bold">192,190</p>
@@ -42,7 +43,7 @@ function Election(){
                 }
             </div>
             
-        </div>
+        </DataCardsContainer>
     )
 }
 
