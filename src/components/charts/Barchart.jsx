@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Charts from "react-apexcharts";
 
-function BarGraph({className}){
+function BarGraph({className, data}){
     const [barData, setBarData] = useState({
         series: [{
             data: [1200,400, 430, 448, 470, 540, 580, 690, 1100]
