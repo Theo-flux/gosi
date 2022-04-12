@@ -1,4 +1,4 @@
-import {useState, useContext, useEffect} from "react";
+import {useState, useContext} from "react";
 import {Link, NavLink} from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import { Hyperlink } from "../../shared";
@@ -10,17 +10,23 @@ import {App} from "../../context/applicationContext";
 import ExtrasOnMobile from "../../container/ExtrasOnMobile";
 
 
-const DataStyle = ({item, index, openChild, handleChild, showChart, handleShowchart, graphData, setShowChart, handleActiveSidebar}) => {
+const DataStyle = ({
+    item, 
+    index, 
+    openChild, 
+    handleChild, 
+    openGrandChild,
+    handleGrandChild,
+    showChart, 
+    handleShowchart, 
+    graphData, 
+    setShowChart, 
+    handleActiveSidebar,
+    handlePresentSidebarData
+}) =>{
+
     const {parent, icon, children} = item;
-    const [openGrandChild, setGrandChild] = useState(false);
     const isMobile = useMediaQuery({ maxWidth: 767 });
-    
-    function handleGrandChild(arg){
-        if(openGrandChild === arg){
-            return setGrandChild(arg)
-        }
-        setGrandChild(arg)
-    }
 
     function handleSidebarShowChart(arg){
         if(openChild === index){
@@ -33,8 +39,9 @@ const DataStyle = ({item, index, openChild, handleChild, showChart, handleShowch
         <div className={`mb-2 font-gilmer`}>
             <div 
                 onClick={() => {
-                    handleSidebarShowChart(index)
+                    handleSidebarShowChart(index);
                     handleChild(index);
+                    handlePresentSidebarData(parent, children);
                 }} 
                 className={`${openChild === index && "bg-primary-100 border-r border-primary-600"} cursor-pointer py-2 px-8 flex justify-between items-center hover:bg-primary-100 hover:border-r hover:border-primary-600 active:bg-primary-100 active:border-r active:border-primary-600 focus:bg-primary-100 focus:border-r focus:border-primary-600`}>
                 <div className={`flex justify-between items-center`}>
@@ -79,9 +86,8 @@ const DataStyle = ({item, index, openChild, handleChild, showChart, handleShowch
                                                     onClick={() => {
                                                         handleActiveSidebar(`${parent} / ${child}`);
                                                         handleGrandChild(index);
-                                                        handleShowchart()
                                                     }} 
-                                                    className={`cursor-pointer text-xs rounded-md py-2 px-4 flex w-[190px] ${openGrandChild === index ? "bg-neutral-100 text-primary-600" : "text-neutral-400 "} hover:bg-neutral-100 hover:text-primary-600 active:bg-neutral-100 active:text-primary-600 focus:bg-neutral-100 focus:text-primary-600`}
+                                                    className={`cursor-pointer text-xs rounded-md py-2 px-4 flex w-[190px] ${openGrandChild === index ? "bg-neutral-100 text-primary-600" : "text-neutral-400 "} hover:bg-neutral-100 hover:text-primary-600`}
                                                 >
                                                     {child}
                                                 </small>
@@ -110,7 +116,11 @@ function  ExploreNav({className, handleShowchart, slug, slug2}) {
         handleActiveSidebar,
         openChild,
         setChild,
-        handleChild
+        handleChild,
+        openGrandChild,
+        setGrandChild,
+        handleGrandChild,
+        handlePresentSidebarData
     } = useContext(App);
     
 
@@ -185,6 +195,9 @@ function  ExploreNav({className, handleShowchart, slug, slug2}) {
                                         handleShowchart={handleShowchart} 
                                         handleChild={handleChild} 
                                         openChild={openChild}
+                                        openGrandChild={openGrandChild}
+                                        handleGrandChild={handleGrandChild}
+                                        handlePresentSidebarData={handlePresentSidebarData}
                                     />
                                 );
                             })

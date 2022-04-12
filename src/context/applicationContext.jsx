@@ -9,6 +9,8 @@ function ApplicationProvider({children}){
     const [showChartOptions, setChartOptions] = useState(false);
     const [chartType, setChartType] = useState("bar");
     const [openChild, setChild] = useState(false);
+    const [openGrandChild, setGrandChild] = useState(false);
+    const [presentSidebarData, setPresentSidebarData] = useState("");
     
 
     function handleSidebar(){
@@ -43,6 +45,20 @@ function ApplicationProvider({children}){
         setChild(arg)
     }
 
+    function handleGrandChild(arg){
+        if(openGrandChild === arg){
+            return setGrandChild(arg)
+        }
+        setGrandChild(arg)
+    }
+
+    function handlePresentSidebarData(parent, children){
+        setPresentSidebarData(parent);
+        setActiveSidebar(`${parent} / ${children[0]}`);
+        setGrandChild(0);
+    }
+
+
     return(
         <App.Provider value={{
             showSidebar: showSidebar, 
@@ -69,7 +85,15 @@ function ApplicationProvider({children}){
 
             openChild: openChild,
             setChild: setChild,
-            handleChild: handleChild
+            handleChild: handleChild,
+
+            openGrandChild: openGrandChild,
+            setGrandChild: setGrandChild,
+            handleGrandChild: handleGrandChild,
+
+            presentSidebarData: presentSidebarData,
+            setPresentSidebarData: setPresentSidebarData,
+            handlePresentSidebarData: handlePresentSidebarData,
         }}>
             {children}
         </App.Provider>

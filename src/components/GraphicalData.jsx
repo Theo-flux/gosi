@@ -1,8 +1,10 @@
 
-import React, { useState } from "react";
-import Election from "./dataCards/Election";
+import React, { useContext } from "react";
+import {App} from "../context/applicationContext";
+import {Election, Demography, Education, Household, Service, Children, Economics} from "./dataCards";
 
 function GraphicalData({className, activeSidebar}){
+    const {presentSidebarData} = useContext(App);
 
     return(
         <div className={`${className} border-t border-t-[#EAEAEA]  px-4 pt-4 w-[320px] lg:w-[620px] font-gilmer`}>
@@ -16,8 +18,33 @@ function GraphicalData({className, activeSidebar}){
                 </div>
             </div>
 
-            <Election/>
+            {
+                presentSidebarData === "Election" && <Election/>
+            }
 
+            {
+               presentSidebarData === "Demography" && <Demography/> 
+            }
+
+            {
+               presentSidebarData === "Economics" && <Economics/> 
+            }
+
+            {
+               presentSidebarData === "Service Delivery" && <Service/> 
+            }
+
+            {
+               presentSidebarData === "Education" && <Education/> 
+            }
+
+            {
+               presentSidebarData === "Household" && <Household/> 
+            }
+
+            {
+               presentSidebarData === "Children" && <Children/> 
+            }
         </div>
     );
 }
