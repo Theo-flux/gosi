@@ -1,7 +1,9 @@
 import React, {useContext, useEffect} from "react";
 import {App} from "../../../context/applicationContext";
-import { BarGraph, Pie } from "../../charts";
-import { DataCardsContainer, Pods } from "../../../shared";
+import { DataCardsContainer } from "../../../shared";
+import Age from "./Age";
+import Population from "./Population";
+import Language from "./Language";
 
 function Demography() {
   const {graphData, openGrandChild} = useContext(App);
@@ -17,33 +19,46 @@ function Demography() {
     language:data?.most_spoken_language,
     population:data?.total_population,
     age_range: data?.population_by_age_range,
-    pop_by_lang: data?.population_by_language_most_spoken
+    pop_by_lang: data?.population_by_language_most_spoken,
+    pop_by_age_range: data?.population_by_age_range,
+    pop_by_age_category:data?.population_by_age_category
   }
 
-  const {median_age, average_age, language, population, pop_by_lang} = DemographicData;
+  const {
+    median_age, 
+    average_age, 
+    language, 
+    population, 
+    pop_by_lang,
+    pop_by_age_category,
+    pop_by_age_range
+  } = DemographicData;
   return (
     <DataCardsContainer>
-      <div className="grid grid-cols-2 gap-2 lg:grid-cols-3 gap-4">
-
         {
-          openGrandChild === 0 &&
-          <>
-            <Pods data={average_age} text="average age"/>
-            <Pods data={median_age} text="median age" />
-          </>
-        } 
-
-        {
-          openGrandChild === 1 && <Pods data={population?.toLocaleString()} text="population" />
+          openGrandChild === 0 && 
+          <Age 
+            median_age={median_age} 
+            average_age={average_age}
+            pop_by_age_category={pop_by_age_category}
+            pop_by_age_range={pop_by_age_range}
+          />
         }
 
         {
-          openGrandChild === 2 && <Pods data={language} text="most spoken language" />
+          openGrandChild === 1 && 
+          <Population 
+            population={population}
+          />
         }
-        
-        
-      </div>
-      
+
+        {
+          openGrandChild === 2 && 
+          <Language 
+            language={language} 
+            pop_by_lang={pop_by_lang}
+          />
+        }
     </DataCardsContainer>
   )
 }
