@@ -6,7 +6,7 @@ const Hyperlink = ({children, to, className, activeClassName}) => {
         <NavLink 
             to = {to}
             className={`text-sm text-neutral-400 font-medium transition-all duration-75 hover:text-primary-600 focus:text-primary-600 active:text-primary-600 ${className}`}
-            activeClassName = {activeClassName}
+            activeclassname = {activeClassName}
         >
             {children}
         </NavLink>

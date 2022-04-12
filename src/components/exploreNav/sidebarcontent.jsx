@@ -31,7 +31,12 @@ const data = [
         id: "2",
         parent: "Demography",
         icon: [demographyInctive, demographyActive],
-        children: ["Age", "Population", "Language", "Migration", "Citizenship"]
+        children: ["Age", "Population", "Language", "Migration", "Citizenship"],
+        // identifiers_for_children: {
+        //     age: ["population_by_age_range", "population_by_age_category"],
+            
+
+        // }
     },
 
     {
@@ -52,7 +57,13 @@ const data = [
         id: "5",
         parent: "Household",
         icon: [homeInactive, homeActive],
-        children: ["Houseolds", "Houseold Ownership", "Houseold Income", "House Goods"]
+        children: ["Houseolds", "Houseold Ownership", "Houseold Income", "House Goods"],
+        // identifiers_for_children: {
+        //     households: {
+        //         ownership:"households_by_ownership",
+                
+        //     }
+        // }
     },
 
     {

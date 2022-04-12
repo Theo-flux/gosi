@@ -21,7 +21,7 @@ function Application() {
     lga: "",
   }); // TODO:Theo this is the data here got Nigeria
 
-  console.log(CountryResult);
+  // console.log(CountryResult);
   // const [NigeriaData, setNigeriaData] = useState({});
 
   const [locationLevel, setLocationLevel] = useState(locationLevels.one); // available levels are country, state, lga
@@ -29,7 +29,7 @@ function Application() {
   // handle case nigeria, state and lga
   // const count = useSelector((state) => state.location.value);
   // const dispatch = useDispatch();
-  // console.log(slug, slug2);
+  console.log(slug, slug2);
 
   useEffect(() => {
     let isSubscribed = true;
@@ -53,14 +53,18 @@ function Application() {
     }
   }, [slug, slug2]);
 
+  
+
   return (
     <ApplicationProvider>
       <ApplicationContainer 
-      locationLevel={locationLevel}
-      countryResult={CountryResult}
-      stateResult={stateResult}
-      lgaResult={lgaResult}
-    />
+        locationLevel={locationLevel}
+        countryResult={CountryResult}
+        stateResult={stateResult}
+        lgaResult={lgaResult}
+        slug={slug}
+        slug2={slug2}
+      />
     </ApplicationProvider>
   );
 }

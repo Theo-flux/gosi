@@ -1,19 +1,49 @@
 import {useState, useContext} from "react";
+import {Link, NavLink} from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 import { Hyperlink } from "../../shared";
 import zoboLogo from "../../images/zobomap-icon.svg";
-import menu from "../../images/menu.svg";
 import downArrow from "../../images/explorenav/arrow-down.png";
 import upArrow from "../../images/explorenav/arrow-up.png";
 import {data, help, socials} from "./sidebarcontent";
 import {App} from "../../context/applicationContext";
+import ExtrasOnMobile from "../../container/ExtrasOnMobile";
 
 
-const DataStyle = ({item, index, openChild, handleChild}) => {
+const DataStyle = ({
+    item, 
+    index, 
+    openChild, 
+    handleChild, 
+    openGrandChild,
+    handleGrandChild,
+    showChart, 
+    handleShowchart, 
+    graphData, 
+    setShowChart, 
+    handleActiveSidebar,
+    handlePresentSidebarData
+}) =>{
+
     const {parent, icon, children} = item;
+    const isMobile = useMediaQuery({ maxWidth: 767 });
+
+    function handleSidebarShowChart(arg){
+        if(openChild === index){
+            return setShowChart(null)
+        }
+        setShowChart(true)
+    }
 
     return(
         <div className={`mb-2 font-gilmer`}>
-            <div onClick={() => handleChild(index)} className={`${openChild === index && "bg-primary-100 border-r border-primary-600"} cursor-pointer py-2 px-8 flex justify-between items-center hover:bg-primary-100 hover:border-r hover:border-primary-600 active:bg-primary-100 active:border-r active:border-primary-600 focus:bg-primary-100 focus:border-r focus:border-primary-600`}>
+            <div 
+                onClick={() => {
+                    handleSidebarShowChart(index);
+                    handleChild(index);
+                    handlePresentSidebarData(parent, children);
+                }} 
+                className={`${openChild === index && "bg-primary-100 border-r border-primary-600"} cursor-pointer py-2 px-8 flex justify-between items-center hover:bg-primary-100 hover:border-r hover:border-primary-600 active:bg-primary-100 active:border-r active:border-primary-600 focus:bg-primary-100 focus:border-r focus:border-primary-600`}>
                 <div className={`flex justify-between items-center`}>
                     <figure className="mr-2">
                         <img className="w-[100%]" src={openChild === index ? icon[1]:icon[0]} alt={`${parent}-icon`}/>
@@ -30,13 +60,42 @@ const DataStyle = ({item, index, openChild, handleChild}) => {
                 openChild === index && 
                     <div className={`w-full transition-all duration-300 ml-[2em] mb-4`}>
                         <div className={``}>
-                            {children.map((child) => {
+                            {children.map((child, index) => {
                                 return(
-                                    
-                                    <div className="border-l border-b w-[100px] border-[#989CA5]">
-                                        <p className="bg-neutral-50 relative mx-4 top-[25px] w-[180px] left-0 mb-2"><small className="cursor-pointer text-neutral-400 text-xs rounded-md py-2 px-4 flex w-[190px] hover:bg-neutral-100 hover:text-primary-600 active:bg-neutral-100 active:text-primary-600 focus:bg-neutral-100 focus:text-primary-600">{child}</small></p>
-                                    </div>
-                                    
+                                    <>
+                                    {
+                                        isMobile ? 
+                                        <div key={index} className="border-l border-b w-[100px] border-[#989CA5]">
+                                            <p className="bg-neutral-50 relative mx-4 top-[25px] w-[180px] left-0 mb-2">
+                                                <small 
+                                                    onClick={() => {
+                                                        handleActiveSidebar(`${parent} / ${child}`);
+                                                        handleGrandChild(index)
+                                                        handleShowchart()
+                                                    }} 
+                                                    className={`cursor-pointer text-xs rounded-md py-2 px-4 flex w-[190px] ${openGrandChild === index ? "bg-neutral-100 text-primary-600" : "text-neutral-400 "} hover:bg-neutral-100 hover:text-primary-600 active:bg-neutral-100 active:text-primary-600 focus:bg-neutral-100 focus:text-primary-600`}
+                                                >
+                                                    {child}
+                                                </small>
+                                            </p>
+                                        </div> 
+                                        :
+                                        <div key={index} className="border-l border-b w-[100px] border-[#989CA5]">
+                                            <p className="bg-neutral-50 relative mx-4 top-[25px] w-[180px] left-0 mb-2">
+                                                <small 
+                                                    onClick={() => {
+                                                        handleActiveSidebar(`${parent} / ${child}`);
+                                                        handleGrandChild(index);
+                                                    }} 
+                                                    className={`cursor-pointer text-xs rounded-md py-2 px-4 flex w-[190px] ${openGrandChild === index ? "bg-neutral-100 text-primary-600" : "text-neutral-400 "} hover:bg-neutral-100 hover:text-primary-600`}
+                                                >
+                                                    {child}
+                                                </small>
+                                            </p>
+                                        </div>
+                                        
+                                    }
+                                    </>
                                 )
                             })}
                         </div>
@@ -46,16 +105,24 @@ const DataStyle = ({item, index, openChild, handleChild}) => {
     );
 }
 
-function ExploreNav({className}) {
-    const {showSidebar, handleSidebar} = useContext(App);
-    const [openChild, setChild] = useState(false);
+function  ExploreNav({className, handleShowchart, slug, slug2}) {
+    const {
+        showSidebar, 
+        handleSidebar, 
+        graphData, 
+        handleGraphData, 
+        showChart,
+        setShowChart, 
+        handleActiveSidebar,
+        openChild,
+        setChild,
+        handleChild,
+        openGrandChild,
+        setGrandChild,
+        handleGrandChild,
+        handlePresentSidebarData
+    } = useContext(App);
     
-    function handleChild(arg){
-        if(openChild === arg){
-            return setChild(null)
-        }
-        setChild(arg)
-    }
 
     return (
         <section className={className}>
@@ -73,11 +140,11 @@ function ExploreNav({className}) {
                             Zobomap
                         </p>
                     </Hyperlink>
+                    <ExtrasOnMobile className=" md:hidden" />
 
                     <div className="hidden md:flex justify-between items-center md:w-[80%]">
-                        <span className="hidden lg:block">
+                        <span className="hidden lg:flex justify-between items-center">
                             {/* Breadcrumbs to be completed later */}
-                            <small className="text-primary-900 font-medium text-sm font-gilmer">Nigeria</small> 
                         </span>
                         <div className="lg:hidden"></div>
 
@@ -96,7 +163,7 @@ function ExploreNav({className}) {
 
                 
 
-                <aside className={`fixed z-[404] ${showSidebar ? "left-0" : "left-[-400px]"} transition-all duration-300 md:z-[402] top-0 md:left-0 bg-neutral-50 w-[260px] h-[100vh]`}>
+                <aside className={`fixed z-[404] ${showSidebar ? "left-0" : "left-[-400px]"} transition-all duration-300 md:z-[402] top-0 md:left-0 bg-neutral-50 w-[270px] md:w-[260px] h-[100vh]`}>
                     
                     <div className="py-[2.1em] md:p-4 border-b border-b-[#EAEAEA]">
                         <Hyperlink
@@ -117,7 +184,21 @@ function ExploreNav({className}) {
                         {
                             data.map((item, index) => {
                                 return(
-                                    <DataStyle handleChild={handleChild} openChild={openChild} key={item.id} index={index} item={item}/>
+                                    <DataStyle
+                                        key={item.id} 
+                                        index={index} 
+                                        item={item}
+                                        handleActiveSidebar={handleActiveSidebar} 
+                                        showChart={showChart}
+                                        setShowChart={setShowChart} 
+                                        graphData={graphData} 
+                                        handleShowchart={handleShowchart} 
+                                        handleChild={handleChild} 
+                                        openChild={openChild}
+                                        openGrandChild={openGrandChild}
+                                        handleGrandChild={handleGrandChild}
+                                        handlePresentSidebarData={handlePresentSidebarData}
+                                    />
                                 );
                             })
                         }
