@@ -40,8 +40,8 @@ function Application() {
       } else if (slug2) {
         setLocationLevel(locationLevels.three);
         getLgaData({
-          state: capitalizeFirstLetter(slug.split("-state")[0]),
-          lga: slug2.split("-lga")[0].toUpperCase(),
+          state: capitalizeFirstLetter(slug.split("-state")[0].replace("-"," ")),
+          lga: capitalizeFirstLetter(slug2.split("-lga")[0]),
         });
       } else {
         setLocationLevel(locationLevels.two);
