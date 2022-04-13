@@ -30,37 +30,16 @@ export default function TopoJSON(props) {
   function handleClick(e) {
     const locationData = e?.target?.feature?.properties;
     const { lat, lng } = e.latlng;
-    //TODO: Make your api calls here data from feature
-    //Todo: Add FCT exception
 
-    if (locationData.state) {
-      if (locationData.state.toLowerCase() === "Fct, Abuja".toLowerCase())
-        navigate({
-          pathname: `/profiles/${"Fct-Abuja"}`.toLowerCase(),
-          search: createSearchParams({
-            lng,
-            lat,
-          }).toString(),
-        });
-      else
-        navigate({
-          pathname: `/profiles/${encodeURIComponent(
-            locationData.state
-          )}${stateSuffix}`.toLowerCase(),
-          search: createSearchParams({
-            lng,
-            lat,
-          }).toString(),
-        });
-    } else if (locationData.NAME_0) {
+    if (locationData.admin2Name) { // check for LGA
       if (
-        locationData.NAME_1.toLowerCase() ===
+        locationData.admin1Name.toLowerCase() ===
         "Federal Capital Territory".toLowerCase()
       )
         navigate({
-          pathname: `/profiles/${"Fct-Abuja"}/${
-            locationData.NAME_2
-          }${lgaSuffix}`.toLowerCase(),
+          pathname: `/profiles/${"Federal Capital Territory"}/${
+            locationData.admin2Name
+          }${lgaSuffix}`,
           search: createSearchParams({
             lng,
             lat,
@@ -69,10 +48,32 @@ export default function TopoJSON(props) {
       else
         navigate({
           pathname: `/profiles/${encodeURIComponent(
-            locationData.NAME_1
+            locationData.admin1Name
           )}${stateSuffix}/${encodeURIComponent(
-            locationData.NAME_2
-          )}${lgaSuffix}`.toLowerCase(),
+            locationData.admin2Name
+          )}${lgaSuffix}`,
+          search: createSearchParams({
+            lng,
+            lat,
+          }).toString(),
+        });
+    } else if (locationData.admin1Name) { // Check for state
+      if (
+        locationData.admin1Name.toLowerCase() ===
+        "Federal Capital Territory".toLowerCase()
+      )
+        navigate({
+          pathname: `/profiles/${"Federal Capital Territory"}`,
+          search: createSearchParams({
+            lng,
+            lat,
+          }).toString(),
+        });
+      else
+        navigate({
+          pathname: `/profiles/${encodeURIComponent(
+            locationData.admin1Name
+          )}${stateSuffix}`,
           search: createSearchParams({
             lng,
             lat,
@@ -83,10 +84,12 @@ export default function TopoJSON(props) {
 
   function onEachFeatureCountry(feature, layer) {
     function handleHover(e, layer) {
-      const { state } = e?.target?.feature?.properties;
-      if (state.toLowerCase() === "Fct, Abuja".toLowerCase())
-        layer.bindPopup("Fct-Abuja").openPopup();
-      else layer.bindPopup(`${state} state`).openPopup(); // here add openPopup()
+      const { admin1Name } = e?.target?.feature?.properties;
+      if (
+        admin1Name.toLowerCase() === "Federal Capital Territory".toLowerCase()
+      )
+        layer.bindPopup("Federal Capital Territory").openPopup();
+      else layer.bindPopup(`${admin1Name} state`).openPopup(); // here add openPopup()
     }
 
     //bind click
@@ -99,10 +102,17 @@ export default function TopoJSON(props) {
   function onEachFeature(feature, layer) {
     function handleHover(e, layer) {
       // for LGA data
-      const { NAME_0, NAME_1, NAME_2 } = e?.target?.feature?.properties;
-      if (NAME_1.toLowerCase() === "Federal Capital Territory".toLowerCase())
-        layer.bindPopup(`${NAME_2}, Fct-Abuja, ${NAME_0}`).openPopup();
-      else layer.bindPopup(`${NAME_2}, ${NAME_1} state, ${NAME_0}`).openPopup(); // here add openPopup()
+      const { admin1Name, admin2Name } = e?.target?.feature?.properties;
+      if (
+        admin1Name.toLowerCase() === "Federal Capital Territory".toLowerCase()
+      )
+        layer
+          .bindPopup(`${admin2Name}, Federal Capital Territory, Nigeria`)
+          .openPopup();
+      else
+        layer
+          .bindPopup(`${admin2Name}, ${admin1Name} state, Nigeria`)
+          .openPopup(); // here add openPopup()
     }
     //bind click
     layer.on({

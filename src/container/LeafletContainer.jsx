@@ -9,7 +9,7 @@ import {
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import TopoJSON from "../components/TopoJSON";
-import nigeriaStatesTopoJSON from "../data/nigeria-states-topo.json";
+import nigeriaStatesTopoJSON from "../data/nigeria_state_boundaries.topo.json";
 import nigeriaLgaTopoJSON from "../data/nigeria-lga-topo.json";
 
 // we will change to this next week -----------------------------------------------------
@@ -36,9 +36,9 @@ export default function LeafletContainer({ locationLevel }) {
 
   const [statesLGA, setStatesLGA] = useState(null);
 
-  getJSONFile(slug === "fct-abuja" ? "Federal_Capital_Territory" : state).then(
-    (file) => setStatesLGA(file)
-  );
+  getJSONFile(
+    slug === "Federal Capital Territory" ? "Federal_Capital_Territory" : state
+  ).then((file) => setStatesLGA(file));
 
   return (
     <>

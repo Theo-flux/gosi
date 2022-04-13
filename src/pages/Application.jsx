@@ -27,9 +27,6 @@ function Application() {
   const [locationLevel, setLocationLevel] = useState(locationLevels.one); // available levels are country, state, lga
   const { slug, slug2 } = useParams();
   // handle case nigeria, state and lga
-  // const count = useSelector((state) => state.location.value);
-  // const dispatch = useDispatch();
-  console.log(slug, slug2);
 
   useEffect(() => {
     let isSubscribed = true;
@@ -40,8 +37,8 @@ function Application() {
       } else if (slug2) {
         setLocationLevel(locationLevels.three);
         getLgaData({
-          state: capitalizeFirstLetter(slug.split("-state")[0]),
-          lga: slug2.split("-lga")[0].toUpperCase(),
+          state: capitalizeFirstLetter(slug.split("-state")[0].replace("-"," ")),
+          lga: capitalizeFirstLetter(slug2.split("-lga")[0]),
         });
       } else {
         setLocationLevel(locationLevels.two);
