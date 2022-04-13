@@ -4,7 +4,7 @@ import Charts from "react-apexcharts";
 function BarGraph({className, data}){
     const [barData, setBarData] = useState({
         series: [{
-            data: [1200,400, 430, 448, 470, 540, 580, 690, 1100]
+            data: Object.values(data)
         }],
 
         options: {
@@ -21,12 +21,7 @@ function BarGraph({className, data}){
                 enabled: false
             },
             xaxis: {
-                categories: [
-                    'AA', 'AAC', 
-                    'APC', 'SDP', 
-                    'NNDP', 'NPC', 
-                    'YPC', 'APGA', 'Others'
-                ],
+                categories: Object.values(data)
             },
             fill: {
                 colors: ["#0B6CD6"]

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import {App} from "../../../context/applicationContext";
 import ChartOptions from "../../ChartOptions";
 import { Pods } from "../../../shared";
@@ -10,38 +10,79 @@ function Age({
     pop_by_age_category, 
     pop_by_age_range
 }) {
-    const {chartType} = useContext(App);
-    const [ageType, setAgeType] = useState("Age by range")
-    const [ageOptions, setAgeOptions] = useState(false)
+    
+    const [showAgeCategoryChartOptions, setShowAgeCategoryChartOptions] = useState(false);
+    const [ageCategoryChartType, setAgeCategoryChartType] = useState("bar");
 
-    function handleAgeType(arg){
-        setAgeOptions(!ageOptions);
-        setAgeType(arg)
+    const [showAgeRangeChartOptions, setShowAgeRangeChartOptions] = useState(false);
+    const [ageRangeChartType, setAgeRangeChartType] = useState("bar");
+
+    function handleAgeCategoryChartoptions(){
+        setShowAgeCategoryChartOptions(!showAgeCategoryChartOptions);
+    }
+
+    function handleAgeCategoryChartType(type){
+        setShowAgeCategoryChartOptions(!showAgeCategoryChartOptions);
+        setAgeCategoryChartType(type);
+    }
+
+    function handleAgeRangeChartoptions(){
+        setShowAgeRangeChartOptions(!showAgeRangeChartOptions);
+    }
+
+    function handleAgeRangeChartType(type){
+        setShowAgeRangeChartOptions(!showAgeRangeChartOptions);
+        setAgeRangeChartType(type);
     }
 
     return (
         <>
-            <div className="grid grid-cols-2 gap-2 lg:grid-cols-3 gap-4">
+            <div className="pb-4 border-b border-dashed border-neutral-400 grid grid-cols-2 gap-2 lg:grid-cols-3 gap-4">
                 <Pods data={average_age} text="average age"/>
                 <Pods data={median_age} text="median age" />
             </div>
 
-            <div>
-                <div onClick={() => setAgeOptions(!ageOptions) } className="pt-1 md:pt-4 flex justify-between items-center mb-2">
-                    <p className="text-sm md:text-md font-bold">{ageType}</p>
+            <div className="pt-4">
+                <div className="md:flex justify-between items-center mb-2">
+                    <p className="text-sm md:text-md font-bold">Age by range</p>
                     <i className="text-2xl ri-arrow-down-s-fill"></i>
                 </div>
 
-               { 
-                    ageOptions &&
-                        <div className="rounded overflow-hidden drop-shadow-xl flex z-[405] bg-white flex-col absolute left-0 w-full">
-                            <span onClick={() => handleAgeType("Age by range")} className="px-4 py-2 cursor-pointer text-xs font-bold text-neutral-400 hover:bg-primary-100 hover:text-primary-900"><p>Age by range</p></span>
-                            <span onClick={() => handleAgeType("Age by category")} className="px-4 py-2 cursor-pointer text-xs font-bold text-neutral-400 hover:bg-primary-100 hover:text-primary-900"><p>Age by category</p></span>
-                        </div>
+                <ChartOptions
+                    chartOption={showAgeRangeChartOptions}
+                    chartOptionFunction={handleAgeRangeChartoptions}
+                    chartTypeFunction={handleAgeRangeChartType}
+                />
+
+                {
+                    ageRangeChartType == "bar" ? 
+                        <BarGraph data={pop_by_age_range}/> 
+                        : 
+                        <Pie data={pop_by_age_range}/>
+                }
+            </div>
+
+            <div className="pt-4">
+                <div className="md:flex justify-between items-center mb-2">
+                    <p className="text-sm md:text-md font-bold">Age by category</p>
+                    <i className="text-2xl ri-arrow-down-s-fill"></i>
+                </div>
+
+                <ChartOptions
+                    chartOption={showAgeCategoryChartOptions}
+                    chartOptionFunction={handleAgeCategoryChartoptions}
+                    chartTypeFunction={handleAgeCategoryChartType}
+                />
+
+                {
+                    ageCategoryChartType == "bar" ? 
+                        <BarGraph data={pop_by_age_category}/> 
+                        : 
+                        <Pie data={pop_by_age_category}/>
                 }
             </div>
             
-            <ChartOptions/>
+            
 
 
         </>
