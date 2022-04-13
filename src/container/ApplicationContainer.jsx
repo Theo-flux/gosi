@@ -67,7 +67,8 @@ function ApplicationContainer({
           {
             showChart && 
               <GraphicalData
-                activeSidebar={activeSidebar} 
+                handleShowchart={handleShowchart}
+                activeSidebar={activeSidebar}
                 className={`absolute h-[calc(100%-67px)] z-[404] bg-white top-[67px] md:z-[404] 
                 ${showChart ? "left-0 md:left-[260px]" :"md:left-[-300px]"} transition-all duration-300`}
               />      
