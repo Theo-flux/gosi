@@ -27,9 +27,6 @@ function Application() {
   const [locationLevel, setLocationLevel] = useState(locationLevels.one); // available levels are country, state, lga
   const { slug, slug2 } = useParams();
   // handle case nigeria, state and lga
-  // const count = useSelector((state) => state.location.value);
-  // const dispatch = useDispatch();
-  console.log(slug, slug2);
 
   useEffect(() => {
     let isSubscribed = true;

@@ -31,7 +31,6 @@ export default function TopoJSON(props) {
     const locationData = e?.target?.feature?.properties;
     const { lat, lng } = e.latlng;
 
-    console.log(locationData);
     if (locationData.admin2Name) { // check for LGA
       if (
         locationData.admin1Name.toLowerCase() ===
