@@ -7,7 +7,10 @@ function GraphicalData({className, activeSidebar}){
     const {presentSidebarData} = useContext(App);
 
     return(
-        <div className={`${className} border-t border-t-[#EAEAEA]  px-4 pt-4 w-[320px] lg:w-[620px] font-gilmer`}>
+        <div className={`${className} border-t border-t-[#EAEAEA]  px-4 pt-4 w-full lg:w-[620px] font-gilmer`}>
+            <div className="md:hidden">
+                cancel
+            </div>
             
             <div className="py-4 flex justify-between items-center border-b border-dashed border-neutral-400">
                 <span className="text-sm w-[100px] md:w-full">{activeSidebar}</span>
