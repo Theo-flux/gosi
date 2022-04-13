@@ -11,7 +11,7 @@ function Demography() {
 
   useEffect(() => {
     data = graphData.data?.[0]
-  }, graphData)
+  }, [graphData])
 
   const DemographicData = {
     median_age: data?.median_age,

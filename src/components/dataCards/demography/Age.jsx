@@ -1,7 +1,6 @@
-import React, { useState, useContext, useEffect } from "react";
-import {App} from "../../../context/applicationContext";
+import React, { useState } from "react";
 import ChartOptions from "../../ChartOptions";
-import { Pods } from "../../../shared";
+import { GraphTitle, PodGrid, Pods, Topspacing } from "../../../shared";
 import { BarGraph, Pie } from "../../charts";
 
 function Age({
@@ -37,16 +36,13 @@ function Age({
 
     return (
         <>
-            <div className="pb-4 border-b border-dashed border-neutral-400 grid grid-cols-2 gap-2 lg:grid-cols-3 gap-4">
+            <PodGrid>
                 <Pods data={average_age} text="average age"/>
                 <Pods data={median_age} text="median age" />
-            </div>
+            </PodGrid>
 
-            <div className="pt-4">
-                <div className="md:flex justify-between items-center mb-2">
-                    <p className="text-sm md:text-md font-bold">Age by range</p>
-                    <i className="text-2xl ri-arrow-down-s-fill"></i>
-                </div>
+            <Topspacing>
+                <GraphTitle title="Age by range"/>
 
                 <ChartOptions
                     chartOption={showAgeRangeChartOptions}
@@ -60,13 +56,10 @@ function Age({
                         : 
                         <Pie data={pop_by_age_range}/>
                 }
-            </div>
+            </Topspacing>
 
-            <div className="pt-4">
-                <div className="md:flex justify-between items-center mb-2">
-                    <p className="text-sm md:text-md font-bold">Age by category</p>
-                    <i className="text-2xl ri-arrow-down-s-fill"></i>
-                </div>
+            <Topspacing>
+                <GraphTitle title="Age by category"/>
 
                 <ChartOptions
                     chartOption={showAgeCategoryChartOptions}
@@ -80,13 +73,9 @@ function Age({
                         : 
                         <Pie data={pop_by_age_category}/>
                 }
-            </div>
-            
-            
-
-
+            </Topspacing>
         </>
     )
 }
 
-export default Age;
+export default Age

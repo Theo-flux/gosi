@@ -10,7 +10,8 @@ import {App} from "../../context/applicationContext";
 import ExtrasOnMobile from "../../container/ExtrasOnMobile";
 
 
-const DataStyle = ({
+function DataStyle({
+     
     item, 
     index, 
     openChild, 
@@ -23,7 +24,7 @@ const DataStyle = ({
     setShowChart, 
     handleActiveSidebar,
     handlePresentSidebarData
-}) =>{
+}){
 
     const {parent, icon, children} = item;
     const isMobile = useMediaQuery({ maxWidth: 767 });

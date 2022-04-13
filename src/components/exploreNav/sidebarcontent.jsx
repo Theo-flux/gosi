@@ -77,7 +77,7 @@ const data = [
         id: "7",
         parent: "Children",
         icon: [childrenInactive, childrenActive],
-        children: ["Child Population", "Parents", "School Attendance", "Employment of 15-17 years"]
+        children: ["Child Population", "School Attendance"]
     }
 ]
 

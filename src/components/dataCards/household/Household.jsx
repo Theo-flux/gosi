@@ -1,34 +1,56 @@
 import React, {useContext, useEffect} from "react";
 import {App} from "../../../context/applicationContext";
 import { DataCardsContainer, Pods } from "../../../shared";
+import HouseholdInner from "./HouseholdInner";
+import Ownership from "./Ownership";
 
 
 function Household() {
-  const {graphData} = useContext(App);
+  const {graphData, openGrandChild} = useContext(App);
   let data = graphData.data?.[0];
 
   useEffect(() => {
     data = graphData.data?.[0]
-  }, graphData)
+  }, [graphData])
 
   const HouseholdData = {
     number_of_households: data?.number_of_hoseholds, 
     fully_owned: data?.percent_households_fully_owned,
     with_woman_head: data?.percent_households_with_woman_head,
-    heads_under_18: data?.households_with_heads_under_18
+    heads_under_18: data?.households_with_heads_under_18,
+    type_of_dwelling: data?.households_by_type_of_dwelling,
+    by_ownership: data?.households_by_ownership
   }
 
-  const { number_of_households, fully_owned, with_woman_head, heads_under_18 } = HouseholdData;
-  // console.log(graphData.data?.[0].number_of_hoseholds);
+  const { 
+    number_of_households, 
+    fully_owned,
+    with_woman_head,
+    heads_under_18,
+    type_of_dwelling,
+    by_ownership
+  } = HouseholdData;
+
 
   return (
     <DataCardsContainer>
-      <div className="grid grid-cols-2 gap-2 lg:grid-cols-3 gap-4">
-          <Pods data={number_of_households?.toLocaleString()} text="number of households"/>
-          <Pods data={`${fully_owned}%`} text="% fully owned"/>
-          <Pods data={`${with_woman_head}%`} text="% with woman head"/>
-          <Pods data={`${heads_under_18?.toLocaleString()}`} text="heads under 18"/>
-      </div>
+      {
+        openGrandChild == 0 &&
+          <HouseholdInner
+            number_of_households={number_of_households}
+            with_woman_head={with_woman_head}
+            heads_under_18={heads_under_18}
+            type_of_dwelling={type_of_dwelling}
+          />
+      }
+
+      {
+        openGrandChild == 1 &&
+          <Ownership
+            fully_owned={fully_owned}
+            by_ownership={by_ownership}
+          />
+      }
     </DataCardsContainer>
   )
 }
