@@ -1,0 +1,224 @@
+[
+  {
+    "label": "Abia",
+    "value": "Abia",
+    "lng": 7.386810307000076,
+    "lat": 6.036674993000076
+  },
+  {
+    "label": "Adamawa",
+    "value": "Adamawa",
+    "lng": 13.621289244000025,
+    "lat": 10.948234284000023
+  },
+  {
+    "label": "Akwa Ibom",
+    "value": "Akwa Ibom",
+    "lng": 8.344815101000052,
+    "lat": 4.611400596000067
+  },
+  {
+    "label": "Anambra",
+    "value": "Anambra",
+    "lng": 6.932539394000059,
+    "lat": 6.71089829400006
+  },
+  {
+    "label": "Bauchi",
+    "value": "Bauchi",
+    "lng": 10.75125057200006,
+    "lat": 12.461476795000067
+  },
+  {
+    "label": "Bayelsa",
+    "value": "Bayelsa",
+    "lng": 6.552827764000028,
+    "lat": 5.379875148000053
+  },
+  {
+    "label": "Benue",
+    "value": "Benue",
+    "lng": 8.524424769000063,
+    "lat": 8.157265553000059
+  },
+  {
+    "label": "Borno",
+    "value": "Borno",
+    "lng": 13.35885273200006,
+    "lat": 13.71260630200004
+  },
+  {
+    "label": "Cross River",
+    "value": "Cross River",
+    "lng": 8.560679695000033,
+    "lat": 4.798473349000062
+  },
+  {
+    "label": "Delta",
+    "value": "Delta",
+    "lng": 6.668921030000035,
+    "lat": 6.501234142000044
+  },
+  {
+    "label": "Ebonyi",
+    "value": "Ebonyi",
+    "lng": 8.244310478000045,
+    "lat": 6.785595055000044
+  },
+  {
+    "label": "Edo",
+    "value": "Edo",
+    "lng": 6.133570740000039,
+    "lat": 7.552076860000057
+  },
+  {
+    "label": "Ekiti",
+    "value": "Ekiti",
+    "lng": 5.505934631000059,
+    "lat": 8.018686365000065
+  },
+  {
+    "label": "Enugu",
+    "value": "Enugu",
+    "lng": 7.545361043000071,
+    "lat": 7.001251711000066
+  },
+  {
+    "label": "Federal Capital Territory",
+    "value": "Federal Capital Territory",
+    "lng": 7.672389156000065,
+    "lat": 9.411277552000058
+  },
+  {
+    "label": "Gombe",
+    "value": "Gombe",
+    "lng": 11.071490203000053,
+    "lat": 11.312490421000064
+  },
+  {
+    "label": "Imo",
+    "value": "Imo",
+    "lng": 7.265750939000043,
+    "lat": 5.930810153000039
+  },
+  {
+    "label": "Jigawa",
+    "value": "Jigawa",
+    "lng": 10.230024591000074,
+    "lat": 13.010598929000025
+  },
+  {
+    "label": "Kaduna",
+    "value": "Kaduna",
+    "lng": 8.169531326000026,
+    "lat": 11.487270111000043
+  },
+  {
+    "label": "Kano",
+    "value": "Kano",
+    "lng": 8.305280595000056,
+    "lat": 12.588029935000066
+  },
+  {
+    "label": "Katsina",
+    "value": "Katsina",
+    "lng": 7.818018262000066,
+    "lat": 13.330421332000071
+  },
+  {
+    "label": "Kebbi",
+    "value": "Kebbi",
+    "lng": 4.25354724400006,
+    "lat": 13.260446413000068
+  },
+  {
+    "label": "Kogi",
+    "value": "Kogi",
+    "lng": 6.512696821000077,
+    "lat": 8.398669299000062
+  },
+  {
+    "label": "Kwara",
+    "value": "Kwara",
+    "lng": 3.730682397000066,
+    "lat": 10.068287141000042
+  },
+  {
+    "label": "Lagos",
+    "value": "Lagos",
+    "lng": 3.323865431000058,
+    "lat": 6.673875677000069
+  },
+  {
+    "label": "Nasarawa",
+    "value": "Nasarawa",
+    "lng": 7.997314929000026,
+    "lat": 9.314358511000023
+  },
+  {
+    "label": "Niger",
+    "value": "Niger",
+    "lng": 4.929941648000067,
+    "lat": 11.357232151000062
+  },
+  {
+    "label": "Ogun",
+    "value": "Ogun",
+    "lng": 2.846128470000053,
+    "lat": 7.929880232000073
+  },
+  {
+    "label": "Ondo",
+    "value": "Ondo",
+    "lng": 5.926039584000023,
+    "lat": 7.731815454000071
+  },
+  {
+    "label": "Osun",
+    "value": "Osun",
+    "lng": 4.949749934000067,
+    "lat": 8.05547610800005
+  },
+  {
+    "label": "Oyo",
+    "value": "Oyo",
+    "lng": 4.21046018800007,
+    "lat": 8.970032953000043
+  },
+  {
+    "label": "Plateau",
+    "value": "Plateau",
+    "lng": 8.793389218000073,
+    "lat": 10.384650132000047
+  },
+  {
+    "label": "Rivers",
+    "value": "Rivers",
+    "lng": 6.643575156000054,
+    "lat": 5.701710124000044
+  },
+  {
+    "label": "Sokoto",
+    "value": "Sokoto",
+    "lng": 5.514638016000049,
+    "lat": 13.894419133000042
+  },
+  {
+    "label": "Taraba",
+    "value": "Taraba",
+    "lng": 10.838215826000066,
+    "lat": 9.618465269000069
+  },
+  {
+    "label": "Yobe",
+    "value": "Yobe",
+    "lng": 11.22181026900006,
+    "lat": 13.373996890000058
+  },
+  {
+    "label": "Zamfara",
+    "value": "Zamfara",
+    "lng": 6.848701061000043,
+    "lat": 13.082395727000062
+  }
+]
