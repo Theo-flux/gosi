@@ -37,9 +37,9 @@ function HouseholdInner({
     return(
         <>
             <PodGrid>
-                <Pods data={number_of_households?.toLocaleString()} text="number of households"/>
-                <Pods data={`${with_woman_head}%`} text="% with woman head"/>
-                <Pods data={`${heads_under_18?.toLocaleString()}`} text="heads under 18"/>
+                <Pods data={number_of_households?.toLocaleString() || `0`} text="number of households"/>
+                <Pods data={`${with_woman_head || `0`}%`} text="% with woman head"/>
+                <Pods data={heads_under_18?.toLocaleString() || `0`} text="heads under 18"/>
             </PodGrid>
 
 

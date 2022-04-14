@@ -109,11 +109,6 @@ const socials = [
     {
         id: "3",
         icon: "ri-instagram-fill",
-    },
-
-    {
-        id: "4",
-        icon: "ri-youtube-fill",
     }
 
 ]

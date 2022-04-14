@@ -44,7 +44,7 @@ function Children() {
         openGrandChild === 1 &&
         <School
           in_school={in_school}
-          school_attendance={school_attendance}
+          school_attendance={school_attendance || {}}
         />
       }
 

@@ -23,7 +23,7 @@ function Electricity({
     return(
         <>
             <PodGrid>
-                <Pods data={`${no_access_to_electricity}%`} text="have no access to electricity"/>
+                <Pods data={`${no_access_to_electricity || `0`}%`} text="have no access to electricity"/>
             </PodGrid>
 
 

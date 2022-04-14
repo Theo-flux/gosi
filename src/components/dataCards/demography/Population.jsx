@@ -7,7 +7,7 @@ function Population({population}) {
 
     return (
         <div className="grid grid-cols-2 gap-2 lg:grid-cols-3 gap-4">
-            <Pods data={population?.toLocaleString()} text="population" />
+            <Pods data={population?.toLocaleString() || `0`} text="population" />
         </div>
     )
 }

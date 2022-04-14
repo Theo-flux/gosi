@@ -24,9 +24,9 @@ function School({
     return(
         <>
             <PodGrid>
-                <Pods data={`${school_attendance["No"]?.toLocaleString()}`} text="not in school"/>
-                <Pods data={`${school_attendance["Yes"]?.toLocaleString()}`} text="in school"/>
-                <Pods data={`${in_school}%`} text="% in school"/>
+                <Pods data={`${school_attendance["No"]?.toLocaleString() || `0`}`} text="not in school"/>
+                <Pods data={`${school_attendance["Yes"]?.toLocaleString() || `0`}`} text="in school"/>
+                <Pods data={`${in_school || `0`}%`} text="% in school"/>
             </PodGrid>
 
             <Topspacing>

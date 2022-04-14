@@ -23,7 +23,7 @@ function Ownership({
     return (
         <>
             <PodGrid>
-                <Pods data={`${fully_owned}%`} text="% fully owned"/>
+                <Pods data={`${fully_owned || `0`}%`} text="% fully owned"/>
             </PodGrid>
 
             <Topspacing>

@@ -56,7 +56,7 @@ function Navbar() {
         {isDesktop && (
           <div className="flex w-[238px] justify-around items-center">
             <Hyperlink to="/about">About us</Hyperlink>
-            <Hyperlink to="/contact">Publication Hub</Hyperlink>
+            {/* <Hyperlink to="/contact">Publication Hub</Hyperlink> */}
           </div>
         )}
         <div className="flex justify-between items-center w-[175px] md:w-fit">
@@ -76,14 +76,14 @@ function Navbar() {
         <div
           ref={drawer}
           className="absolute z-40 top-0 left-[-100%] w-[65%] h-[100vh]  py-4 flex flex-col bg-neutral-50"
-          style={{boxShadow: '0px 1px 2px #999'}}
+          style={{boxShadow: '0px 1px 2px #999 ease-in-out'}}
         >
           <Hyperlink to="/about" className="w-full py-4 px-8 mb-4 mt-24">
             About us
           </Hyperlink>
-          <Hyperlink to="/contact" className="w-full py-4 px-8">
+          {/* <Hyperlink to="/contact" className="w-full py-4 px-8">
             Publication Hub
-          </Hyperlink>
+          </Hyperlink> */}
         </div>
       )}
     </section>

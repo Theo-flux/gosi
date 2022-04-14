@@ -24,8 +24,8 @@ function ToiletFacilities({
     return (
         <>
             <PodGrid>
-                <Pods data={`${chem_or_flush_toilet}%`} text="have access to chem or flush toilet"/>
-                <Pods data={`${no_access_to_toilet}%`} text="have no access to toilet"/>
+                <Pods data={`${chem_or_flush_toilet || `0`}%`} text="have access to chem or flush toilet"/>
+                <Pods data={`${no_access_to_toilet || `0`}%`} text="have no access to toilet"/>
             </PodGrid>
 
             <Topspacing>

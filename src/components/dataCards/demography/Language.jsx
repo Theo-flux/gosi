@@ -24,7 +24,7 @@ function Language({
     return (
         <>
             <PodGrid>
-                <Pods data={language} text="most spoken language" />
+                <Pods data={language || `language`} text="most spoken language" />
             </PodGrid>
 
             <Topspacing>
