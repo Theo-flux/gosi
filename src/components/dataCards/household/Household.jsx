@@ -1,6 +1,6 @@
 import React, {useContext, useEffect} from "react";
 import {App} from "../../../context/applicationContext";
-import { DataCardsContainer, Pods } from "../../../shared";
+import { DataCardsContainer } from "../../../shared";
 import HouseholdInner from "./HouseholdInner";
 import Ownership from "./Ownership";
 
