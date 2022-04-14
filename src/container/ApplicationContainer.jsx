@@ -60,7 +60,7 @@ function ApplicationContainer({
                 handleChild(null)
               }} 
               showChart={showChart}
-              className={`sm:hidden md:flex md:justify-center md:items-center md:absolute md:z-[405] md:bg-white drop-shadow-md md:w-[40px] md:h-[40px] ${showChart ? "md:left-[864px] md:top-[45px]" :"md:left-[245px] md:top-[45px]"} md:transition-all md:duration-75`}
+              className={`sm:hidden md:flex md:justify-center md:items-center md:absolute md:z-[405] md:bg-white drop-shadow-md md:w-[40px] md:h-[40px] ${showChart ? "md:left-[845px] md:top-[45px]" :"md:left-[240px] md:top-[45px]"} md:transition-all md:duration-300 md:ease-in-out`}
             />
           }
 
@@ -70,7 +70,7 @@ function ApplicationContainer({
                 handleShowchart={handleShowchart}
                 activeSidebar={activeSidebar}
                 className={`absolute h-[calc(100%-67px)] z-[404] bg-white top-[67px] md:z-[404] 
-                ${showChart ? "left-0 md:left-[260px]" :"md:left-[-300px]"} transition-all duration-300`}
+                ${showChart ? "left-0 md:left-[250px]" :"md:left-[-300px]"} transition-all duration-700 ease-in-out`}
               />      
           }
 

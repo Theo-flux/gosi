@@ -49,7 +49,7 @@ function DataStyle({
                     <figure className="mr-2">
                         <img className="w-[100%]" src={openChild === index ? icon[1]:icon[0]} alt={`${parent}-icon`}/>
                     </figure>
-                    <p className={`${openChild === index ? "text-primary-600" : "text-neutral-400"} text-sm font-medium`}>{parent}</p>
+                    <p className={`${openChild === index ? "text-primary-600" : "text-neutral-400"} text-xs font-medium md:text-xs`}>{parent}</p>
                 </div>
 
                 <figure>
@@ -164,7 +164,7 @@ function  ExploreNav({className, handleShowchart, slug, slug2}) {
 
                 
 
-                <aside className={`fixed z-[404] ${showSidebar ? "left-0" : "left-[-400px]"} transition-all duration-300 md:z-[402] top-0 md:left-0 bg-neutral-50 w-[270px] md:w-[260px] h-[100vh]`}>
+                <aside className={`fixed z-[404] ${showSidebar ? "left-0" : "left-[-400px]"} transition-all duration-300 ease-in-out md:z-[402] top-0 md:left-0 bg-neutral-50 w-[250px] md:w-[250px] h-full`}>
                     
                     <div className="py-[2.1em] md:p-4 border-b border-b-[#EAEAEA]">
                         <Hyperlink
@@ -181,53 +181,55 @@ function  ExploreNav({className, handleShowchart, slug, slug2}) {
                         </Hyperlink>
                     </div>
 
-                    <div className="overflow-x-hidden py-2 h-[65%]">
-                        {
-                            data.map((item, index) => {
-                                return(
-                                    <DataStyle
-                                        key={item.id} 
-                                        index={index} 
-                                        item={item}
-                                        handleActiveSidebar={handleActiveSidebar} 
-                                        showChart={showChart}
-                                        setShowChart={setShowChart} 
-                                        graphData={graphData} 
-                                        handleShowchart={handleShowchart} 
-                                        handleChild={handleChild} 
-                                        openChild={openChild}
-                                        openGrandChild={openGrandChild}
-                                        handleGrandChild={handleGrandChild}
-                                        handlePresentSidebarData={handlePresentSidebarData}
-                                    />
-                                );
-                            })
-                        }
-                    </div>
-
-                    <div className="px-8">
-                        <div className="border-t-[0.1px] border-[#EAEAEA] pt-4 px-2 mb-8">
+                    <div className="h-[calc(100vh-67px)]">
+                        <div className="overflow-x-hidden py-2 h-[75%]">
                             {
-                                help.map((el) => {
+                                data.map((item, index) => {
                                     return(
-                                        <div key={el.id} className="cursor-pointer flex text-neutral-400 justify-between w-fit mb-2">
-                                            <i className={`text-sm ${el.icon} mr-2`}></i><p className="text-sm text-medium font-gilmer font-medium">{el.name}</p>
-                                        </div> 
+                                        <DataStyle
+                                            key={item.id} 
+                                            index={index} 
+                                            item={item}
+                                            handleActiveSidebar={handleActiveSidebar} 
+                                            showChart={showChart}
+                                            setShowChart={setShowChart} 
+                                            graphData={graphData} 
+                                            handleShowchart={handleShowchart} 
+                                            handleChild={handleChild} 
+                                            openChild={openChild}
+                                            openGrandChild={openGrandChild}
+                                            handleGrandChild={handleGrandChild}
+                                            handlePresentSidebarData={handlePresentSidebarData}
+                                        />
                                     );
                                 })
                             }
                         </div>
 
-                        <div className="px-2 flex justify-between items-center">
-                            {
-                                socials.map((handle) => {
-                                    return(
-                                        <span key={handle.id} className="cursor-pointer flex rounded-full justify-center items-center h-[32px] w-[32px] bg-neutral-100">
-                                            <i className={`text-primary-600 ${handle.icon}`}></i>
-                                        </span>
-                                    );
-                                })
-                            }
+                        <div className="px-8">
+                            <div className="border-t-[0.1px] border-[#EAEAEA] pt-4 px-2 mb-8">
+                                {
+                                    help.map((el) => {
+                                        return(
+                                            <div key={el.id} className="cursor-pointer flex text-neutral-400 justify-between w-fit mb-2">
+                                                <i className={`text-sm ${el.icon} mr-2`}></i><p className="text-sm text-medium font-gilmer font-medium">{el.name}</p>
+                                            </div> 
+                                        );
+                                    })
+                                }
+                            </div>
+
+                            <div className="px-2 flex justify-between items-center">
+                                {
+                                    socials.map((handle) => {
+                                        return(
+                                            <span key={handle.id} className="cursor-pointer flex rounded-full justify-center items-center h-[32px] w-[32px] bg-neutral-100">
+                                                <i className={`text-primary-600 ${handle.icon}`}></i>
+                                            </span>
+                                        );
+                                    })
+                                }
+                            </div>
                         </div>
                     </div>
                 

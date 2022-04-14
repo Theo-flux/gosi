@@ -19,7 +19,8 @@ function Household() {
     with_woman_head: data?.percent_households_with_woman_head,
     heads_under_18: data?.households_with_heads_under_18,
     type_of_dwelling: data?.households_by_type_of_dwelling,
-    by_ownership: data?.households_by_ownership
+    by_ownership: data?.households_by_ownership,
+    head_by_gender: data?.households_head_by_gender
   }
 
   const { 
@@ -28,7 +29,8 @@ function Household() {
     with_woman_head,
     heads_under_18,
     type_of_dwelling,
-    by_ownership
+    by_ownership,
+    head_by_gender
   } = HouseholdData;
 
 
@@ -41,6 +43,7 @@ function Household() {
             with_woman_head={with_woman_head}
             heads_under_18={heads_under_18}
             type_of_dwelling={type_of_dwelling}
+            head_by_gender={head_by_gender}
           />
       }
 
