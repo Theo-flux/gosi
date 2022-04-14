@@ -1,14 +1,11 @@
 import { useState } from "react";
 import Charts from "react-apexcharts";
 
-function Pie({className}){
+function Pie({className, data}){
     const [pieData, setPieData] = useState({
-        series: [1200,400, 430, 448, 470, 540, 580, 690, 1100],
+        series: Object.values(data),
         chartOptions: {
-            labels: ['AA', 'AAC', 
-            'APC', 'SDP', 
-            'NNDP', 'NPC', 
-            'YPC', 'APGA', 'Others']
+            labels: Object.keys(data)
         },
         options: {
             chart: {

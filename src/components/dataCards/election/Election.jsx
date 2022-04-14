@@ -21,11 +21,11 @@ function Election(){
 
             <ChartOptions/>
 
-            <div>
+            {/* <div>
                 {
                     chartType === "bar" ? <BarGraph/> :  <Pie/>
                 }
-            </div>
+            </div> */}
             
         </DataCardsContainer>
     )
