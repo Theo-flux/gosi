@@ -26,6 +26,14 @@ function BarGraph({className, data}){
             fill: {
                 colors: ["#0B6CD6"]
             }
+        },
+
+        grid: {   
+            yaxis: {
+                lines: {
+                    show: true
+                }
+            },  
         }
     })
 

@@ -7,26 +7,31 @@ function Pie({className, data}){
         chartOptions: {
             labels: Object.keys(data)
         },
+        
         options: {
+            labels: Object.keys(data),
+            legend: {
+                show: false
+            },
             chart: {
             width: 380,
             type: 'donut',
             },
             plotOptions: {
-            pie: {
-                startAngle: -90,
-                endAngle: 270
-            }
+                pie: {
+                    startAngle: -90,
+                    endAngle: 270,
+                }
             },
             dataLabels: {
-            enabled: false
+            enabled: true
             },
             fill: {
             type: 'gradient',
             },
             legend: {
             formatter: function(val, opts) {
-                return val + " - " + opts.w.globals.series[opts.seriesIndex]
+                return val + " - " + opts.w.globals.series[opts.seriesIndex].toLocaleString()
             }
             },
             responsive: [{
@@ -41,6 +46,7 @@ function Pie({className, data}){
             }
             }]
         },
+        
     })
 
     return(
