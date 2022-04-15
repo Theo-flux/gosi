@@ -24,7 +24,7 @@ function RefuseDisposal({
     return (
         <>
              <PodGrid>
-                <Pods data={`${refuse_collected}%`} text="refuse collected"/>
+                <Pods data={`${refuse_collected || `0`}%`} text="refuse collected"/>
             </PodGrid>
 
 

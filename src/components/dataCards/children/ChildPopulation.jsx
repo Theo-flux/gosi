@@ -24,8 +24,8 @@ function ChildPopulation({
     return(
         <>
             <PodGrid>
-                <Pods data={num_of_children?.toLocaleString()} text="child population"/>
-                <Pods data={`${bio_parent}%`} text="% with dead parents"/>
+                <Pods data={num_of_children?.toLocaleString() || `0`} text="child population"/>
+                <Pods data={`${bio_parent || `0`}%`} text="% with dead parents"/>
             </PodGrid>
 
             <Topspacing>

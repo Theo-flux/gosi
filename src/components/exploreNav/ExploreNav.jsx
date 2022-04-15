@@ -182,7 +182,7 @@ function  ExploreNav({className, handleShowchart, slug, slug2}) {
                     </div>
 
                     <div className="h-[calc(100vh-67px)]">
-                        <div className="overflow-x-hidden py-2 h-[75%]">
+                        <div className="overflow-x-hidden py-2 h-[90%]">
                             {
                                 data.map((item, index) => {
                                     return(
@@ -207,7 +207,7 @@ function  ExploreNav({className, handleShowchart, slug, slug2}) {
                         </div>
 
                         <div className="px-8">
-                            <div className="border-t-[0.1px] border-[#EAEAEA] pt-4 px-2 mb-8">
+                            {/* <div className="border-t-[0.1px] border-[#EAEAEA] pt-4 px-2 mb-8">
                                 {
                                     help.map((el) => {
                                         return(
@@ -217,7 +217,7 @@ function  ExploreNav({className, handleShowchart, slug, slug2}) {
                                         );
                                     })
                                 }
-                            </div>
+                            </div> */}
 
                             <div className="px-2 flex justify-between items-center">
                                 {

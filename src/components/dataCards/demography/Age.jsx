@@ -37,8 +37,8 @@ function Age({
     return (
         <>
             <PodGrid>
-                <Pods data={average_age} text="average age"/>
-                <Pods data={median_age} text="median age" />
+                <Pods data={average_age || `0`} text="average age"/>
+                <Pods data={median_age || `0`} text="median age" />
             </PodGrid>
 
             <Topspacing>

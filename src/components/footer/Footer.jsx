@@ -41,7 +41,7 @@ function Footer(){
                                 <SubTitle className="text-[#0A142F] font-bold font-gilmer mb-8">Quicklinks</SubTitle>
                                 <div className="flex flex-col justify-start items-start">
                                     <Hyperlink to="/about" className="mb-4">About us</Hyperlink>
-                                    <Hyperlink to="/contact">Publication Hub</Hyperlink>
+                                    {/* <Hyperlink to="/contact">Publication Hub</Hyperlink> */}
                                 </div>
                             </div>
                         </div>
@@ -50,12 +50,12 @@ function Footer(){
                         
                     </div>
 
-                    <div className="flex justify-between items-start pt-4 border-t-[1.5px] border-neutral-400">
-                        <div className="flex flex-col justify-start items-start md:flex-row justify-between items-center md:w-[261px]">
+                    <div className="flex justify-end items-start pt-4 border-t-[1.5px] border-neutral-400">
+                        {/* <div className="flex flex-col justify-start items-start md:flex-row justify-between items-center md:w-[261px]">
                             <p className="mb-8 text-sm text-primary-900 font-gilmer font-bold md:mb-0">Terms</p>
                             <p className="mb-8 text-sm text-primary-900 font-gilmer font-bold md:mb-0">Privacy</p>
                             <p className="text-sm text-primary-900 font-gilmer font-bold">Cookies</p>
-                        </div>
+                        </div> */}
 
                         <div className="flex justify-between items-center w-[160px] md:w-[152px]">
                             <a className="w-[40px] h-[40px] border-[1.5px] border-neutral-400 rounded-full flex justify-center items-center"><i className="ri-linkedin-fill text-primary-600"></i></a>
