@@ -12,6 +12,8 @@ function School({
     const [showSchoolChartOptions, setShowSchoolChartOptions] = useState(false);
     const [SchoolChartType, setSchoolChartType] = useState("bar");
 
+    const [isSchoolCollapsed, setSchoolCollapsed] = useState(false);
+
     function handleSchoolChartoptions(){
         setShowSchoolChartOptions(!showSchoolChartOptions);
     }
@@ -19,6 +21,10 @@ function School({
     function handleSchoolChartType(type){
         setShowSchoolChartOptions(!showSchoolChartOptions);
         setSchoolChartType(type);
+    }
+
+    function handleSchoolCollapsed(){
+        setSchoolCollapsed(!isSchoolCollapsed);
     }
 
     return(
@@ -30,19 +36,27 @@ function School({
             </PodGrid>
 
             <Topspacing>
-                <GraphTitle title="School attendance"/>
-
-                <ChartOptions
-                    chartOption={showSchoolChartOptions}
-                    chartOptionFunction={handleSchoolChartoptions}
-                    chartTypeFunction={handleSchoolChartType}
+                <GraphTitle
+                    handleThis={handleSchoolCollapsed} 
+                    title="School attendance"
                 />
 
                 {
-                    SchoolChartType == "bar" ? 
-                        <BarGraph data={school_attendance}/> 
-                        : 
-                        <Pie data={school_attendance}/>
+                    isSchoolCollapsed ||
+                    <>
+                    <ChartOptions
+                        chartOption={showSchoolChartOptions}
+                        chartOptionFunction={handleSchoolChartoptions}
+                        chartTypeFunction={handleSchoolChartType}
+                    />
+
+                    {
+                        SchoolChartType == "bar" ? 
+                            <BarGraph data={school_attendance}/> 
+                            : 
+                            <Pie data={school_attendance}/>
+                    }
+                    </>
                 }
             </Topspacing>
         </>

@@ -11,6 +11,7 @@ function ToiletFacilities({
 
     const [showToiletChartOptions, setShowToiletChartOptions] = useState(false);
     const [toiletChartType, setToiletChartType] = useState("bar");
+    const [isToiletCollapsed, setToiletCollapsed] = useState(false);
 
     function handleToiletChartoptions(){
         setShowToiletChartOptions(!showToiletChartOptions);
@@ -21,6 +22,10 @@ function ToiletFacilities({
         setToiletChartType(type);
     }
 
+    function handleToiletCollapsed(){
+        setToiletCollapsed(!isToiletCollapsed);
+    }
+
     return (
         <>
             <PodGrid>
@@ -29,19 +34,27 @@ function ToiletFacilities({
             </PodGrid>
 
             <Topspacing>
-                <GraphTitle title="household by dwelling type"/>
-
-                <ChartOptions
-                    chartOption={showToiletChartOptions}
-                    chartOptionFunction={handleToiletChartoptions}
-                    chartTypeFunction={handleToiletChartType}
+                <GraphTitle 
+                    handleThis={handleToiletCollapsed}
+                    title="Toilet facilities"
                 />
 
-                {
-                    toiletChartType == "bar" ? 
-                        <BarGraph data={population_by_toilet_facilities}/> 
-                        : 
-                        <Pie data={population_by_toilet_facilities}/>
+                {   
+                    isToiletCollapsed ||
+                    <>
+                    <ChartOptions
+                        chartOption={showToiletChartOptions}
+                        chartOptionFunction={handleToiletChartoptions}
+                        chartTypeFunction={handleToiletChartType}
+                    />
+
+                    {
+                        toiletChartType == "bar" ? 
+                            <BarGraph data={population_by_toilet_facilities}/> 
+                            : 
+                            <Pie data={population_by_toilet_facilities}/>
+                    }
+                    </>
                 }
             </Topspacing>
         </>

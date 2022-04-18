@@ -11,6 +11,7 @@ function RefuseDisposal({
 
     const [showRefuseChartOptions, setShowRefuseChartOptions] = useState(false);
     const [refuseChartType, setRefuseChartType] = useState("bar");
+    const [isRefuseCollapsed, setRefuseCollapsed] = useState(false);
 
     function handleRefuseChartoptions(){
         setShowRefuseChartOptions(!showRefuseChartOptions);
@@ -21,6 +22,10 @@ function RefuseDisposal({
         setRefuseChartType(type);
     }
 
+    function handleRefuseCollapsed(){
+        setRefuseCollapsed(!isRefuseCollapsed);
+    }
+
     return (
         <>
              <PodGrid>
@@ -29,19 +34,27 @@ function RefuseDisposal({
 
 
             <Topspacing>
-                <GraphTitle title="Population by refuse disposal"/>
-
-                <ChartOptions
-                    chartOption={showRefuseChartOptions}
-                    chartOptionFunction={handleRefuseChartoptions}
-                    chartTypeFunction={handleRefuseChartType}
+                <GraphTitle 
+                    handleThis={handleRefuseCollapsed}
+                    title="Population by refuse disposal"
                 />
 
-                {
-                    refuseChartType == "bar" ? 
-                        <BarGraph data={population_by_refuse_disposal}/> 
-                        : 
-                        <Pie data={population_by_refuse_disposal}/>
+                {   
+                    isRefuseCollapsed ||
+                    <>
+                    <ChartOptions
+                        chartOption={showRefuseChartOptions}
+                        chartOptionFunction={handleRefuseChartoptions}
+                        chartTypeFunction={handleRefuseChartType}
+                    />
+
+                    {
+                        refuseChartType == "bar" ? 
+                            <BarGraph data={population_by_refuse_disposal}/> 
+                            : 
+                            <Pie data={population_by_refuse_disposal}/>
+                    }
+                    </>
                 }
             </Topspacing>
         </>

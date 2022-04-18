@@ -16,6 +16,9 @@ function Age({
     const [showAgeRangeChartOptions, setShowAgeRangeChartOptions] = useState(false);
     const [ageRangeChartType, setAgeRangeChartType] = useState("bar");
 
+    const [isAgeCategoryCollapsed, setAgeCategoryCollapsed] = useState(false);
+    const [isAgeRangeCollapsed, setAgeRangeCollapsed] = useState(false);
+
     function handleAgeCategoryChartoptions(){
         setShowAgeCategoryChartOptions(!showAgeCategoryChartOptions);
     }
@@ -34,6 +37,16 @@ function Age({
         setAgeRangeChartType(type);
     }
 
+    function handleAgeCategoryCollapsed(){
+        setAgeCategoryCollapsed(!isAgeCategoryCollapsed);
+    }
+
+    function handleAgeRangeCollapsed(){
+        setAgeRangeCollapsed(!isAgeRangeCollapsed);
+    }
+
+  
+
     return (
         <>
             <PodGrid>
@@ -42,36 +55,52 @@ function Age({
             </PodGrid>
 
             <Topspacing>
-                <GraphTitle title="Age by range"/>
-
-                <ChartOptions
-                    chartOption={showAgeRangeChartOptions}
-                    chartOptionFunction={handleAgeRangeChartoptions}
-                    chartTypeFunction={handleAgeRangeChartType}
+                <GraphTitle 
+                    handleThis={handleAgeRangeCollapsed}
+                    title="Age by range"
                 />
 
-                {
-                    ageRangeChartType == "bar" ? 
-                        <BarGraph data={pop_by_age_range}/> 
-                        : 
-                        <Pie data={pop_by_age_range}/>
+                { 
+                    isAgeRangeCollapsed ||
+                    <>
+                    <ChartOptions
+                            chartOption={showAgeRangeChartOptions}
+                            chartOptionFunction={handleAgeRangeChartoptions}
+                            chartTypeFunction={handleAgeRangeChartType}
+                        />
+
+                    {
+                        ageRangeChartType == "bar" ? 
+                            <BarGraph data={pop_by_age_range}/> 
+                            : 
+                            <Pie data={pop_by_age_range}/>
+                    }
+                    </>
                 }
             </Topspacing>
 
             <Topspacing>
-                <GraphTitle title="Age by category"/>
-
-                <ChartOptions
-                    chartOption={showAgeCategoryChartOptions}
-                    chartOptionFunction={handleAgeCategoryChartoptions}
-                    chartTypeFunction={handleAgeCategoryChartType}
+                <GraphTitle
+                    handleThis={handleAgeCategoryCollapsed}
+                    title="Age by category"
                 />
 
-                {
-                    ageCategoryChartType == "bar" ? 
-                        <BarGraph data={pop_by_age_category}/> 
-                        : 
-                        <Pie data={pop_by_age_category}/>
+                {    
+                    isAgeCategoryCollapsed ||
+                    <>
+                        <ChartOptions
+                            chartOption={showAgeCategoryChartOptions}
+                            chartOptionFunction={handleAgeCategoryChartoptions}
+                            chartTypeFunction={handleAgeCategoryChartType}
+                        />
+
+                        {
+                            ageCategoryChartType == "bar" ? 
+                                <BarGraph data={pop_by_age_category}/> 
+                                : 
+                                <Pie data={pop_by_age_category}/>
+                        }
+                    </>
                 }
             </Topspacing>
         </>
