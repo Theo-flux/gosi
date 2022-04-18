@@ -50,7 +50,7 @@ function ToiletFacilities({
 
                     {
                         toiletChartType == "bar" ? 
-                            <BarGraph data={population_by_toilet_facilities}/> 
+                            <BarGraph isVertical="true" data={population_by_toilet_facilities}/> 
                             : 
                             <Pie data={population_by_toilet_facilities}/>
                     }

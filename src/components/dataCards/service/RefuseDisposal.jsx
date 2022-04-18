@@ -50,7 +50,7 @@ function RefuseDisposal({
 
                     {
                         refuseChartType == "bar" ? 
-                            <BarGraph data={population_by_refuse_disposal}/> 
+                            <BarGraph isVertical="true" data={population_by_refuse_disposal}/> 
                             : 
                             <Pie data={population_by_refuse_disposal}/>
                     }

@@ -71,7 +71,7 @@ function HouseholdInner({
 
                         {
                             dwellingChartType == "bar" ? 
-                                <BarGraph data={type_of_dwelling}/> 
+                                <BarGraph isVertical="true" data={type_of_dwelling}/> 
                                 : 
                                 <Pie data={type_of_dwelling}/>
                         }

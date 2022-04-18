@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Charts from "react-apexcharts";
 
-function BarGraph({className, data}){
+function BarGraph({className, data, isVertical}){
     const [barData, setBarData] = useState({
         series: [{
             data: Object.values(data || {})
@@ -14,7 +14,7 @@ function BarGraph({className, data}){
             plotOptions: {
                 bar: {
                     borderRadius: 4,
-                    horizontal: true,
+                    horizontal: isVertical ? false:true,
                 }
             },
             dataLabels: {

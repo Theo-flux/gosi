@@ -50,7 +50,7 @@ function Electricity({
 
                 {
                     electricityChartType == "bar" ? 
-                        <BarGraph data={population_by_electricity_access}/> 
+                        <BarGraph isVertical="true" data={population_by_electricity_access}/> 
                         : 
                         <Pie data={population_by_electricity_access}/>
                 }
