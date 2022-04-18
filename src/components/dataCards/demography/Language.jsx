@@ -12,6 +12,8 @@ function Language({
     const [showLangChartOptions, setShowLangChartOptions] = useState(false);
     const [langChartType, setLangChartType] = useState("bar");
 
+    const [isLangCollapsed, setLangCollapsed] = useState(false);
+
     function handleLangChartoptions(){
         setShowLangChartOptions(!showLangChartOptions);
     }
@@ -21,6 +23,10 @@ function Language({
         setLangChartType(type);
     }
 
+    function handleLangCollapsed(){
+        setLangCollapsed(!isLangCollapsed);
+    }
+
     return (
         <>
             <PodGrid>
@@ -28,19 +34,27 @@ function Language({
             </PodGrid>
 
             <Topspacing>
-                <GraphTitle title="Most spoken languages"/>
-
-                <ChartOptions
-                    chartOption={showLangChartOptions}
-                    chartOptionFunction={handleLangChartoptions}
-                    chartTypeFunction={handleLangChartType}
+                <GraphTitle 
+                    handleThis={handleLangCollapsed}
+                    title="Most spoken languages"
                 />
 
                 {
-                    langChartType == "bar" ? 
-                        <BarGraph data={pop_by_lang}/> 
-                        : 
-                        <Pie data={pop_by_lang}/>
+                    isLangCollapsed ||
+                    <>
+                    <ChartOptions
+                    chartOption={showLangChartOptions}
+                    chartOptionFunction={handleLangChartoptions}
+                    chartTypeFunction={handleLangChartType}
+                    />
+
+                    {
+                        langChartType == "bar" ? 
+                            <BarGraph data={pop_by_lang}/> 
+                            : 
+                            <Pie data={pop_by_lang}/>
+                    }
+                    </>
                 }
             </Topspacing>
         </>

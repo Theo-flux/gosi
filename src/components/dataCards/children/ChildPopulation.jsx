@@ -12,6 +12,8 @@ function ChildPopulation({
     const [showChildChartOptions, setShowChildChartOptions] = useState(false);
     const [ChildChartType, setChildChartType] = useState("bar");
 
+    const [isChildCollapsed, setChildCollapsed] = useState(false)
+
     function handleChildChartoptions(){
         setShowChildChartOptions(!showChildChartOptions);
     }
@@ -19,6 +21,10 @@ function ChildPopulation({
     function handleChildChartType(type){
         setShowChildChartOptions(!showChildChartOptions);
         setChildChartType(type);
+    }
+
+    function handleChildCollapsed(){
+        setChildCollapsed(!isChildCollapsed);
     }
 
     return(
@@ -29,8 +35,14 @@ function ChildPopulation({
             </PodGrid>
 
             <Topspacing>
-                <GraphTitle title="Children by parent survival"/>
+                <GraphTitle 
+                    handleThis={handleChildCollapsed}
+                    title="Children by parent survival"
+                />
 
+            {
+                isChildCollapsed ||
+                <>
                 <ChartOptions
                     chartOption={showChildChartOptions}
                     chartOptionFunction={handleChildChartoptions}
@@ -43,6 +55,8 @@ function ChildPopulation({
                         : 
                         <Pie data={parent_survival}/>
                 }
+                </>
+            }
             </Topspacing>
         </>
     )

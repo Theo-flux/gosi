@@ -16,6 +16,9 @@ function HouseholdInner({
     const [showGenderChartOptions, setShowGenderChartOptions] = useState(false);
     const [genderChartType, setGenderChartType] = useState("bar");
 
+    const [isGenderCollapsed, setGenderCollapsed] = useState(false);
+    const [isDewllingCollapsed, setDwellingCollapsed] = useState(false);
+
     function handleDwellingChartoptions(){
         setShowDwellingChartOptions(!showDwellingChartOptions);
     }
@@ -34,6 +37,14 @@ function HouseholdInner({
         setGenderChartType(type);
     }
 
+    function handleDwellingCollapsed(){
+        setDwellingCollapsed(!isDewllingCollapsed);
+    }
+
+    function handleGenderCollapsed(){
+        setGenderCollapsed(!isGenderCollapsed);
+    }
+
     return(
         <>
             <PodGrid>
@@ -44,36 +55,52 @@ function HouseholdInner({
 
 
             <Topspacing>
-                <GraphTitle title="household by dwelling type"/>
-
-                <ChartOptions
-                    chartOption={showDwellingChartOptions}
-                    chartOptionFunction={handleDwellingChartoptions}
-                    chartTypeFunction={handleDwellingChartType}
+                <GraphTitle 
+                    handleThis={handleDwellingCollapsed}
+                    title="household by dwelling type"
                 />
 
                 {
-                    dwellingChartType == "bar" ? 
-                        <BarGraph data={type_of_dwelling}/> 
-                        : 
-                        <Pie data={type_of_dwelling}/>
+                    isDewllingCollapsed ||
+                    <>
+                        <ChartOptions
+                            chartOption={showDwellingChartOptions}
+                            chartOptionFunction={handleDwellingChartoptions}
+                            chartTypeFunction={handleDwellingChartType}
+                        />
+
+                        {
+                            dwellingChartType == "bar" ? 
+                                <BarGraph isVertical="true" data={type_of_dwelling}/> 
+                                : 
+                                <Pie data={type_of_dwelling}/>
+                        }
+                    </>
                 }
             </Topspacing>
 
             <Topspacing>
-                <GraphTitle title="household head by gender"/>
-
-                <ChartOptions
-                    chartOption={showGenderChartOptions}
-                    chartOptionFunction={handleGenderChartoptions}
-                    chartTypeFunction={handleGenderChartType}
+                <GraphTitle 
+                    handleThis={handleGenderCollapsed}
+                    title="household head by gender"
                 />
 
                 {
-                    genderChartType == "bar" ? 
-                        <BarGraph data={head_by_gender}/> 
-                        : 
-                        <Pie data={head_by_gender}/>
+                    isGenderCollapsed ||
+                    <>
+                    <ChartOptions
+                        chartOption={showGenderChartOptions}
+                        chartOptionFunction={handleGenderChartoptions}
+                        chartTypeFunction={handleGenderChartType}
+                    />
+
+                    {
+                        genderChartType == "bar" ? 
+                            <BarGraph data={head_by_gender}/> 
+                            : 
+                            <Pie data={head_by_gender}/>
+                    }
+                    </>
                 }
             </Topspacing>
         </>

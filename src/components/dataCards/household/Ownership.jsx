@@ -11,6 +11,8 @@ function Ownership({
     const [showOnwershipChartOptions, setShowOnwershipChartOptions] = useState(false);
     const [OnwershipChartType, setOnwershipChartType] = useState("bar");
 
+    const [isOwnershipCollapsed, setOwnershipCollapsed] = useState(false);
+
     function handleOnwershipChartoptions(){
         setShowOnwershipChartOptions(!showOnwershipChartOptions);
     }
@@ -20,6 +22,10 @@ function Ownership({
         setOnwershipChartType(type);
     }
 
+    function handleOwnershipCollapsed(){
+        setOwnershipCollapsed(!isOwnershipCollapsed);
+    }
+
     return (
         <>
             <PodGrid>
@@ -27,19 +33,28 @@ function Ownership({
             </PodGrid>
 
             <Topspacing>
-                <GraphTitle title="household by Onwership type"/>
-
-                <ChartOptions
-                    chartOption={showOnwershipChartOptions}
-                    chartOptionFunction={handleOnwershipChartoptions}
-                    chartTypeFunction={handleOnwershipChartType}
+                <GraphTitle 
+                    handleThis={handleOwnershipCollapsed}
+                    title="household by Onwership type"
                 />
 
-                {
-                    OnwershipChartType == "bar" ? 
-                        <BarGraph data={by_ownership}/> 
-                        : 
-                        <Pie data={by_ownership}/>
+                { 
+                    isOwnershipCollapsed ||
+                    <>
+                    <ChartOptions
+                        chartOption={showOnwershipChartOptions}
+                        chartOptionFunction={handleOnwershipChartoptions}
+                        chartTypeFunction={handleOnwershipChartType}
+                    />
+
+                    {
+                        OnwershipChartType == "bar" ? 
+                            <BarGraph data={by_ownership}/> 
+                            : 
+                            <Pie data={by_ownership}/>
+                    
+                    }
+                    </>
                 }
             </Topspacing>
 

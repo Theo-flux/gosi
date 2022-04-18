@@ -10,9 +10,6 @@ function Pie({className, data}){
         
         options: {
             labels: Object.keys(data),
-            legend: {
-                show: false
-            },
             chart: {
             width: 380,
             type: 'donut',

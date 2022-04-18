@@ -11,6 +11,8 @@ function Electricity({
     const [showElectricityChartOptions, setShowElectricityChartOptions] = useState(false);
     const [electricityChartType, setElectricityChartType] = useState("bar");
 
+    const [isElectricityCollapsed, setElectricityCollapsed] = useState(false);
+
     function handleElectricityChartoptions(){
         setShowElectricityChartOptions(!showElectricityChartOptions);
     }
@@ -18,6 +20,10 @@ function Electricity({
     function handleElectricityChartType(type){
         setShowElectricityChartOptions(!showElectricityChartOptions);
         setElectricityChartType(type);
+    }
+
+    function handleElectricityCollapsed(){
+        setElectricityCollapsed(!isElectricityCollapsed);
     }
 
     return(
@@ -28,8 +34,14 @@ function Electricity({
 
 
             <Topspacing>
-                <GraphTitle title="Population by access to electricity"/>
+                <GraphTitle
+                    handleThis={handleElectricityCollapsed} 
+                    title="Population by access to electricity"
+                />
 
+            {
+                isElectricityCollapsed ||
+                <>
                 <ChartOptions
                     chartOption={showElectricityChartOptions}
                     chartOptionFunction={handleElectricityChartoptions}
@@ -38,10 +50,12 @@ function Electricity({
 
                 {
                     electricityChartType == "bar" ? 
-                        <BarGraph data={population_by_electricity_access}/> 
+                        <BarGraph isVertical="true" data={population_by_electricity_access}/> 
                         : 
                         <Pie data={population_by_electricity_access}/>
                 }
+                </>
+            }
             </Topspacing>
         </>
     )
