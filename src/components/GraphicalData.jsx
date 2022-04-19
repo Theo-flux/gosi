@@ -27,7 +27,7 @@ function GraphicalData({className, activeSidebar, handleShowchart}){
                 </div>
 
                 {
-                    presentSidebarData === "Election" && <Election/>
+                presentSidebarData === "Election" && <Election/>
                 }
 
                 {
@@ -53,7 +53,11 @@ function GraphicalData({className, activeSidebar, handleShowchart}){
                 {
                 presentSidebarData === "Children" && <Children/> 
                 }
+
+                <p className="flex justify-end text-neutral-400 text-sm pb-4">source: NBS</p>
             </div>
+
+            
         </div>
     );
 }
