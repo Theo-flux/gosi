@@ -59,7 +59,6 @@ export default function LeafletContainer({ locationLevel }) {
             className="polgon-style2"
           />
         )}
-        <Tooltip>I appear on mouse over</Tooltip>
       </MapContainer>
     </>
   );
