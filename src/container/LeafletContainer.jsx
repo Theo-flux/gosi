@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-import {
-  MapContainer,
-  TileLayer,
-  ZoomControl,
-  Tooltip,
-} from "react-leaflet";
+import { MapContainer, TileLayer, ZoomControl, Tooltip } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import TopoJSON from "../components/TopoJSON";
 import nigeriaStatesTopoJSON from "../data/nigeria_state_boundaries.topo.json";
@@ -39,6 +34,7 @@ export default function LeafletContainer({ locationLevel }) {
         center={lng ? [lat, lng] : location}
         zoom={width > 525 ? locationLevel.zoom : locationLevel.mobileZoom}
         maxZoom={10}
+        minZoom={5}
         zoomControl={false}
       >
         <TileLayer
