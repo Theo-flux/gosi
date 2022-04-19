@@ -20,3 +20,24 @@ export const subscribeApi = async (email) => {
     return null;
   }
 };
+
+export const contactUsApi = async (data) => {
+  try {
+    const res = await fetch(
+      `https://zobomap-dev.azurewebsites.net/v1/contact-us`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: JSON_to_URLEncoded({ ...data }),
+      }
+    );
+
+    const result = await res;
+
+    return result.status === 200 ? "successful" : "An error occured";
+  } catch (err) {
+    console.error(err);
+
+    return null;
+  }
+};
