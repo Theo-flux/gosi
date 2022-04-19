@@ -134,9 +134,11 @@ export default function TopoJSON(props) {
     addData(layer, props.data);
   }, [props.data]);
 
+  console.log(data);
+
   return (
     <GeoJSON
-      // key={locationLevel === locationLevels[0] ? "country" : "state"}
+      key={data?.bbox[0] || "no data props"}
       whenCreated={(mapInstance) => {
         handleMapRefObject(mapInstance);
       }}
