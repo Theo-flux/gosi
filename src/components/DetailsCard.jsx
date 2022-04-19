@@ -5,8 +5,6 @@ function DetailsCard({className, graphData, locationLevel}) {
         population: graphData.data?.[0].total_population.toLocaleString(),
         language: graphData.data?.[0].most_spoken_language
     }
-
-    console.log(graphData)
     
     if(locationLevel.name === "country"){
         current.location = "Nigeria";

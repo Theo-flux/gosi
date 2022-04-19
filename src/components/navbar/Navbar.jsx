@@ -25,20 +25,19 @@ function Navbar() {
     }
   }, [toggle]);
 
-  useEffect(() =>{
+  useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 10) {
-          navRef.current.classList.add('floatingNav');
+        navRef.current.classList.add("floatingNav");
       } else {
-          navRef.current.classList.remove('floatingNav');
+        navRef.current.classList.remove("floatingNav");
       }
     });
-  })
-  
-
+  });
 
   return (
-    <section ref={navRef} className="z-[403] bg-white fixed w-full">
+    <section ref={navRef} className="z-[1001] bg-white fixed w-full">
+      {/* the leaflet map button container has a z index of 1000 */}
       <Nav className="relative md:static flex justify-between items-center w-11/12 ">
         <Hyperlink
           to="/"
@@ -47,7 +46,7 @@ function Navbar() {
           <figure>
             <img src={zoboLogo} className="w-100%" alt="zobo-logo" />
           </figure>
-        
+
           <p className="font-gilmer font-bold text-primary-600 text-xl">
             Zobomap
           </p>
@@ -60,7 +59,9 @@ function Navbar() {
           </div>
         )}
         <div className="flex justify-between items-center w-[175px] md:w-fit">
-          <Link to="/profiles/nigeria"><Button>Try Zobomap</Button></Link>
+          <Link to="/profiles/nigeria">
+            <Button>Try Zobomap</Button>
+          </Link>
           {isMobile && (
             <figure
               onClick={() => setToggle(!toggle)}
@@ -76,7 +77,7 @@ function Navbar() {
         <div
           ref={drawer}
           className="absolute z-40 top-0 left-[-100%] w-[65%] h-[100vh]  py-4 flex flex-col bg-neutral-50"
-          style={{boxShadow: '0px 1px 2px #999 ease-in-out'}}
+          style={{ boxShadow: "0px 1px 2px #999 ease-in-out" }}
         >
           <Hyperlink to="/about" className="w-full py-4 px-8 mb-4 mt-24">
             About us
