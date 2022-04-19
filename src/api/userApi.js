@@ -13,11 +13,13 @@ export const subscribeApi = async (email) => {
 
     const result = await res;
 
-    return result.status === 200 ? "successful" : "An error occured";
+    return result.status === 200
+      ? "successful"
+      : res.status === 409
+      ? "Email is already subscribed"
+      : "Something went wrong.";
   } catch (err) {
-    console.error(err);
-
-    return null;
+    return err.detail || "Something went wrong.";
   }
 };
 
