@@ -23,7 +23,8 @@ function Hero() {
           <div className="flex flex-col justify-center items-center">
             <SubTitle className="text-center max-w-[640px] mb-4">It is a project of DTI and is intended to be a resource for development research and discussion across the West African sub region.</SubTitle>
             
-            <a href="https://www.datatrendsintelligence.com">
+            <a href="https://www.datatrendsintelligence.com" className="group flex justify-between items-center w-[200px]">
+              <small className="font-medium group-hover:text-primary-600">Learn more</small>
               <figure className="">
                 <img className="" src={dti} alt="dti-logo"/>
               </figure>

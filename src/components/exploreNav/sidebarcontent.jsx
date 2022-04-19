@@ -22,59 +22,27 @@ import childrenInactive from "../../images/explorenav/noun-children-inactive.svg
 const data = [
     {
         id: "1",
-        parent: "Election",
-        icon: [electionInactive, electionActive],
-        children: ["2015 General Election", "2019 General Election"]
+        parent: "Demography",
+        icon: [demographyInctive, demographyActive],
+        children: ["Age", "Population", "Language"]
     },
 
     {
         id: "2",
-        parent: "Demography",
-        icon: [demographyInctive, demographyActive],
-        children: ["Age", "Population", "Language", "Migration", "Citizenship"],
-        // identifiers_for_children: {
-        //     age: ["population_by_age_range", "population_by_age_category"],
-            
-
-        // }
+        parent: "Service Delivery",
+        icon: [serviceInactive, serviceActive],
+        children: ["Electricity", "Toilet Facilities", "Refuse Disposal"]
     },
 
     {
         id: "3",
-        parent: "Economics",
-        icon: [economicsInactive, economicsActive],
-        children: ["Employment", "Annual Income", "Internet Access"]
+        parent: "Household",
+        icon: [homeInactive, homeActive],
+        children: ["Houseolds", "Houseold Ownership"],
     },
 
     {
         id: "4",
-        parent: "Service Delivery",
-        icon: [serviceInactive, serviceActive],
-        children: ["Water", "Electricity", "Toilet Facilities", "Refuse Disposal"]
-    },
-
-    {
-        id: "5",
-        parent: "Household",
-        icon: [homeInactive, homeActive],
-        children: ["Houseolds", "Houseold Ownership", "Houseold Income", "House Goods"],
-        // identifiers_for_children: {
-        //     households: {
-        //         ownership:"households_by_ownership",
-                
-        //     }
-        // }
-    },
-
-    {
-        id: "6",
-        parent: "Education",
-        icon: [educationInactive, educationActive],
-        children: ["Education Level"]
-    },
-
-    {
-        id: "7",
         parent: "Children",
         icon: [childrenInactive, childrenActive],
         children: ["Child Population", "School Attendance"]
@@ -99,16 +67,19 @@ const socials = [
     {
         id: "1",
         icon: "ri-twitter-fill",
+        url: "https://twitter.com/dtiGlobal"
     },
 
     {
         id: "2",
         icon: "ri-facebook-fill",
+        url: "https://www.facebook.com/DTInigeria/"
     },
 
     {
         id: "3",
         icon: "ri-instagram-fill",
+        url: ""
     }
 
 ]

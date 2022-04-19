@@ -38,7 +38,7 @@ function Service() {
     <DataCardsContainer>
 
       {
-        openGrandChild == 1 &&
+        openGrandChild == 0 &&
           <Electricity
             no_access_to_electricity={no_access_to_electricity}
             population_by_electricity_access={population_by_electricity_access}
@@ -46,7 +46,7 @@ function Service() {
       }
 
       {
-        openGrandChild == 2 &&
+        openGrandChild == 1 &&
           <ToiletFacilities
             chem_or_flush_toilet={chem_or_flush_toilet}
             no_access_to_toilet={no_access_to_toilet}
@@ -55,7 +55,7 @@ function Service() {
       }
 
       {
-        openGrandChild == 3 &&
+        openGrandChild == 2 &&
           <RefuseDisposal 
           refuse_collected={refuse_collected}
           population_by_refuse_disposal={population_by_refuse_disposal}

@@ -27,23 +27,11 @@ function GraphicalData({className, activeSidebar, handleShowchart}){
                 </div>
 
                 {
-                presentSidebarData === "Election" && <Election/>
-                }
-
-                {
                 presentSidebarData === "Demography" && <Demography/> 
                 }
 
                 {
-                presentSidebarData === "Economics" && <Economics/> 
-                }
-
-                {
                 presentSidebarData === "Service Delivery" && <Service/> 
-                }
-
-                {
-                presentSidebarData === "Education" && <Education/> 
                 }
 
                 {
@@ -54,7 +42,7 @@ function GraphicalData({className, activeSidebar, handleShowchart}){
                 presentSidebarData === "Children" && <Children/> 
                 }
 
-                <p className="flex justify-end text-neutral-400 text-sm pb-4">source: NBS</p>
+                <small className="flex justify-end text-neutral-400 text-sm pb-4">source: National Bureau of Statistics (NLSS 2018 - 2019)</small>
             </div>
 
             
