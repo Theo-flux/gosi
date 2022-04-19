@@ -223,9 +223,9 @@ function  ExploreNav({className, handleShowchart, slug, slug2}) {
                                 {
                                     socials.map((handle) => {
                                         return(
-                                            <span key={handle.id} className="cursor-pointer flex rounded-full justify-center items-center h-[32px] w-[32px] bg-neutral-100">
+                                            <a href={handle.url} key={handle.id} className="cursor-pointer flex rounded-full justify-center items-center h-[32px] w-[32px] bg-neutral-100">
                                                 <i className={`text-primary-600 ${handle.icon}`}></i>
-                                            </span>
+                                            </a>
                                         );
                                     })
                                 }

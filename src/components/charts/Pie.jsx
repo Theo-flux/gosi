@@ -1,7 +1,10 @@
 import { useState } from "react";
 import Charts from "react-apexcharts";
+import {useMediaQuery} from "react-responsive"
 
 function Pie({className, data}){
+    const isDesktop = useMediaQuery({maxWidth: 767})
+
     const [pieData, setPieData] = useState({
         series: Object.values(data),
         chartOptions: {
