@@ -38,33 +38,7 @@ function Search() {
   const [selected, setSelected] = useState(null);
   const navigate = useNavigate();
 
-  // const lga = stateAreas;
-  // const lgajson = stateAreasJson;
-
-  // useEffect(() => {
-  //   const mismatched = [];
-  //   const data = lga.map((e) => {
-  //     const d = lgajson.features.find(
-  //       (i) => i.properties.admin1Name === e.value
-  //     );
-  //     if (!d) {
-  //       mismatched.push(e);
-  //       return console.log(e);
-  //     }
-
-  //     return {
-  //       ...e,
-  //       lng: d.geometry.coordinates[0][0][0][0],
-  //       lat: d.geometry.coordinates[0][0][0][1],
-  //     };
-  //   });
-  //   console.log(mismatched);
-
-  //   console.log(data);
-  // }, []);
-
   const handleClick = () => {
-    console.log(selected);
     if (selected?.state) {
       // check for LGA
       if (

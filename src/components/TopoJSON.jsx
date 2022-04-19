@@ -134,8 +134,6 @@ export default function TopoJSON(props) {
     addData(layer, props.data);
   }, [props.data]);
 
-  console.log(data);
-
   return (
     <GeoJSON
       key={data?.bbox[0] || "no data props"}
