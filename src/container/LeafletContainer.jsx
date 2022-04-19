@@ -1,24 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   MapContainer,
   TileLayer,
   ZoomControl,
   Tooltip,
-  useMapEvents,
-  GeoJSON,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import TopoJSON from "../components/TopoJSON";
 import nigeriaStatesTopoJSON from "../data/nigeria_state_boundaries.topo.json";
-import nigeriaLgaTopoJSON from "../data/nigeria-lga-topo.json";
 
-// we will change to this next week -----------------------------------------------------
-// import nigeriaLgaGeoJSON from "../data/nigeria_lga_boundaries.json";
-// import nigeriaStatesGeoJSON from "../data/nigeria_state_boundaries.json";
-// import nigeriaStatesTopoJSON from "../data/nigeria_state_boundaries.topo.json";
-// import nigeriaLgaTopoJSON from "../data/nigeria_lga_boundaries.topo.json";
-//---------------------------------------------------------------------------------------
-import { locationLevels } from "../utils/constants";
 import { useParams, useSearchParams } from "react-router-dom";
 import { capitalizeFirstLetter, getJSONFile } from "../utils/helpers";
 import useWindowSize from "../utils/hooks/useWindowSize";
@@ -62,13 +52,6 @@ export default function LeafletContainer({ locationLevel }) {
           locationLevel={locationLevel}
           data={nigeriaStatesTopoJSON}
         />
-        {/* {locationLevel.name !== locationLevels.one.name && (
-          <TopoJSON
-            className="polgon-style2"
-            locationLevel={locationLevel}
-            data={nigeriaLgaTopoJSON}
-          />
-        )} */}
         {statesLGA !== null && (
           <TopoJSON
             data={statesLGA}
