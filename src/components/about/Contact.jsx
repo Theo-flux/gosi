@@ -36,7 +36,7 @@ function Contact() {
             <fieldset className="flex flex-col font-gilmer">
               <label
                 htmlFor="name"
-                className="mb-2 text-xs text-black font-bold"
+                className="mb-2 text-xs text-black font-semibold"
               >
                 Name
               </label>
@@ -46,12 +46,12 @@ function Contact() {
                 type="text"
                 onChange={(e) => setName(e.target.value)}
                 value={name}
-                placeholder="name"
+                placeholder="Name"
               />
 
               <label
                 htmlFor="email"
-                className="mb-2 text-xs text-black font-bold"
+                className="mb-2 text-xs text-black font-semibold"
               >
                 Email
               </label>
@@ -66,7 +66,7 @@ function Contact() {
 
               <label
                 htmlFor="message"
-                className="mb-2 text-xs text-black font-bold"
+                className="mb-2 text-xs text-black font-semibold"
               >
                 Message
               </label>
@@ -77,7 +77,7 @@ function Contact() {
                 type="text"
                 onChange={(e) => setMessage(e.target.value)}
                 value={message}
-                placeholder="message"
+                placeholder="Message"
               />
             </fieldset>
             <input
@@ -88,7 +88,7 @@ function Contact() {
             />
             <p
               className={
-                success ? "mt-2 text-center text-success-500" : "hidden"
+                success ? "mt-2 text-center text-sm text-success-500" : "hidden"
               }
             >
               Your message was delivered
