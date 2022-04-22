@@ -13,9 +13,6 @@ export default function ChartOptions({
                 <span onClick={() => chartOptionFunction()} className="cursor-pointer border rounded p-1 flex justify-between items-center text-[8px]"><i className="ri-menu-line mr-1"></i> <p>Chart Option</p> <i className="text-[12px] ml-1 ri-arrow-drop-down-line"></i></span>
             </div>
 
-            
-             
-
             {
                 chartOption &&
                 <div className="flex justify-between items-center px-4 mb-2 absolute top-[35px] right-0">

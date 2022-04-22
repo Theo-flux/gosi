@@ -1,11 +1,20 @@
 
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
+import { useLocation } from 'react-router-dom';
 import { RWebShare } from "react-web-share";
 import {App} from "../context/applicationContext";
 import {Election, Demography, Education, Household, Service, Children, Economics} from "./dataCards";
 
 function GraphicalData({className, activeSidebar, handleShowchart}){
     const {presentSidebarData} = useContext(App);
+    const [currentUrl, setUrl] = useState(useLocation().pathname);
+
+    function usePathname(){
+        const location = useLocation();
+        setUrl(location.pathname);
+    }
+
+    console.log(currentUrl);
 
     return(
         <div className={`${className} border-t border-t-[#EAEAEA] w-full lg:w-[620px] font-gilmer`}>
@@ -24,13 +33,13 @@ function GraphicalData({className, activeSidebar, handleShowchart}){
                     <div className="flex justify-between items-center w-[105px] md:w-[320px]">
                         <RWebShare
                             data={{
-                                text: "Web Share - GfG",
-                                url: "http://localhost:3000",
-                                title: "GfG",
+                                text: `zobomap - ${activeSidebar}`,
+                                url: `${currentUrl}`,
+                                title: `zobomap - ${activeSidebar}`,
                             }}
                             onClick={() => console.log("shared successfully!")}
                         >
-                            <button className="group cursor-pointer flex justify-between items-center rounded-md py-2 px-4 bg-neutral-100 text-primary-600 hover:bg-primary-600 hover:text-white"><i className="ri-share-fill"></i><p className="hidden lg:block font-medium ml-2">Share</p></button>
+                            <button onClick={() => usePathname()} className="group cursor-pointer flex justify-between items-center rounded-md py-2 px-4 bg-neutral-100 text-primary-600 hover:bg-primary-600 hover:text-white"><i className="ri-share-fill"></i><p className="hidden lg:block font-medium ml-2">Share</p></button>
                         </RWebShare>
                         <span className="group cursor-pointer flex justify-between items-center rounded-md py-2 px-4 bg-neutral-100 text-primary-600 hover:bg-primary-600 hover:text-white"><i className="ri-download-fill"></i><p className="hidden lg:block font-medium ml-2">Print</p></span>
                     </div>

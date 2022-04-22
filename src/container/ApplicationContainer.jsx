@@ -5,7 +5,7 @@ import { GraphicalData, MenuFold, DetailsCard } from "../components";
 import{App} from "../context/applicationContext";
 
 
-function ApplicationContainer({
+function  ApplicationContainer({
     locationLevel, 
     countryResult, 
     stateResult, 
@@ -41,7 +41,6 @@ function ApplicationContainer({
     }
 
   }, [countryResult, stateResult, lgaResult, locationLevel]);
-
 
   return (
       <div className="relative h-[100vh] w-[100vw]">
