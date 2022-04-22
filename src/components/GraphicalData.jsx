@@ -1,5 +1,6 @@
 
 import React, { useContext } from "react";
+import { RWebShare } from "react-web-share";
 import {App} from "../context/applicationContext";
 import {Election, Demography, Education, Household, Service, Children, Economics} from "./dataCards";
 
@@ -21,7 +22,16 @@ function GraphicalData({className, activeSidebar, handleShowchart}){
                     <span className="text-sm w-[180px] md:w-full">{activeSidebar}</span>
 
                     <div className="flex justify-between items-center w-[105px] md:w-[320px]">
-                        <span className="group cursor-pointer flex justify-between items-center rounded-md py-2 px-4 bg-neutral-100 text-primary-600 hover:bg-primary-600 hover:text-white"><i className="ri-share-fill"></i><p className="hidden lg:block font-medium ml-2">Share</p></span>
+                        <RWebShare
+                            data={{
+                                text: "Web Share - GfG",
+                                url: "http://localhost:3000",
+                                title: "GfG",
+                            }}
+                            onClick={() => console.log("shared successfully!")}
+                        >
+                            <button className="group cursor-pointer flex justify-between items-center rounded-md py-2 px-4 bg-neutral-100 text-primary-600 hover:bg-primary-600 hover:text-white"><i className="ri-share-fill"></i><p className="hidden lg:block font-medium ml-2">Share</p></button>
+                        </RWebShare>
                         <span className="group cursor-pointer flex justify-between items-center rounded-md py-2 px-4 bg-neutral-100 text-primary-600 hover:bg-primary-600 hover:text-white"><i className="ri-download-fill"></i><p className="hidden lg:block font-medium ml-2">Print</p></span>
                     </div>
                 </div>
