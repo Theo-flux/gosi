@@ -96,7 +96,7 @@ function Age({
 
                         {
                             ageCategoryChartType == "bar" ? 
-                                <BarGraph data={pop_by_age_category}/> 
+                                <BarGraph isVertical="true" data={pop_by_age_category}/> 
                                 : 
                                 <Pie data={pop_by_age_category}/>
                         }

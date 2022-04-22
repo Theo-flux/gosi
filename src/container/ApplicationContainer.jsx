@@ -12,6 +12,7 @@ function ApplicationContainer({
   slug,
   slug2,
 }) {
+
   const {
     showChart,
     handleShowchart,
