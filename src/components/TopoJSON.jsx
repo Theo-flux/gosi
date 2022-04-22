@@ -31,7 +31,8 @@ export default function TopoJSON(props) {
     const locationData = e?.target?.feature?.properties;
     const { lat, lng } = e.latlng;
 
-    if (locationData.admin2Name) { // check for LGA
+    if (locationData.admin2Name) {
+      // check for LGA
       if (
         locationData.admin1Name.toLowerCase() ===
         "Federal Capital Territory".toLowerCase()
@@ -57,7 +58,8 @@ export default function TopoJSON(props) {
             lat,
           }).toString(),
         });
-    } else if (locationData.admin1Name) { // Check for state
+    } else if (locationData.admin1Name) {
+      // Check for state
       if (
         locationData.admin1Name.toLowerCase() ===
         "Federal Capital Territory".toLowerCase()
@@ -107,11 +109,17 @@ export default function TopoJSON(props) {
         admin1Name.toLowerCase() === "Federal Capital Territory".toLowerCase()
       )
         layer
-          .bindPopup(`${admin2Name}, Federal Capital Territory, Nigeria`)
+          .bindPopup(
+            `${
+              admin2Name ? admin2Name + "," : ""
+            } Federal Capital Territory, Nigeria`
+          )
           .openPopup();
       else
         layer
-          .bindPopup(`${admin2Name}, ${admin1Name} state, Nigeria`)
+          .bindPopup(
+            `${admin2Name ? admin2Name + "," : ""} ${admin1Name} state, Nigeria`
+          )
           .openPopup(); // here add openPopup()
     }
     //bind click
@@ -128,7 +136,7 @@ export default function TopoJSON(props) {
 
   return (
     <GeoJSON
-      // key={locationLevel === locationLevels[0] ? "country" : "state"}
+      key={data?.bbox[0] || "no data props"}
       whenCreated={(mapInstance) => {
         handleMapRefObject(mapInstance);
       }}
