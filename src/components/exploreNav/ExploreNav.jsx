@@ -239,12 +239,12 @@ function ExploreNav({ className, handleShowchart, slug, slug2 }) {
                                 }
                             </div> */}
 
-              <div className="px-2 flex justify-between items-center">
+              <div className="px-2 flex justify-center items-center">
                 {socials.map((handle) => {
                   return (
                     <span
                       key={handle.id}
-                      className="cursor-pointer flex rounded-full justify-center items-center h-[32px] w-[32px] bg-neutral-100"
+                      className="cursor-pointer flex rounded-full justify-center items-center h-[32px] w-[32px] bg-neutral-100 mx-4"
                     >
                       <i className={`text-primary-600 ${handle.icon}`}></i>
                     </span>
