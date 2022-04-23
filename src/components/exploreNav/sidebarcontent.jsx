@@ -20,68 +20,67 @@ import childrenActive from "../../images/explorenav/noun-children-active.svg";
 import childrenInactive from "../../images/explorenav/noun-children-inactive.svg";
 
 const data = [
-    {
-        id: "1",
-        parent: "Demography",
-        icon: [demographyInctive, demographyActive],
-        children: ["Age", "Population", "Language"]
-    },
+  {
+    id: "1",
+    parent: "Demography",
+    icon: [demographyInctive, demographyActive],
+    children: ["Age", "Population", "Language"],
+  },
 
-    {
-        id: "2",
-        parent: "Service Delivery",
-        icon: [serviceInactive, serviceActive],
-        children: ["Electricity", "Toilet Facilities", "Refuse Disposal"]
-    },
+  {
+    id: "2",
+    parent: "Service Delivery",
+    icon: [serviceInactive, serviceActive],
+    children: ["Electricity", "Toilet Facilities", "Refuse Disposal"],
+  },
 
-    {
-        id: "3",
-        parent: "Household",
-        icon: [homeInactive, homeActive],
-        children: ["Houseolds", "Houseold Ownership"],
-    },
+  {
+    id: "3",
+    parent: "Household",
+    icon: [homeInactive, homeActive],
+    children: ["Houseolds", "Houseold Ownership"],
+  },
 
-    {
-        id: "4",
-        parent: "Children",
-        icon: [childrenInactive, childrenActive],
-        children: ["Child Population", "School Attendance"]
-    }
-]
+  {
+    id: "4",
+    parent: "Children",
+    icon: [childrenInactive, childrenActive],
+    children: ["Child Population", "School Attendance"],
+  },
+];
 
 const help = [
-    {
-        id: "1",
-        icon: "ri-question-fill",
-        name: "Home"
-    },
+  {
+    id: "1",
+    icon: "ri-question-fill",
+    name: "Home",
+  },
 
-    {
-        id: "2",
-        icon: "ri-question-fill",
-        name: "Tutorial"
-    }
-]
+  {
+    id: "2",
+    icon: "ri-question-fill",
+    name: "Tutorial",
+  },
+];
 
 const socials = [
-    {
-        id: "1",
-        icon: "ri-twitter-fill",
-        url: "https://twitter.com/dtiGlobal"
-    },
+  {
+    id: "1",
+    icon: "ri-twitter-fill",
+    url: "https://twitter.com/dtiGlobal",
+  },
 
-    {
-        id: "2",
-        icon: "ri-facebook-fill",
-        url: "https://www.facebook.com/DTInigeria/"
-    },
+  {
+    id: "2",
+    icon: "ri-facebook-fill",
+    url: "https://www.facebook.com/DTInigeria/",
+  },
 
-    {
-        id: "3",
-        icon: "ri-instagram-fill",
-        url: ""
-    }
+  // {
+  //     id: "3",
+  //     icon: "ri-instagram-fill",
+  //     url: ""
+  // }
+];
 
-]
-
-export {data, help, socials};
+export { data, help, socials };
