@@ -63,9 +63,8 @@ function Subscribe({ className }) {
         </p>
         <Field className="mb-8" />
         <p className="text-xs font-semibold text-neutral-700 leading-loose">
-          Hello, we are Zobomap. Our goal is to translate the positive effects
-          from revolutionizing how companies engage with their clients & their
-          team.
+          Hello, we are Zobomap. Our goal is to provides easy access to
+          demographic and other similar data about Nigeria.
         </p>
       </div>
     </div>

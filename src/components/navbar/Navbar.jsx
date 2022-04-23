@@ -41,13 +41,13 @@ function Navbar() {
       <Nav className="relative md:static flex justify-between items-center w-11/12 ">
         <Hyperlink
           to="/"
-          className="z-50 flex justify-between items-center cursor-pointer w-[136px]"
+          className="z-50 flex justify-between items-center cursor-pointer w-[110px] md:w-[136px]"
         >
           <figure>
-            <img src={zoboLogo} className="w-100%" alt="zobo-logo" />
+            <img src={zoboLogo} className="w-6 md:w-[100%]" alt="zobo-logo" />
           </figure>
 
-          <p className="font-gilmer font-bold text-primary-600 text-xl">
+          <p className="font-gilmer font-semibold text-primary-600 text-[17px] md:text-xl">
             Zobomap
           </p>
         </Hyperlink>
@@ -58,14 +58,14 @@ function Navbar() {
             {/* <Hyperlink to="/contact">Publication Hub</Hyperlink> */}
           </div>
         )}
-        <div className="flex justify-between items-center w-[175px] md:w-fit">
+        <div className="flex justify-between items-center md:w-fit">
           <Link to="/profiles/nigeria">
             <Button>Open Zobomap</Button>
           </Link>
           {isMobile && (
             <figure
               onClick={() => setToggle(!toggle)}
-              className="z-50 w-[40px] h-[40px] rounded-full bg-neutral-100 flex justify-center items-center"
+              className="z-50 ml-4 w-[40px] h-[40px] rounded-full bg-neutral-100 flex justify-center items-center"
             >
               <img src={menu} className="w-100%" alt="menu" />
             </figure>
