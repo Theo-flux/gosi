@@ -8,7 +8,7 @@ function HomeContainer(){
             <Hero/>
             <Story/>
             <Easy/>
-            <Publications/>
+            {/* <Publications/> */}
             <Discover/>
         </Layout>
     );
