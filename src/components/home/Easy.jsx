@@ -64,7 +64,7 @@ function Easy(){
                     <div className="font-gilmer flex flex-col justify-center items-center mb-16">
                         <SmallText className="">GETTING STARTED</SmallText>
                         <Title className="text-center my-8 w-full md:max-w-[650px]">Using Zobomap is easy</Title>
-                        <SubTitle className="text-center md:max-w-[613px]">What looked like a small patch of purple grass, above five feet square, was moving across the sand</SubTitle>
+                        <SubTitle className="text-center md:max-w-[613px]">With an intuitive map navigation Zobomap presents data about Nigeria in a way that is very easy to digest</SubTitle>
                     </div>
 
                     <div className="grid grid-cols-1 gap-8 md:grid-cols-3 ">
