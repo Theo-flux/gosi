@@ -60,7 +60,7 @@ function Navbar() {
         )}
         <div className="flex justify-between items-center w-[175px] md:w-fit">
           <Link to="/profiles/nigeria">
-            <Button>Try Zobomap</Button>
+            <Button>Open Zobomap</Button>
           </Link>
           {isMobile && (
             <figure
