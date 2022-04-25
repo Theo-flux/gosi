@@ -10,7 +10,7 @@ function School({
 }){
 
     const [showSchoolChartOptions, setShowSchoolChartOptions] = useState(false);
-    const [SchoolChartType, setSchoolChartType] = useState("bar");
+    const [SchoolChartType, setSchoolChartType] = useState("pie");
 
     const [isSchoolCollapsed, setSchoolCollapsed] = useState(false);
 
@@ -52,7 +52,7 @@ function School({
 
                     {
                         SchoolChartType == "bar" ? 
-                            <BarGraph data={school_attendance}/> 
+                            <BarGraph isVertical="true" data={school_attendance}/> 
                             : 
                             <Pie data={school_attendance}/>
                     }

@@ -10,7 +10,7 @@ function ChildPopulation({
 }){
 
     const [showChildChartOptions, setShowChildChartOptions] = useState(false);
-    const [ChildChartType, setChildChartType] = useState("bar");
+    const [ChildChartType, setChildChartType] = useState("pie");
 
     const [isChildCollapsed, setChildCollapsed] = useState(false)
 
@@ -51,7 +51,7 @@ function ChildPopulation({
 
                 {
                     ChildChartType == "bar" ? 
-                        <BarGraph data={parent_survival}/> 
+                        <BarGraph isVertical="true" data={parent_survival}/> 
                         : 
                         <Pie data={parent_survival}/>
                 }

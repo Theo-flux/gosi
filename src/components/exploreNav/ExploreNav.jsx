@@ -148,7 +148,7 @@ function ExploreNav({ className, handleShowchart, slug, slug2 }) {
 
   return (
     <section className={className}>
-      <div className="py-4 mx-auto w-11/12">
+      <div className="py-4 md:py-[.7em] mx-auto w-11/12">
         <nav className="flex justify-between items-center">
           <Hyperlink
             to="/"
@@ -203,7 +203,7 @@ function ExploreNav({ className, handleShowchart, slug, slug2 }) {
             </Hyperlink>
           </div>
 
-          <div className="h-[calc(100vh-67px)]">
+          <div className="h-[calc(100vh-75px)]">
             <div className="overflow-x-hidden py-2 h-[90%]">
               {data.map((item, index) => {
                 return (
