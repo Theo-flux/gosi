@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useEffect, useContext } from "react";
 import LeafletContainer from "./LeafletContainer";
 import ExploreNav from "../components/exploreNav/ExploreNav";
 import { GraphicalData, MenuFold, DetailsCard } from "../components";
@@ -12,7 +12,6 @@ function ApplicationContainer({
   slug,
   slug2,
 }) {
-
   const {
     showChart,
     handleShowchart,
