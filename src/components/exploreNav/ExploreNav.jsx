@@ -203,7 +203,7 @@ function ExploreNav({ className, handleShowchart, slug, slug2 }) {
             </Hyperlink>
           </div>
 
-          <div className="h-[calc(100vh-75px)]">
+          <div className="h-[calc(100vh-85px)]">
             <div className="overflow-x-hidden py-2 h-[90%]">
               {data.map((item, index) => {
                 return (
