@@ -50,7 +50,7 @@ function Language({
 
                     {
                         langChartType == "bar" ? 
-                            <BarGraph data={pop_by_lang}/> 
+                            <BarGraph isVertical="true" data={pop_by_lang}/> 
                             : 
                             <Pie data={pop_by_lang}/>
                     }

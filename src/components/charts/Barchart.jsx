@@ -4,10 +4,15 @@ import Charts from "react-apexcharts";
 function BarGraph({className, data, isVertical}){
     const [barData, setBarData] = useState({
         series: [{
-            data: Object.values(data || {})
+            data: Object.values(data || {}),
+            name: ''
         }],
+        chartOptions: {
+            labels: Object.keys(data)
+        },
 
         options: {
+            labels: Object.keys(data),
             chart: {
                 id: 'bar-chart'
             },
