@@ -1,7 +1,9 @@
 export const getJSONFile = async (state) => {
-  const FilePath = `../data/lgaByStateTopoJSON/${state}.topo.json`;
-  const File = await import(`../data/lgaByStateTopoJSON/${state}.topo.json`);
-  return File;
+  if (state && state !== "Nigeria") {
+    const FilePath = `../data/lgaByStateTopoJSON/${state}.topo.json`;
+    const File = await import(`../data/lgaByStateTopoJSON/${state}.topo.json`);
+    return File;
+  }
 };
 
 export function capitalizeFirstLetter(string) {
