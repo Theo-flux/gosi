@@ -24,7 +24,7 @@ export default function LeafletContainer({ locationLevel }) {
 
   getJSONFile(
     slug === "Federal Capital Territory" ? "Federal_Capital_Territory" : state
-  ).then((file) => setStatesLGA(file));
+  ).then((file) => setStatesLGA(file || null));
 
   return (
     <>

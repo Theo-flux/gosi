@@ -10,7 +10,7 @@ const Button = ({children, className, ...restProps}) => {
 
 const ButtonWithIcon = ({children, className, ...restProps}) => {
     return(
-        <button {...restProps} className={`outline-0 flex justify-center items-center text-sm font-bold text-primary-600 rounded-lg py-2 px-4 md:py-4 md:px-8 font-gilmer bg-primary-100 transition-all duration-300 hover:bg-white hover:ring-2 hover:ring-primary-600 ${className}`}>
+        <button {...restProps} className={`outline-0 flex justify-center items-center text-sm font-semibold text-primary-600 rounded-lg py-2 px-4 md:py-4 md:px-8 font-gilmer bg-primary-100 transition-all duration-300 hover:bg-white hover:ring-2 hover:ring-primary-600 ${className}`}>
             {children}
         </button>
     );

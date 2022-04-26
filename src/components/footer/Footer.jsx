@@ -45,7 +45,7 @@ function Footer() {
               </div>
 
               <div>
-                <SubTitle className="text-[#0A142F] font-semibold font-gilmer mb-8">
+                <SubTitle className="text-[#0A142F] font-semibold font-gilmer mt-[7px] md:mt-0 mb-8">
                   Quicklinks
                 </SubTitle>
                 <div className="flex flex-col justify-start items-start">
