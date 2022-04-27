@@ -95,7 +95,7 @@ function HouseholdInner({
                     />
 
                     {
-                        genderChartType == "bar" ? 
+                        genderChartType == "pie" ? 
                             <BarGraph data={head_by_gender}/> 
                             : 
                             <Pie data={head_by_gender}/>
