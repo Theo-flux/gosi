@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Charts from "react-apexcharts";
 
+
 function BarGraph({className, data, isVertical}){
     const [barData, setBarData] = useState({
         series: [{
@@ -8,11 +9,11 @@ function BarGraph({className, data, isVertical}){
             name: ''
         }],
         chartOptions: {
-            labels: Object.keys(data)
+            labels: Object.keys(data || {})
         },
 
         options: {
-            labels: Object.keys(data),
+            labels: Object.keys(data || {}),
             chart: {
                 id: 'bar-chart'
             },
@@ -29,7 +30,7 @@ function BarGraph({className, data, isVertical}){
                 categories: Object.keys(data || {})
             },
             fill: {
-                colors: ["#0B6CD6"]
+                colors: ["#047130"]
             }
         },
 
@@ -44,7 +45,7 @@ function BarGraph({className, data, isVertical}){
 
     return(
         <div className={className}>
-        <Charts options={barData.options} series={barData.series} type="bar" height={250}/>
+        <Charts options={barData.options} series={barData.series} type="bar" height={300}/>
         </div>
     );
 }

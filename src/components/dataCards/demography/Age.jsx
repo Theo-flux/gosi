@@ -57,7 +57,7 @@ function Age({
             <Topspacing>
                 <GraphTitle 
                     handleThis={handleAgeRangeCollapsed}
-                    title="Age by range"
+                    title="Population by age range"
                 />
 
                 { 
@@ -82,7 +82,7 @@ function Age({
             <Topspacing>
                 <GraphTitle
                     handleThis={handleAgeCategoryCollapsed}
-                    title="Age by category"
+                    title="Population by age category"
                 />
 
                 {    

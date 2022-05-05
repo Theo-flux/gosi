@@ -36,7 +36,7 @@ const Field = ({ className }) => {
         className={`bg-white overflow-hidden rounded-lg w-full flex justify-between items-center ${className}`}
       >
         <input
-          className="outline-0 p-4 h-full font-gilmer"
+          className="outline-0 p-4 h-full font-gilmer placeholder:text-sm"
           placeholder="Email address"
           onChange={(e) => setEmail(e.target.value)}
           value={email}

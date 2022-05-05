@@ -8,13 +8,14 @@ function HouseholdInner({
     with_woman_head,
     heads_under_18,
     type_of_dwelling,
-    head_by_gender
+    head_by_gender,
+    type_of_house_walls
 }){
     const [showDwellingChartOptions, setShowDwellingChartOptions] = useState(false);
     const [dwellingChartType, setDwellingChartType] = useState("bar");
 
     const [showGenderChartOptions, setShowGenderChartOptions] = useState(false);
-    const [genderChartType, setGenderChartType] = useState("bar");
+    const [genderChartType, setGenderChartType] = useState("pie");
 
     const [isGenderCollapsed, setGenderCollapsed] = useState(false);
     const [isDewllingCollapsed, setDwellingCollapsed] = useState(false);
@@ -45,19 +46,38 @@ function HouseholdInner({
         setGenderCollapsed(!isGenderCollapsed);
     }
 
+
+    const [showHouseWallsChartOptions, setShowHouseWallsChartOptions] = useState(false);
+    const [HouseWallsChartType, setHouseWallsChartType] = useState("bar");
+
+    const [isHouseWallsCollapsed, setHouseWallsCollapsed] = useState(false);
+
+    function handleHouseWallsChartoptions(){
+        setShowHouseWallsChartOptions(!showHouseWallsChartOptions);
+    }
+
+    function handleHouseWallsChartType(type){
+        setShowHouseWallsChartOptions(!showHouseWallsChartOptions);
+        setHouseWallsChartType(type);
+    }
+
+    function handleHouseWallsCollapsed(){
+        setHouseWallsCollapsed(!isHouseWallsCollapsed);
+    }
+
     return(
         <>
             <PodGrid>
                 <Pods data={number_of_households?.toLocaleString() || `0`} text="number of households"/>
-                <Pods data={`${with_woman_head || `0`}%`} text="% with woman head"/>
-                <Pods data={heads_under_18?.toLocaleString() || `0`} text="heads under 18"/>
+                <Pods data={`${with_woman_head || `0`}%`} text="% Households led by women"/>
+                <Pods data={heads_under_18?.toLocaleString() || `0`} text="Under-18 Household head"/>
             </PodGrid>
 
 
             <Topspacing>
                 <GraphTitle 
                     handleThis={handleDwellingCollapsed}
-                    title="household by dwelling type"
+                    title="Household by type of building"
                 />
 
                 {
@@ -81,8 +101,34 @@ function HouseholdInner({
 
             <Topspacing>
                 <GraphTitle 
+                    handleThis={handleHouseWallsCollapsed}
+                    title="Household by type of house walls"
+                />
+
+                { 
+                    isHouseWallsCollapsed ||
+                    <>
+                    <ChartOptions
+                        chartOption={showHouseWallsChartOptions}
+                        chartOptionFunction={handleHouseWallsChartoptions}
+                        chartTypeFunction={handleHouseWallsChartType}
+                    />
+
+                    {
+                        HouseWallsChartType == "bar" ? 
+                            <BarGraph data={type_of_house_walls}/> 
+                            : 
+                            <Pie data={type_of_house_walls}/>
+                    
+                    }
+                    </>
+                }
+            </Topspacing>
+
+            <Topspacing>
+                <GraphTitle 
                     handleThis={handleGenderCollapsed}
-                    title="household head by gender"
+                    title="Head of household by gender"
                 />
 
                 {
@@ -96,9 +142,9 @@ function HouseholdInner({
 
                     {
                         genderChartType == "pie" ? 
-                            <BarGraph data={head_by_gender}/> 
+                            <Pie data={head_by_gender}/> 
                             : 
-                            <Pie data={head_by_gender}/>
+                            <BarGraph data={head_by_gender}/>
                     }
                     </>
                 }

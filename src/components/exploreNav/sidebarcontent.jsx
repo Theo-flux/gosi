@@ -31,14 +31,14 @@ const data = [
     id: "2",
     parent: "Service Delivery",
     icon: [serviceInactive, serviceActive],
-    children: ["Electricity", "Toilet Facilities", "Refuse Disposal"],
+    children: [ "Water", "Electricity", "Toilet Facilities", "Refuse Disposal"],
   },
 
   {
     id: "3",
     parent: "Household",
     icon: [homeInactive, homeActive],
-    children: ["Houseolds", "Houseold Ownership"],
+    children: ["Households", "Household Ownership"],
   },
 
   {

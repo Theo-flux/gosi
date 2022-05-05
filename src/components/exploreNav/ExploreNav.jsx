@@ -3,8 +3,8 @@ import { Link, NavLink } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import { Hyperlink } from "../../shared";
 import zoboLogo from "../../images/zobomap-icon.svg";
-import downArrow from "../../images/explorenav/arrow-down.png";
-import upArrow from "../../images/explorenav/arrow-up.png";
+import downArrow from "../../images/explorenav/arrow-down.svg";
+import upArrow from "../../images/explorenav/arrow-up.svg";
 import { data, help, socials } from "./sidebarcontent";
 import { App } from "../../context/applicationContext";
 import ExtrasOnMobile from "../../container/ExtrasOnMobile";
@@ -43,11 +43,11 @@ function DataStyle({
           handlePresentSidebarData(parent, children);
         }}
         className={`${
-          openChild === index && "bg-primary-100 border-r border-primary-600"
-        } cursor-pointer py-2 px-8 flex justify-between items-center hover:bg-primary-100 hover:border-r hover:border-primary-600 active:bg-primary-100 active:border-r active:border-primary-600 focus:bg-primary-100 focus:border-r focus:border-primary-600`}
+          openChild === index && "bg-eerie"
+        } cursor-pointer py-[12px] px-8 flex justify-between items-center hover:bg-eerie active:bg-eerie focus:bg-eerie`}
       >
         <div className={`flex justify-between items-center`}>
-          <figure className="mr-2">
+          <figure className="mr-1">
             <img
               className="w-[100%]"
               src={openChild === index ? icon[1] : icon[0]}
@@ -56,7 +56,7 @@ function DataStyle({
           </figure>
           <p
             className={`${
-              openChild === index ? "text-primary-600" : "text-neutral-400"
+              openChild === index ? "text-white" : "text-neutral-400"
             } text-xs font-medium md:text-xs`}
           >
             {parent}
@@ -203,7 +203,7 @@ function ExploreNav({ className, handleShowchart, slug, slug2 }) {
             </Hyperlink>
           </div>
 
-          <div className="h-[calc(100vh-100px)]">
+          <div className="h-[calc(100vh-95px)]">
             <div className="overflow-x-hidden py-2 h-[90%]">
               {data.map((item, index) => {
                 return (
@@ -239,14 +239,14 @@ function ExploreNav({ className, handleShowchart, slug, slug2 }) {
                                 }
                             </div> */}
 
-              <div className="px-2 flex justify-center items-center">
+              <div className="px-2 flex">
                 {socials.map((handle) => {
                   return (
                     <span
                       key={handle.id}
-                      className="cursor-pointer flex rounded-full justify-center items-center h-[32px] w-[32px] bg-neutral-100 mx-4"
+                      className="cursor-pointer flex rounded-full justify-center items-center h-[32px] w-[32px] bg-neutral-100 mr-4"
                     >
-                      <i className={`text-primary-600 ${handle.icon}`}></i>
+                      <a href={handle.url} className={`text-primary-600 ${handle.icon}`}></a>
                     </span>
                   );
                 })}

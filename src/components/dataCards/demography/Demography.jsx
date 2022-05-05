@@ -21,7 +21,10 @@ function Demography() {
     age_range: data?.population_by_age_range,
     pop_by_lang: data?.population_by_language_most_spoken,
     pop_by_age_range: data?.population_by_age_range,
-    pop_by_age_category:data?.population_by_age_category
+    pop_by_age_category:data?.population_by_age_category,
+    pop_by_gender: data?.population_gender,
+    pop_by_highest_edu_level: data?.pop_by_highest_edu_level,
+    pop_by_religion: data?.population_religion,
   }
 
   const {
@@ -31,7 +34,10 @@ function Demography() {
     population, 
     pop_by_lang,
     pop_by_age_category,
-    pop_by_age_range
+    pop_by_age_range,
+    pop_by_gender,
+    pop_by_highest_edu_level,
+    pop_by_religion,
   } = DemographicData;
   return (
     <DataCardsContainer>
@@ -49,6 +55,9 @@ function Demography() {
           openGrandChild === 1 && 
           <Population 
             population={population}
+            pop_by_gender = {pop_by_gender}
+            pop_by_highest_edu_level = {pop_by_highest_edu_level}
+            pop_by_religion = {pop_by_religion}
           />
         }
 

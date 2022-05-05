@@ -29,14 +29,14 @@ function RefuseDisposal({
     return (
         <>
              <PodGrid>
-                <Pods data={`${refuse_collected || `0`}%`} text="refuse collected"/>
+                <Pods data={`${refuse_collected || `0`}%`} text="% have refuse collected byGovt or Private firm"/>
             </PodGrid>
 
 
             <Topspacing>
                 <GraphTitle 
                     handleThis={handleRefuseCollapsed}
-                    title="Population by refuse disposal"
+                    title="Mode of refuse disposal"
                 />
 
                 {   

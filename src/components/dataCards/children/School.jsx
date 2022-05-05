@@ -38,7 +38,7 @@ function School({
             <Topspacing>
                 <GraphTitle
                     handleThis={handleSchoolCollapsed} 
-                    title="School attendance"
+                    title="School attendance of children aged 5 to 17"
                 />
 
                 {
