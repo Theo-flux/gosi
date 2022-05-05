@@ -50,7 +50,7 @@ function Water({
             <Topspacing>
                 <GraphTitle 
                     handleThis={handleDrySeasonCollapsed}
-                    title="Sources of drinking water during dry season"
+                    title="Household access to drinking water - dry season"
                 />
 
                 {   
@@ -78,7 +78,7 @@ function Water({
             <Topspacing>
                 <GraphTitle 
                     handleThis={handleRainySeasonCollapsed}
-                    title="Sources of drinking water during rainy season"
+                    title="Household access to drinking water - rainy season"
                 />
 
                 {   

@@ -69,7 +69,7 @@ function HouseholdInner({
         <>
             <PodGrid>
                 <Pods data={number_of_households?.toLocaleString() || `0`} text="number of households"/>
-                <Pods data={`${with_woman_head || `0`}%`} text="Households led by women"/>
+                <Pods data={`${with_woman_head || `0`}%`} text="% Households led by women"/>
                 <Pods data={heads_under_18?.toLocaleString() || `0`} text="Under-18 Household head"/>
             </PodGrid>
 
@@ -102,7 +102,7 @@ function HouseholdInner({
             <Topspacing>
                 <GraphTitle 
                     handleThis={handleHouseWallsCollapsed}
-                    title="household by type of house walls"
+                    title="Household by type of house walls"
                 />
 
                 { 

@@ -45,7 +45,7 @@ function BarGraph({className, data, isVertical}){
 
     return(
         <div className={className}>
-        <Charts options={barData.options} series={barData.series} type="bar" height={250}/>
+        <Charts options={barData.options} series={barData.series} type="bar" height={300}/>
         </div>
     );
 }

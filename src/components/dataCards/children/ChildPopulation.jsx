@@ -37,7 +37,7 @@ function ChildPopulation({
             <Topspacing>
                 <GraphTitle 
                     handleThis={handleChildCollapsed}
-                    title="Children by parent survival"
+                    title="Children Under-14 and parental status"
                 />
 
             {

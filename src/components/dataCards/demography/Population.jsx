@@ -123,7 +123,7 @@ function Population({
             <Topspacing>
                 <GraphTitle 
                     handleThis={handlePopByEduCollapsed}
-                    title="Population by highest educational level"
+                    title="Highest educational level of population aged 20 and above"
                 />
 
                 { 
