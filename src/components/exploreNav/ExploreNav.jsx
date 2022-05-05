@@ -246,7 +246,7 @@ function ExploreNav({ className, handleShowchart, slug, slug2 }) {
                       key={handle.id}
                       className="cursor-pointer flex rounded-full justify-center items-center h-[32px] w-[32px] bg-neutral-100 mx-4"
                     >
-                      <i className={`text-primary-600 ${handle.icon}`}></i>
+                      <a href={handle.url} className={`text-primary-600 ${handle.icon}`}></a>
                     </span>
                   );
                 })}

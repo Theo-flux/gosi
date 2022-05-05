@@ -20,3 +20,13 @@ export function JSON_to_URLEncoded(element, key, list) {
   }
   return list.join("&");
 }
+
+export function makeRepeated(arr, limit){
+  const repeats = Math.floor(limit / arr.length) + 1;
+  const repeated = Array.from(
+      { length: repeats },
+      () => arr
+  ).flat();
+
+  return repeated.slice(0, limit);
+}
