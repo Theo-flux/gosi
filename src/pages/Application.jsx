@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { locationLevels } from "../utils/constants";
 import LeafletContainer from "../container/LeafletContainer";
 import { increment, decrement } from "../redux/slices/locationSlice";
+
 import {
   useLazyGetNigeriaDataQuery,
   usePostLgaDataMutation,
@@ -37,7 +39,9 @@ function Application() {
       } else if (slug2) {
         setLocationLevel(locationLevels.three);
         getLgaData({
-          state: capitalizeFirstLetter(slug.split("-state")[0].replace("-"," ")),
+          state: capitalizeFirstLetter(
+            slug.split("-state")[0].replace("-", " ")
+          ),
           lga: capitalizeFirstLetter(slug2.split("-lga")[0]),
         });
       } else {
@@ -50,19 +54,34 @@ function Application() {
     }
   }, [slug, slug2]);
 
-  
-
   return (
-    <ApplicationProvider>
-      <ApplicationContainer 
-        locationLevel={locationLevel}
-        countryResult={CountryResult}
-        stateResult={stateResult}
-        lgaResult={lgaResult}
-        slug={slug}
-        slug2={slug2}
-      />
-    </ApplicationProvider>
+    <>
+      <Helmet>
+        <meta property="og:url" content={window.location.href}></meta>
+        <meta
+          property="og:title"
+          content={`Zobomap data for ${
+            slug === "nigeria"
+              ? "Nigeria"
+              : slug2
+              ? `${capitalizeFirstLetter(
+                  slug2.split("-lga")[0]
+                )}, ${capitalizeFirstLetter(slug.split("-state")[0])} state`
+              : `${capitalizeFirstLetter(slug.split("-state")[0])} state`
+          }`}
+        />
+      </Helmet>
+      <ApplicationProvider>
+        <ApplicationContainer
+          locationLevel={locationLevel}
+          countryResult={CountryResult}
+          stateResult={stateResult}
+          lgaResult={lgaResult}
+          slug={slug}
+          slug2={slug2}
+        />
+      </ApplicationProvider>
+    </>
   );
 }
 

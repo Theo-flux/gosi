@@ -74,7 +74,7 @@ function GraphicalData({className, activeSidebar, handleShowchart}){
                 presentSidebarData === "Children" && <Children/> 
                 }
 
-                <small className="flex justify-end text-neutral-400 text-sm pb-4">source: National Bureau of Statistics (NLSS 2018 - 2019)</small>
+                <small className="flex justify-end text-neutral-400 text-sm pb-4">Source: National Bureau of Statistics (NLSS 2018 - 2019)</small>
             </div>
 
             

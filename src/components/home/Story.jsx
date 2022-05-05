@@ -1,4 +1,5 @@
 
+import { Link } from "react-router-dom";
 import { Section, Div, Title, SubTitle, SmallText, ButtonWithIcon } from "../../shared";
 
 const stories = [
@@ -7,7 +8,7 @@ const stories = [
         icon: "ri-file-3-fill",
         bg: "bg-primary-50",
         title: "Explore the Data",
-        data: "What looked like a small patch of purple grass, above five feet square, was moving across the sand."
+        data: "Visualize data about Nigeria, it's states and local goverments."
     },
 
     {
@@ -15,7 +16,7 @@ const stories = [
         icon: "ri-search-fill",
         bg: "bg-neutral-50",
         title: "Interactive map search",
-        data: "What looked like a small patch of purple grass, above five feet square, was moving across the sand."
+        data: "Find places you know about easier with our search autocomplete feature."
     },
 
     {
@@ -23,7 +24,7 @@ const stories = [
         icon: "ri-bar-chart-2-fill",
         bg: "bg-neutral-50",
         title: "Advanced filter",
-        data: "What looked like a small patch of purple grass, above five feet square, was moving across the sand."
+        data: "Zobomap Provides granular data for Nigeria, up to the local government level."
     },
 
     {
@@ -52,36 +53,38 @@ const StoryCard = ({storyData}) => {
 
 
 function Story(){
-    return(
-        <Section>
-            <Div>
-            <div className="grid grid-cols-1 grid-rows-[minmax(0,200px)_minmax(0,_1fr)] gap-4 md:grid-cols-2 grid-rows-[minmax(0,200px)_minmax(0,_1fr)] md:gap-8">
-               
-               <div className="row-start-1 row-end-2 col-start-1 justify-self-start mb-16 self-center md:col-start-1 md:max-w-[489px]">
-                   <SmallText className="">OUR EXTENSIVE FEATURES</SmallText>
-                   <Title className="max-w-[462px] my-4">Discover the story behind the data.</Title>
-                   <SubTitle className="">What looked like a small patch of purple grass, above five feet square, was moving across the sand.</SubTitle>
-               </div>
+    return (
+      <Section>
+        <Div>
+          <div className="grid grid-cols-1 grid-rows-[minmax(0,200px)_minmax(0,_1fr)] gap-4 md:grid-cols-2 grid-rows-[minmax(0,200px)_minmax(0,_1fr)] md:gap-8">
+            <div className="row-start-1 row-end-2 col-start-1 justify-self-start mb-16 self-center md:col-start-1 md:max-w-[489px]">
+              <SmallText className="">OUR EXTENSIVE FEATURES</SmallText>
+              <Title className="max-w-[462px] my-4">
+                Discover the story behind the data.
+              </Title>
+              <SubTitle className="">
+                Learn about Nigeria, it's states and local goverments through
+                the eyes of the data.
+              </SubTitle>
+            </div>
 
-               <div className="row-start-3 row-end-4 justify-self-start md:row-start-2 md:row-end-3 md:col-start-1 md:justify-self-start self-start">
-                   <ButtonWithIcon className="">
-                       Learn More
-                       <i className="ml-2 text-lg ri-arrow-right-circle-line"></i>
-                   </ButtonWithIcon>
-               </div>
-          
-               <div className="grid grid-cols-1 row-start-2 row-end-3 mb-4 md:grid-cols-2 gap-4 col-start-1 md:col-span-2 md:row-start-1 md:row-span-2">
-                   {
-                       stories.map((story, index) => {
-                           return(
-                                <StoryCard key={index} storyData={story} />
-                           );
-                       })
-                   }
-               </div>
-           </div>
-            </Div>
-        </Section>
+            <div className="row-start-3 row-end-4 justify-self-start md:row-start-2 md:row-end-3 md:col-start-1 md:justify-self-start self-start">
+              <Link to="/profiles/nigeria">
+                <ButtonWithIcon className="">
+                  Learn More
+                  <i className="ml-2 text-lg ri-arrow-right-circle-line"></i>
+                </ButtonWithIcon>
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 row-start-2 row-end-3 mb-4 md:grid-cols-2 gap-4 col-start-1 md:col-span-2 md:row-start-1 md:row-span-2">
+              {stories.map((story, index) => {
+                return <StoryCard key={index} storyData={story} />;
+              })}
+            </div>
+          </div>
+        </Div>
+      </Section>
     );
 }
 
