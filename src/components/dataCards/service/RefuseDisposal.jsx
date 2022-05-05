@@ -36,7 +36,7 @@ function RefuseDisposal({
             <Topspacing>
                 <GraphTitle 
                     handleThis={handleRefuseCollapsed}
-                    title="Population by refuse disposal"
+                    title="Mode of refuse disposal"
                 />
 
                 {   

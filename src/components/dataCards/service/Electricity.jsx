@@ -36,7 +36,7 @@ function Electricity({
             <Topspacing>
                 <GraphTitle
                     handleThis={handleElectricityCollapsed} 
-                    title="Population by access to electricity"
+                    title="Population's access to electricity"
                 />
 
             {

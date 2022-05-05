@@ -54,4 +54,8 @@
   background: #555;
 }
 
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
 /* TODO: color and borders */

@@ -14,7 +14,7 @@ function HouseholdInner({
     const [dwellingChartType, setDwellingChartType] = useState("bar");
 
     const [showGenderChartOptions, setShowGenderChartOptions] = useState(false);
-    const [genderChartType, setGenderChartType] = useState("bar");
+    const [genderChartType, setGenderChartType] = useState("pie");
 
     const [isGenderCollapsed, setGenderCollapsed] = useState(false);
     const [isDewllingCollapsed, setDwellingCollapsed] = useState(false);
@@ -49,15 +49,15 @@ function HouseholdInner({
         <>
             <PodGrid>
                 <Pods data={number_of_households?.toLocaleString() || `0`} text="number of households"/>
-                <Pods data={`${with_woman_head || `0`}%`} text="% with woman head"/>
-                <Pods data={heads_under_18?.toLocaleString() || `0`} text="heads under 18"/>
+                <Pods data={`${with_woman_head || `0`}%`} text="Households led by women"/>
+                <Pods data={heads_under_18?.toLocaleString() || `0`} text="Under-18 Household head"/>
             </PodGrid>
 
 
             <Topspacing>
                 <GraphTitle 
                     handleThis={handleDwellingCollapsed}
-                    title="household by dwelling type"
+                    title="Household by type of building"
                 />
 
                 {
@@ -82,7 +82,7 @@ function HouseholdInner({
             <Topspacing>
                 <GraphTitle 
                     handleThis={handleGenderCollapsed}
-                    title="household head by gender"
+                    title="Head of household by gender"
                 />
 
                 {
@@ -96,9 +96,9 @@ function HouseholdInner({
 
                     {
                         genderChartType == "pie" ? 
-                            <BarGraph data={head_by_gender}/> 
+                            <Pie data={head_by_gender}/> 
                             : 
-                            <Pie data={head_by_gender}/>
+                            <BarGraph data={head_by_gender}/>
                     }
                     </>
                 }

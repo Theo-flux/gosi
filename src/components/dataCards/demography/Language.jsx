@@ -36,7 +36,7 @@ function Language({
             <Topspacing>
                 <GraphTitle 
                     handleThis={handleLangCollapsed}
-                    title="Most spoken languages"
+                    title="Population by language spoken"
                 />
 
                 {

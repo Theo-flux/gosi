@@ -47,7 +47,8 @@ function ApplicationProvider({children}){
         setGrandChild(0);
     }
 
-
+    console.log(graphData);
+    
     return(
         <App.Provider value={{
             showSidebar: showSidebar, 

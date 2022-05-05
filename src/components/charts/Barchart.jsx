@@ -8,11 +8,11 @@ function BarGraph({className, data, isVertical}){
             name: ''
         }],
         chartOptions: {
-            labels: Object.keys(data)
+            labels: Object.keys(data || {})
         },
 
         options: {
-            labels: Object.keys(data),
+            labels: Object.keys(data || {}),
             chart: {
                 id: 'bar-chart'
             },
@@ -29,7 +29,7 @@ function BarGraph({className, data, isVertical}){
                 categories: Object.keys(data || {})
             },
             fill: {
-                colors: ["#0B6CD6"]
+                colors: ["#047130"]
             }
         },
 

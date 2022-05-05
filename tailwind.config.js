@@ -50,6 +50,7 @@ module.exports = {
 
       white: "var(--color-white)",
       black: "var(--color-black)",
+      eerie: "var(--color-eerie)"
     },
 
     extend: {

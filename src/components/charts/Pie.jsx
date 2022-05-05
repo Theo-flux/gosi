@@ -6,13 +6,13 @@ function Pie({className, data}){
     const isDesktop = useMediaQuery({maxWidth: 767})
 
     const [pieData, setPieData] = useState({
-        series: Object.values(data),
+        series: Object.values(data || {}),
         chartOptions: {
-            labels: Object.keys(data)
+            labels: Object.keys(data || {})
         },
         
         options: {
-            labels: Object.keys(data),
+            labels: Object.keys(data || {}),
             chart: {
             width: 380,
             type: 'donut',

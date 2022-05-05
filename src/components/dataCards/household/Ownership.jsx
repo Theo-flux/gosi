@@ -29,13 +29,13 @@ function Ownership({
     return (
         <>
             <PodGrid>
-                <Pods data={`${fully_owned || `0`}%`} text="% fully owned"/>
+                <Pods data={`${fully_owned || `0`}%`} text="% of houses fully owned by occupants"/>
             </PodGrid>
 
             <Topspacing>
                 <GraphTitle 
                     handleThis={handleOwnershipCollapsed}
-                    title="household by Onwership type"
+                    title="household ownership"
                 />
 
                 { 
