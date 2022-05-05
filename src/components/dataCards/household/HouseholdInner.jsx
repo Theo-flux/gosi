@@ -8,7 +8,8 @@ function HouseholdInner({
     with_woman_head,
     heads_under_18,
     type_of_dwelling,
-    head_by_gender
+    head_by_gender,
+    type_of_house_walls
 }){
     const [showDwellingChartOptions, setShowDwellingChartOptions] = useState(false);
     const [dwellingChartType, setDwellingChartType] = useState("bar");
@@ -45,6 +46,25 @@ function HouseholdInner({
         setGenderCollapsed(!isGenderCollapsed);
     }
 
+
+    const [showHouseWallsChartOptions, setShowHouseWallsChartOptions] = useState(false);
+    const [HouseWallsChartType, setHouseWallsChartType] = useState("bar");
+
+    const [isHouseWallsCollapsed, setHouseWallsCollapsed] = useState(false);
+
+    function handleHouseWallsChartoptions(){
+        setShowHouseWallsChartOptions(!showHouseWallsChartOptions);
+    }
+
+    function handleHouseWallsChartType(type){
+        setShowHouseWallsChartOptions(!showHouseWallsChartOptions);
+        setHouseWallsChartType(type);
+    }
+
+    function handleHouseWallsCollapsed(){
+        setHouseWallsCollapsed(!isHouseWallsCollapsed);
+    }
+
     return(
         <>
             <PodGrid>
@@ -75,6 +95,32 @@ function HouseholdInner({
                                 : 
                                 <Pie data={type_of_dwelling}/>
                         }
+                    </>
+                }
+            </Topspacing>
+
+            <Topspacing>
+                <GraphTitle 
+                    handleThis={handleHouseWallsCollapsed}
+                    title="household by type of house walls"
+                />
+
+                { 
+                    isHouseWallsCollapsed ||
+                    <>
+                    <ChartOptions
+                        chartOption={showHouseWallsChartOptions}
+                        chartOptionFunction={handleHouseWallsChartoptions}
+                        chartTypeFunction={handleHouseWallsChartType}
+                    />
+
+                    {
+                        HouseWallsChartType == "bar" ? 
+                            <BarGraph data={type_of_house_walls}/> 
+                            : 
+                            <Pie data={type_of_house_walls}/>
+                    
+                    }
                     </>
                 }
             </Topspacing>

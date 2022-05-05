@@ -203,7 +203,7 @@ function ExploreNav({ className, handleShowchart, slug, slug2 }) {
             </Hyperlink>
           </div>
 
-          <div className="h-[calc(100vh-100px)]">
+          <div className="h-[calc(100vh-95px)]">
             <div className="overflow-x-hidden py-2 h-[90%]">
               {data.map((item, index) => {
                 return (
@@ -239,12 +239,12 @@ function ExploreNav({ className, handleShowchart, slug, slug2 }) {
                                 }
                             </div> */}
 
-              <div className="px-2 flex justify-center items-center">
+              <div className="px-2 flex">
                 {socials.map((handle) => {
                   return (
                     <span
                       key={handle.id}
-                      className="cursor-pointer flex rounded-full justify-center items-center h-[32px] w-[32px] bg-neutral-100 mx-4"
+                      className="cursor-pointer flex rounded-full justify-center items-center h-[32px] w-[32px] bg-neutral-100 mr-4"
                     >
                       <a href={handle.url} className={`text-primary-600 ${handle.icon}`}></a>
                     </span>

@@ -21,7 +21,9 @@ function Service() {
     no_access_to_electricity: data?.percent_with_no_access_to_electricity,
     population_by_electricity_access: data?.population_by_electricity_access,
     population_by_refuse_disposal: data?.population_by_refuse_disposal,
-    population_by_toilet_facilities: data?.population_by_toilet_facilities
+    population_by_toilet_facilities: data?.population_by_toilet_facilities,
+    rainy_season_sources: data?.rainy_season_source_of_drinking_water,
+    dry_season_sources: data?.dry_season_source_of_drinking_water
   }
 
   const { 
@@ -32,6 +34,9 @@ function Service() {
     population_by_electricity_access,
     population_by_refuse_disposal,
     population_by_toilet_facilities,
+    rainy_season_sources,
+    dry_season_sources
+
   } = serviceData;
 
   return (
@@ -39,6 +44,14 @@ function Service() {
 
       {
         openGrandChild == 0 &&
+          <Water
+            rainy_season_sources={ rainy_season_sources}
+            dry_season_sources={dry_season_sources}
+          />
+      }
+
+      {
+        openGrandChild == 1 &&
           <Electricity
             no_access_to_electricity={no_access_to_electricity}
             population_by_electricity_access={population_by_electricity_access}
@@ -46,7 +59,7 @@ function Service() {
       }
 
       {
-        openGrandChild == 1 &&
+        openGrandChild == 2 &&
           <ToiletFacilities
             chem_or_flush_toilet={chem_or_flush_toilet}
             no_access_to_toilet={no_access_to_toilet}
@@ -55,7 +68,7 @@ function Service() {
       }
 
       {
-        openGrandChild == 2 &&
+        openGrandChild == 3 &&
           <RefuseDisposal 
           refuse_collected={refuse_collected}
           population_by_refuse_disposal={population_by_refuse_disposal}
