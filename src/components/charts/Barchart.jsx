@@ -33,6 +33,7 @@ function BarGraph({className, data, isVertical}){
                         return value.toLocaleString();
                     }   
                 },
+                logarithmic: isVertical ? true:false
             },
 
             yaxis: {
@@ -41,6 +42,7 @@ function BarGraph({className, data, isVertical}){
                         return value.toLocaleString();
                     }   
                 },
+                logarithmic: isVertical ? true:false
             },
             
             fill: {

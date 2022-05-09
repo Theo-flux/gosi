@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Charts from "react-apexcharts";
 import {useMediaQuery} from "react-responsive"
+import "./style.css";
 
 const colorArr = [
     '#6FA485',
@@ -17,9 +18,9 @@ function Pie({className, data}){
 
     const [pieData, setPieData] = useState({
         series: Object.values(data || {}),
-        // chartOptions: {
-        //     labels: Object.keys(data || {}),
-        // },
+        chartOptions: {
+            labels: Object.keys(data || {}),
+        },
         
         options: {
             labels: Object.keys(data || {}),
@@ -32,10 +33,12 @@ function Pie({className, data}){
                 pie: {
                     startAngle: -90,
                     endAngle: 270,
-                }
+                },
+
+                
             },
             dataLabels: {
-            enabled: true
+            enabled: true,
             },
             fill: {
                 colors: colorArr,
@@ -45,6 +48,18 @@ function Pie({className, data}){
             formatter: function(val, opts) {
                 return val + " - " + opts.w.globals.series[opts.seriesIndex].toLocaleString()
             }
+            },
+            tooltip: { 
+                enabled: true, 
+                custom: function ({ series, seriesIndex, dataPointIndex, w }) { 
+                    let total = 0; for (let x of series) { total += x; } let selected = series[seriesIndex] 
+                    return `
+                    <div
+                        style="color:white;
+                        background-color:${colorArr[seriesIndex]};
+                        padding:.5em 1em;"
+                    > ${w.config.labels[seriesIndex]} : ${selected.toLocaleString()} </div>`; 
+                },
             },
             responsive: [{
             breakpoint: 480,

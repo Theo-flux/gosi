@@ -11,7 +11,7 @@ function Age({
 }) {
     
     const [showAgeCategoryChartOptions, setShowAgeCategoryChartOptions] = useState(false);
-    const [ageCategoryChartType, setAgeCategoryChartType] = useState("bar");
+    const [ageCategoryChartType, setAgeCategoryChartType] = useState("pie");
 
     const [showAgeRangeChartOptions, setShowAgeRangeChartOptions] = useState(false);
     const [ageRangeChartType, setAgeRangeChartType] = useState("bar");
@@ -95,7 +95,7 @@ function Age({
                         />
 
                         {
-                            ageCategoryChartType == "pie" ? 
+                            ageCategoryChartType == "bar" ? 
                                 <BarGraph isVertical="true" data={pop_by_age_category}/> 
                                 : 
                                 <Pie data={pop_by_age_category}/>
