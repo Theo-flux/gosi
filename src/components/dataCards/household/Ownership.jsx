@@ -49,7 +49,7 @@ function Ownership({
 
                     {
                         OnwershipChartType == "bar" ? 
-                            <BarGraph data={by_ownership}/> 
+                            <BarGraph isVertical={true} data={by_ownership}/> 
                             : 
                             <Pie data={by_ownership}/>
                     
