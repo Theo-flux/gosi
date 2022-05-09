@@ -19,6 +19,7 @@ function Children() {
     bio_parent: data?.percent_of_children_14_with_no_liv_bio_parent,
     school_attendance: data?.children_5_to_17_by_school_attendance,
     parent_survival: data?.children_by_parent_survival,
+    children_gender_under_18: data?.children_gender_under_18
   }
 
   const {
@@ -26,7 +27,8 @@ function Children() {
     in_school, 
     bio_parent, 
     school_attendance, 
-    parent_survival
+    parent_survival,
+    children_gender_under_18
   } = ChildrenData;
 
   return (
@@ -37,6 +39,7 @@ function Children() {
           num_of_children={num_of_children}
           bio_parent={bio_parent}
           parent_survival={parent_survival}
+          children_gender_under_18={children_gender_under_18}
         />
       }
 

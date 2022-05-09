@@ -102,7 +102,7 @@ function HouseholdInner({
             <Topspacing>
                 <GraphTitle 
                     handleThis={handleHouseWallsCollapsed}
-                    title="Household by type of house walls"
+                    title="Household by Wall material"
                 />
 
                 { 

@@ -22,6 +22,20 @@ function ApplicationContainer({
     handleChild,
   } = useContext(App);
 
+  const current = {
+      location: "",
+      population: graphData.data?.[0].total_population.toLocaleString(),
+      language: graphData.data?.[0].most_spoken_language
+  }
+  
+  if(locationLevel.name === "country"){
+      current.location = "Nigeria";
+  }else if(locationLevel.name === "state"){
+      current.location = graphData.originalArgs?.state
+  }else{
+      current.location = `${graphData.originalArgs?.state}, ${graphData.originalArgs?.lga}` 
+  }
+
   useEffect(() => {
     if (countryResult && locationLevel.name === "country") {
       const fallBackData = countryResult;
@@ -42,6 +56,7 @@ function ApplicationContainer({
   return (
     <div className="relative h-[100vh] w-[100vw]">
       <ExploreNav
+        current={current}
         locationLevel={locationLevel}
         slug={slug}
         slug2={slug2}
@@ -86,8 +101,7 @@ function ApplicationContainer({
         ></div>
       )}
       <DetailsCard
-        locationLevel={locationLevel}
-        graphData={graphData}
+        current={current}
         className="absolute z-[401] left-[20px] top-[90px] w-[200px] md:w-[300px] md:top-[80px] md:left-[270px] bg-white"
       />
 

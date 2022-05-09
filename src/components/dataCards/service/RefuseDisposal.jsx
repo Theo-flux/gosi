@@ -29,7 +29,7 @@ function RefuseDisposal({
     return (
         <>
              <PodGrid>
-                <Pods data={`${refuse_collected || `0`}%`} text="% have refuse collected byGovt or Private firm"/>
+                <Pods data={`${refuse_collected || `0`}%`} text="% have refuse collected by Govt. or Private firm"/>
             </PodGrid>
 
 

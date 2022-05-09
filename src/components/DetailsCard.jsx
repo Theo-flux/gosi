@@ -1,18 +1,18 @@
 
-function DetailsCard({className, graphData, locationLevel}) {
-    const current = {
-        location: "",
-        population: graphData.data?.[0].total_population.toLocaleString(),
-        language: graphData.data?.[0].most_spoken_language
-    }
+function DetailsCard({className, current}) {
+    // const current = {
+    //     location: "",
+    //     population: graphData.data?.[0].total_population.toLocaleString(),
+    //     language: graphData.data?.[0].most_spoken_language
+    // }
     
-    if(locationLevel.name === "country"){
-        current.location = "Nigeria";
-    }else if(locationLevel.name === "state"){
-        current.location = graphData.originalArgs?.state
-    }else{
-        current.location = `${graphData.originalArgs?.state}, ${graphData.originalArgs?.lga}` 
-    }
+    // if(locationLevel.name === "country"){
+    //     current.location = "Nigeria";
+    // }else if(locationLevel.name === "state"){
+    //     current.location = graphData.originalArgs?.state
+    // }else{
+    //     current.location = `${graphData.originalArgs?.state}, ${graphData.originalArgs?.lga}` 
+    // }
 
     return (
         <section className={`${className} rounded-lg overflow-hidden bg-white md:bg-neutral-100`} style={{boxShadow: "0px 4px 24px rgba(0, 0, 0, 0.1)"}}>
