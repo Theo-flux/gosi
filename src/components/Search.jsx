@@ -104,7 +104,7 @@ function Search({ variant }) {
     <div
       className={`rounded-lg py-1 px-1 max-w-[656px] mx-auto flex justify-between items-center  ${
         variant === "nav"
-          ? "min-w-[360px] bg-neutral-200"
+          ? "min-w-[360px] bg-neutral-100"
           : "md:py-2 md:px-2 min-w-[300px] bg-white "
       }`}
       style={{
@@ -119,7 +119,7 @@ function Search({ variant }) {
       >
         <i className="text-xl font-medium mr-2 text-neutral-400 ri-search-2-line"></i>
         <Select
-          className="basic-single"
+          className="basic-single text-sm outline-0 w-full bg-neutral-100 placeholder:text-xs"
           classNamePrefix="select"
           placeholder="Search for a location e.g Lagos"
           isSearchable

@@ -6,11 +6,12 @@ import { BarGraph, Pie } from "../../charts";
 function ChildPopulation({
     num_of_children,
     bio_parent,
-    parent_survival
+    parent_survival,
+    children_gender_under_18
 }){
 
     const [showChildChartOptions, setShowChildChartOptions] = useState(false);
-    const [ChildChartType, setChildChartType] = useState("pie");
+    const [ChildChartType, setChildChartType] = useState("bar");
 
     const [isChildCollapsed, setChildCollapsed] = useState(false)
 
@@ -25,6 +26,26 @@ function ChildPopulation({
 
     function handleChildCollapsed(){
         setChildCollapsed(!isChildCollapsed);
+    }
+
+
+    const [showGenderChartOptions, setShowGenderChartOptions] = useState(false);
+    const [GenderChartType, setGenderChartType] = useState("pie");
+
+    const [isGenderCollapsed, setGenderCollapsed] = useState(false)
+
+
+    function handleGenderChartoptions(){
+        setShowGenderChartOptions(!showGenderChartOptions);
+    }
+
+    function handleGenderChartType(type){
+        setShowGenderChartOptions(!showGenderChartOptions);
+        setGenderChartType(type);
+    }
+
+    function handleGenderCollapsed(){
+        setGenderCollapsed(!isGenderCollapsed);
     }
 
     return(
@@ -54,6 +75,31 @@ function ChildPopulation({
                         <BarGraph isVertical="true" data={parent_survival}/> 
                         : 
                         <Pie data={parent_survival}/>
+                }
+                </>
+            }
+            </Topspacing>
+
+            <Topspacing>
+                <GraphTitle 
+                    handleThis={handleChildCollapsed}
+                    title="Gender of Children Under-18"
+                />
+
+            {
+                isChildCollapsed ||
+                <>
+                <ChartOptions
+                    chartOption={showGenderChartOptions}
+                    chartOptionFunction={handleGenderChartoptions}
+                    chartTypeFunction={handleGenderChartType}
+                />
+
+                {
+                    GenderChartType == "bar" ? 
+                        <BarGraph isVertical="true" data={children_gender_under_18}/> 
+                        : 
+                        <Pie data={children_gender_under_18}/>
                 }
                 </>
             }

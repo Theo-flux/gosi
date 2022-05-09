@@ -27,8 +27,22 @@ function BarGraph({className, data, isVertical}){
                 enabled: false
             },
             xaxis: {
-                categories: Object.keys(data || {})
+                categories: Object.keys(data || {}),
+                labels: {
+                    formatter: function (value) {
+                        return value.toLocaleString();
+                    }   
+                },
             },
+
+            yaxis: {
+                labels: {
+                    formatter: function (value) {
+                        return value.toLocaleString();
+                    }   
+                },
+            },
+            
             fill: {
                 colors: ["#047130"]
             }

@@ -128,7 +128,7 @@ function DataStyle({
   );
 }
 
-function ExploreNav({ className, handleShowchart, slug, slug2 }) {
+function ExploreNav({ className, handleShowchart, slug, slug2, current }) {
   const {
     showSidebar,
     handleSidebar,
@@ -164,9 +164,9 @@ function ExploreNav({ className, handleShowchart, slug, slug2 }) {
           </Hyperlink>
           <ExtrasOnMobile className=" md:hidden" />
 
-          <div className="hidden md:flex items-center justify-end md:w-[80%]">
-            <span className="hidden lg:flex justify-between items-center">
-              {/* Breadcrumbs to be completed later */}
+          <div className="hidden md:flex items-center justify-end lg:justify-between xl:w-[80%]">
+            <span className="hidden xl:flex justify-between items-center">
+              <p className="font-gilmer font-medium">{current.location}</p>
             </span>
             <div className="lg:hidden"></div>
 
