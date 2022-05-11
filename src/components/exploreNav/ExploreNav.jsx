@@ -26,6 +26,7 @@ function DataStyle({
 }) {
   const { parent, icon, children } = item;
   const isMobile = useMediaQuery({ maxWidth: 767 });
+  const [hoverOnOption, setHoverOnOption] = useState(false);
 
   function handleSidebarShowChart(arg) {
     if (openChild === index) {
@@ -42,22 +43,24 @@ function DataStyle({
           handleChild(index);
           handlePresentSidebarData(parent, children);
         }}
+        onMouseEnter={() => setHoverOnOption((prev) => !prev)}
+        onMouseLeave={() => setHoverOnOption((prev) => !prev)}
         className={`${
           openChild === index && "bg-eerie"
-        } cursor-pointer py-[12px] px-8 flex justify-between items-center hover:bg-eerie active:bg-eerie focus:bg-eerie`}
+        } group cursor-pointer py-[12px] px-8 flex justify-between items-center hover:bg-eerie active:bg-eerie focus:bg-eerie`}
       >
         <div className={`flex justify-between items-center`}>
           <figure className="mr-1">
             <img
               className="w-[100%]"
-              src={openChild === index ? icon[1] : icon[0]}
+              src={openChild === index || hoverOnOption ? icon[1] : icon[0]}
               alt={`${parent}-icon`}
             />
           </figure>
           <p
             className={`${
-              openChild === index ? "text-white" : "text-neutral-400"
-            } text-xs font-medium md:text-xs`}
+              openChild === index ? "text-white" : "text-neutral-600"
+            } text-xs font-medium md:text-xs group-hover:text-white`}
           >
             {parent}
           </p>
@@ -146,19 +149,19 @@ function ExploreNav({ className, handleShowchart, locationLevel }) {
     handlePresentSidebarData,
   } = useContext(App);
 
-  const [stateLocation, setStateLocation] = useState("")
-  const [lgaLocation, setLgaLocation] = useState("")
+  const [stateLocation, setStateLocation] = useState("");
+  const [lgaLocation, setLgaLocation] = useState("");
 
   useEffect(() => {
-    if (locationLevel.name == "state"){
-        setStateLocation(graphData.originalArgs?.state)
-        setLgaLocation("")
+    if (locationLevel.name == "state") {
+      setStateLocation(graphData.originalArgs?.state);
+      setLgaLocation("");
     }
 
-    if (locationLevel.name == "lga"){
-      setLgaLocation(graphData.originalArgs?.lga)
+    if (locationLevel.name == "lga") {
+      setLgaLocation(graphData.originalArgs?.lga);
     }
-  })
+  });
 
   return (
     <section className={className}>
@@ -180,13 +183,39 @@ function ExploreNav({ className, handleShowchart, locationLevel }) {
 
           <div className="hidden md:flex items-center justify-end xl:w-[80%]">
             <span className="hidden absolute left-[276px] xl:flex justify-between items-center">
-              <span className={`${locationLevel.name == 'country' ? "text-primary-900" : "text-neutral-400" } font-gilmer font-medium text-sm`}>Nigeria</span>
-              {
-                stateLocation && <p className={`${locationLevel.name == "state" ? "text-primary-900" : "text-neutral-400"} font-gilmer font-medium text-sm flex justify-between items-center`}><i className="text-xl ri-arrow-right-s-line"></i> {stateLocation}</p>
-              }
-              {
-                lgaLocation && <p className={`${locationLevel.name == "lga" ? "text-primary-900" : "text-neutral-400"} font-gilmer font-medium text-sm flex justify-between items-center`}><i className="text-xl ri-arrow-right-s-line"></i> {lgaLocation}</p>
-              }
+              <span
+                className={`${
+                  locationLevel.name == "country"
+                    ? "text-primary-900"
+                    : "text-neutral-400"
+                } font-gilmer font-medium text-sm`}
+              >
+                Nigeria
+              </span>
+              {stateLocation && (
+                <p
+                  className={`${
+                    locationLevel.name == "state"
+                      ? "text-primary-900"
+                      : "text-neutral-400"
+                  } font-gilmer font-medium text-sm flex justify-between items-center`}
+                >
+                  <i className="text-xl ri-arrow-right-s-line"></i>{" "}
+                  {stateLocation}
+                </p>
+              )}
+              {lgaLocation && (
+                <p
+                  className={`${
+                    locationLevel.name == "lga"
+                      ? "text-primary-900"
+                      : "text-neutral-400"
+                  } font-gilmer font-medium text-sm flex justify-between items-center`}
+                >
+                  <i className="text-xl ri-arrow-right-s-line"></i>{" "}
+                  {lgaLocation}
+                </p>
+              )}
             </span>
             <div className="lg:hidden"></div>
 
@@ -224,7 +253,7 @@ function ExploreNav({ className, handleShowchart, locationLevel }) {
           </div>
 
           <div className="h-[calc(100vh-95px)]">
-            <div className="overflow-x-hidden py-2 h-[90%]">
+            <div className="overflow-x-hidden py-2 pt-[7.5px] h-[90%]">
               {data.map((item, index) => {
                 return (
                   <DataStyle
@@ -266,7 +295,10 @@ function ExploreNav({ className, handleShowchart, locationLevel }) {
                       key={handle.id}
                       className="cursor-pointer flex rounded-full justify-center items-center h-[32px] w-[32px] bg-neutral-100 mr-4"
                     >
-                      <a href={handle.url} className={`text-primary-600 ${handle.icon}`}></a>
+                      <a
+                        href={handle.url}
+                        className={`text-primary-600 ${handle.icon}`}
+                      ></a>
                     </span>
                   );
                 })}
