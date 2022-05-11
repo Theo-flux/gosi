@@ -25,6 +25,7 @@ function Footer() {
                     Zobomap
                   </p>
                 </Hyperlink>
+                
 
                 <div className="flex flex-col justify-start items-start w-fit md:flex-row justify-between items-center w-[209px]">
                   <a className="mb-4 self-start md:mb-0 mr-4">

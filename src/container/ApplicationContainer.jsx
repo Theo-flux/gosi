@@ -9,8 +9,6 @@ function ApplicationContainer({
   countryResult,
   stateResult,
   lgaResult,
-  slug,
-  slug2,
 }) {
   const {
     showChart,
@@ -56,10 +54,7 @@ function ApplicationContainer({
   return (
     <div className="relative h-[100vh] w-[100vw]">
       <ExploreNav
-        current={current}
         locationLevel={locationLevel}
-        slug={slug}
-        slug2={slug2}
         handleShowchart={handleShowchart}
         className="absolute w-full z-[403] bg-white"
       />

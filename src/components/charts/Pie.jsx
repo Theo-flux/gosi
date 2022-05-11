@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Charts from "react-apexcharts";
 import {useMediaQuery} from "react-responsive"
-import "./style.css";
 
 const colorArr = [
     '#6FA485',

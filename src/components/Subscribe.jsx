@@ -55,14 +55,14 @@ const Field = ({ className }) => {
 function Subscribe({ className }) {
   return (
     <div
-      className={`bg-primary-100 ${className} rounded-md w-[100%] md:w-[360px]`}
+      className={`bg-black ${className} rounded-md w-[100%] md:w-[360px]`}
     >
       <div className="font-gilmer mx-auto p-8 lg:p-12">
-        <p className="text-lg text-primary-900 font-gilmer font-semibold mb-8">
+        <p className="text-lg text-white font-gilmer font-semibold mb-8">
           Subscribe
         </p>
         <Field className="mb-8" />
-        <p className="text-xs font-semibold text-neutral-700 leading-loose">
+        <p className="text-xs font-semibold text-white leading-loose">
           Hello, we are Zobomap. Our goal is to provides easy access to
           demographic and other similar data about Nigeria.
         </p>
