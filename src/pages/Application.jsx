@@ -77,8 +77,6 @@ function Application() {
           countryResult={CountryResult}
           stateResult={stateResult}
           lgaResult={lgaResult}
-          slug={slug}
-          slug2={slug2}
         />
       </ApplicationProvider>
     </>

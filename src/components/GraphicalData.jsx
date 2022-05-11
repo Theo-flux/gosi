@@ -29,10 +29,10 @@ function GraphicalData({className, activeSidebar, handleShowchart}){
             </div>
             
             <div ref={componentRef} className="overflow-y-scroll h-[100%] pt-1 px-4">
-                <div className="py-4 flex justify-between items-center border-b border-dashed border-neutral-400">
+                <div className="py-2 flex justify-between items-center border-b border-dashed border-neutral-400">
                     <span className="text-sm w-[180px] md:w-full">{activeSidebar}</span>
 
-                    <div className="flex justify-between items-center w-[105px] md:w-[320px]">
+                    <div className="flex justify-between items-center w-[105px] md:w-[300px]">
                         <RWebShare
                             data={{
                                 text: `zobomap - ${activeSidebar}`,
@@ -41,12 +41,12 @@ function GraphicalData({className, activeSidebar, handleShowchart}){
                             }}
                             onClick={() => console.log("shared successfully!")}
                         >
-                            <button onClick={() => usePathname()} className="group cursor-pointer flex justify-between items-center rounded-md py-2 px-4 bg-neutral-100 text-primary-600 hover:bg-primary-600 hover:text-white"><i className="ri-share-fill"></i><p className="hidden lg:block font-medium ml-2">Share</p></button>
+                            <button onClick={() => usePathname()} className="group cursor-pointer flex justify-between items-center rounded-md py-2 px-4 text-sm bg-neutral-100 text-primary-600 hover:bg-primary-600 hover:text-white"><i className="ri-share-fill"></i><p className="hidden lg:block font-bold ml-2 font-gilmer">Share</p></button>
                         </RWebShare>
 
                         <ReactToPrint 
                             trigger={() => 
-                                <span className="group cursor-pointer flex justify-between items-center rounded-md py-2 px-4 bg-neutral-100 text-primary-600 hover:bg-primary-600 hover:text-white"><i className="ri-download-fill"></i><p className="hidden lg:block font-medium ml-2">Print</p></span>
+                                <span className="group cursor-pointer flex justify-between items-center rounded-md py-2 px-4 text-sm bg-neutral-100 text-primary-600 hover:bg-primary-600 hover:text-white"><i className="ri-download-fill"></i><p className="hidden lg:block font-bold ml-2 font-gilmer">Print</p></span>
                             } 
 
                             content={() => 

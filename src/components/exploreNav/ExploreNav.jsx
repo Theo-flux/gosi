@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import { Hyperlink } from "../../shared";
@@ -128,7 +128,7 @@ function DataStyle({
   );
 }
 
-function ExploreNav({ className, handleShowchart, slug, slug2, current }) {
+function ExploreNav({ className, handleShowchart, locationLevel }) {
   const {
     showSidebar,
     handleSidebar,
@@ -145,6 +145,20 @@ function ExploreNav({ className, handleShowchart, slug, slug2, current }) {
     handleGrandChild,
     handlePresentSidebarData,
   } = useContext(App);
+
+  const [stateLocation, setStateLocation] = useState("")
+  const [lgaLocation, setLgaLocation] = useState("")
+
+  useEffect(() => {
+    if (locationLevel.name == "state"){
+        setStateLocation(graphData.originalArgs?.state)
+        setLgaLocation("")
+    }
+
+    if (locationLevel.name == "lga"){
+      setLgaLocation(graphData.originalArgs?.lga)
+    }
+  })
 
   return (
     <section className={className}>
@@ -164,9 +178,15 @@ function ExploreNav({ className, handleShowchart, slug, slug2, current }) {
           </Hyperlink>
           <ExtrasOnMobile className=" md:hidden" />
 
-          <div className="hidden md:flex items-center justify-end lg:justify-between xl:w-[80%]">
-            <span className="hidden xl:flex justify-between items-center">
-              <p className="font-gilmer font-medium">{current.location}</p>
+          <div className="hidden md:flex items-center justify-end xl:w-[80%]">
+            <span className="hidden absolute left-[276px] xl:flex justify-between items-center">
+              <span className={`${locationLevel.name == 'country' ? "text-primary-900" : "text-neutral-400" } font-gilmer font-medium text-sm`}>Nigeria</span>
+              {
+                stateLocation && <p className={`${locationLevel.name == "state" ? "text-primary-900" : "text-neutral-400"} font-gilmer font-medium text-sm flex justify-between items-center`}><i className="text-xl ri-arrow-right-s-line"></i> {stateLocation}</p>
+              }
+              {
+                lgaLocation && <p className={`${locationLevel.name == "lga" ? "text-primary-900" : "text-neutral-400"} font-gilmer font-medium text-sm flex justify-between items-center`}><i className="text-xl ri-arrow-right-s-line"></i> {lgaLocation}</p>
+              }
             </span>
             <div className="lg:hidden"></div>
 
