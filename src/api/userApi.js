@@ -3,7 +3,7 @@ import { JSON_to_URLEncoded } from "../utils/helpers";
 export const subscribeApi = async (email) => {
   try {
     const res = await fetch(
-      `https://zobomap-dev.azurewebsites.net/v1/subscribe`,
+      `https://gosi-api.azurewebsites.net/v1/subscribe`,
       {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -26,7 +26,7 @@ export const subscribeApi = async (email) => {
 export const contactUsApi = async (data) => {
   try {
     const res = await fetch(
-      `https://zobomap-dev.azurewebsites.net/v1/contact-us`,
+      `https://gosi-api.azurewebsites.net/v1/contact-us`,
       {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
