@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const zobomapApi = createApi({
   reducerPath: "zobomapApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://zobomap-dev.azurewebsites.net/v1/",
+    baseUrl: "https://gosi-api.azurewebsites.net/v1/",
   }),
   endpoints: (build) => ({
     getNigeriaData: build.query({
