@@ -47,8 +47,6 @@ function ApplicationProvider({children}){
         setActiveSidebar(`${parent} / ${children[0]}`);
         setGrandChild(0);
     }
-
-    console.log(graphData);
     
     return(
         <App.Provider value={{
