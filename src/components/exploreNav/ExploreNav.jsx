@@ -162,7 +162,7 @@ function ExploreNav({ className, handleShowchart, locationLevel }) {
 
   return (
     <section className={className}>
-      <div className="py-4 md:py-[.7em] mx-auto w-11/12">
+      <div className="py-2 md:py-3 mx-auto w-11/12">
         <nav className="flex justify-between items-center">
           <Hyperlink
             to="/"
@@ -208,7 +208,7 @@ function ExploreNav({ className, handleShowchart, locationLevel }) {
             showSidebar ? "left-0" : "left-[-400px]"
           } transition-all duration-300 ease-in-out md:z-[402] top-0 md:left-0 bg-neutral-50 w-[250px] md:w-[250px] h-full`}
         >
-          <div className="py-[2.1em] mt-4 md:mt-0 md:py-3 px-8 border-b border-[#EAEAEA]">
+          <div className="py-6 mt-5 md:mt-0 md:py-3 px-8 border-b border-[#EAEAEA]">
             <Hyperlink
               to="/"
               className="hidden md:flex justify-between items-center cursor-pointer w-[137px]"

@@ -19,7 +19,7 @@ function DetailsCard({className, current}) {
 
             <div className="hidden md:flex justify-center items-center bg-white py-2 px-4">
                 {/* <div></div> */}
-                <p className="text-primary-600 font-bold">Details</p>
+                <p className="text-eerie font-bold">Details</p>
                 {/* <i className="ri-close-line"></i> */}
             </div>
 

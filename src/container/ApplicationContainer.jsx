@@ -97,7 +97,7 @@ function ApplicationContainer({
       )}
       <DetailsCard
         current={current}
-        className="absolute z-[401] left-[20px] top-[90px] w-[200px] md:w-[300px] md:top-[80px] md:left-[270px] bg-white"
+        className="absolute z-[401] left-[20px] top-[90px] w-[200px] md:w-[300px] md:top-[90px] md:left-[270px] bg-white"
       />
 
       <LeafletContainer locationLevel={locationLevel} />
