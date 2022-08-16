@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { useState, useContext, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
@@ -129,7 +128,11 @@ function DataStyle({
   );
 }
 
-function ExploreNav({ className, handleShowchart, locationLevel }) {
+export default function ExploreNav({
+  className,
+  handleShowchart,
+  locationLevel,
+}) {
   const {
     showSidebar,
     handleSidebar,
@@ -147,19 +150,19 @@ function ExploreNav({ className, handleShowchart, locationLevel }) {
     handlePresentSidebarData,
   } = useContext(App);
 
-  const [stateLocation, setStateLocation] = useState("")
-  const [lgaLocation, setLgaLocation] = useState("")
+  const [stateLocation, setStateLocation] = useState("");
+  const [lgaLocation, setLgaLocation] = useState("");
 
   useEffect(() => {
-    if (locationLevel.name == "state"){
-        setStateLocation(graphData.originalArgs?.state)
-        setLgaLocation("")
+    if (locationLevel.name == "state") {
+      setStateLocation(graphData.originalArgs?.state);
+      setLgaLocation("");
     }
 
-    if (locationLevel.name == "lga"){
-      setLgaLocation(graphData.originalArgs?.lga)
+    if (locationLevel.name == "lga") {
+      setLgaLocation(graphData.originalArgs?.lga);
     }
-  })
+  });
 
   return (
     <section className={className}>
@@ -181,13 +184,39 @@ function ExploreNav({ className, handleShowchart, locationLevel }) {
 
           <div className="hidden md:flex items-center justify-end xl:w-[80%]">
             <span className="hidden absolute left-[276px] xl:flex justify-between items-center">
-              <span className={`${locationLevel.name == 'country' ? "text-primary-900" : "text-neutral-400" } font-gilmer font-medium text-sm`}>Nigeria</span>
-              {
-                stateLocation && <p className={`${locationLevel.name == "state" ? "text-primary-900" : "text-neutral-400"} font-gilmer font-medium text-sm flex justify-between items-center`}><i className="text-xl ri-arrow-right-s-line"></i> {stateLocation}</p>
-              }
-              {
-                lgaLocation && <p className={`${locationLevel.name == "lga" ? "text-primary-900" : "text-neutral-400"} font-gilmer font-medium text-sm flex justify-between items-center`}><i className="text-xl ri-arrow-right-s-line"></i> {lgaLocation}</p>
-              }
+              <span
+                className={`${
+                  locationLevel.name == "country"
+                    ? "text-primary-900"
+                    : "text-neutral-400"
+                } font-gilmer font-medium text-sm`}
+              >
+                Nigeria
+              </span>
+              {stateLocation && (
+                <p
+                  className={`${
+                    locationLevel.name == "state"
+                      ? "text-primary-900"
+                      : "text-neutral-400"
+                  } font-gilmer font-medium text-sm flex justify-between items-center`}
+                >
+                  <i className="text-xl ri-arrow-right-s-line"></i>{" "}
+                  {stateLocation}
+                </p>
+              )}
+              {lgaLocation && (
+                <p
+                  className={`${
+                    locationLevel.name == "lga"
+                      ? "text-primary-900"
+                      : "text-neutral-400"
+                  } font-gilmer font-medium text-sm flex justify-between items-center`}
+                >
+                  <i className="text-xl ri-arrow-right-s-line"></i>{" "}
+                  {lgaLocation}
+                </p>
+              )}
             </span>
             <div className="lg:hidden"></div>
 
@@ -267,7 +296,10 @@ function ExploreNav({ className, handleShowchart, locationLevel }) {
                       key={handle.id}
                       className="cursor-pointer flex rounded-full justify-center items-center h-[32px] w-[32px] bg-eerie mr-4"
                     >
-                      <a href={handle.url} className={`text-primary-600 ${handle.icon}`}></a>
+                      <a
+                        href={handle.url}
+                        className={`text-primary-600 ${handle.icon}`}
+                      ></a>
                     </span>
                   );
                 })}
