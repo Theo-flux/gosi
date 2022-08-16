@@ -109,9 +109,9 @@ function DataStyle({
                           }}
                           className={`cursor-pointer text-xs rounded-md py-2 px-4 flex w-[190px] ${
                             openGrandChild === index
-                              ? "bg-neutral-100 text-primary-600"
+                              ? "bg-eerie text-primary-600"
                               : "text-neutral-400 "
-                          } hover:bg-neutral-100 hover:text-primary-600`}
+                          } hover:bg-eerie hover:text-primary-600`}
                         >
                           {child}
                         </small>
@@ -172,9 +172,9 @@ function ExploreNav({ className, handleShowchart, locationLevel }) {
               <img src={zoboLogo} className="w-100%" alt="zobo-logo" />
             </figure>
 
-            <p className="font-gilmer  font-bold text-primary-600 text-xl">
+            {/* <p className="font-gilmer  font-bold text-primary-600 text-xl">
               Zobomap
-            </p>
+            </p> */}
           </Hyperlink>
           <ExtrasOnMobile className=" md:hidden" />
 
@@ -208,7 +208,7 @@ function ExploreNav({ className, handleShowchart, locationLevel }) {
             showSidebar ? "left-0" : "left-[-400px]"
           } transition-all duration-300 ease-in-out md:z-[402] top-0 md:left-0 bg-neutral-50 w-[250px] md:w-[250px] h-full`}
         >
-          <div className="py-[2.1em] md:p-4 border-b border-b-[#EAEAEA]">
+          <div className="py-[2.1em] mt-4 md:mt-0 md:py-3 px-8 border-b border-[#EAEAEA]">
             <Hyperlink
               to="/"
               className="hidden md:flex justify-between items-center cursor-pointer w-[137px]"
@@ -217,9 +217,9 @@ function ExploreNav({ className, handleShowchart, locationLevel }) {
                 <img src={zoboLogo} className="w-100%" alt="zobo-logo" />
               </figure>
 
-              <p className="font-gilmer  font-bold text-primary-600 text-xl">
+              {/* <p className="font-gilmer  font-bold text-primary-600 text-xl">
                 Zobomap
-              </p>
+              </p> */}
             </Hyperlink>
           </div>
 
@@ -264,7 +264,7 @@ function ExploreNav({ className, handleShowchart, locationLevel }) {
                   return (
                     <span
                       key={handle.id}
-                      className="cursor-pointer flex rounded-full justify-center items-center h-[32px] w-[32px] bg-neutral-100 mr-4"
+                      className="cursor-pointer flex rounded-full justify-center items-center h-[32px] w-[32px] bg-eerie mr-4"
                     >
                       <a href={handle.url} className={`text-primary-600 ${handle.icon}`}></a>
                     </span>

@@ -131,7 +131,7 @@ function Search({ variant }) {
       </div>
       <button
         onClick={selected && handleClick}
-        className={`outline-0 bg-primary-600 text-white rounded-md  focus:bg-primary-700 cursor-pointer ${
+        className={`outline-0 font-semibold bg-primary-600 text-black rounded-md  focus:bg-primary-600 cursor-pointer ${
           variant === "nav" ? "py-1.5 px-3.5" : "py-2 px-4 md:py-4 md:px-8"
         }`}
       >

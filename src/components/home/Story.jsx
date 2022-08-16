@@ -24,7 +24,7 @@ const stories = [
         icon: "ri-bar-chart-2-fill",
         bg: "bg-neutral-50",
         title: "Advanced filter",
-        data: "Zobomap Provides granular data for Nigeria, up to the local government level."
+        data: "Gosi provides granular data for Nigeria, up to the local government level."
     },
 
     {
@@ -43,7 +43,7 @@ const StoryCard = ({storyData}) => {
     return(
         <div className={`${bg} rounded-xl`}>
             <div className="p-4 font-gilmer">
-                <span className="flex justify-center items-center bg-primary-800 rounded-full w-[48px] h-[48px]"><i className={`text-white text-xl ${icon}`}></i></span>
+                <span className="flex justify-center items-center bg-black rounded-full w-[48px] h-[48px]"><i className={`text-primary-600 text-xl ${icon}`}></i></span>
                 <p className="my-4 font-bold text-black md:text-xl">{title}</p>
                 <p className="text-sm text-neutral-700">{data}</p>
             </div>

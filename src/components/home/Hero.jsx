@@ -16,7 +16,7 @@ function Hero() {
       <div className="mx-auto w-11/12 max-w-7xl pt-36 pb-16">
         <div className="flex flex-col justify-center items-center mb-16">
           <Title className="text-center w-full mb-8 md:max-w-[886px]">
-            Discover amazing data about Nigeria
+            Socioeconomic data about Nigeria at your fingertips
           </Title>
           <SubTitle className="text-neutral-700 text-center w-full md:max-w-[750px]">
             Explore using our interactive map, important information and data
