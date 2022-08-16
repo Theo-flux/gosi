@@ -88,7 +88,7 @@ function DataStyle({
                           }}
                           className={`cursor-pointer text-xs rounded-md py-2 px-4 flex w-[190px] ${
                             openGrandChild === index
-                              ? "bg-neutral-100 text-primary-600"
+                              ? "bg-eerie text-primary-600"
                               : "text-neutral-400 "
                           } hover:bg-neutral-100 hover:text-primary-600 active:bg-neutral-100 active:text-primary-600 focus:bg-neutral-100 focus:text-primary-600`}
                         >
