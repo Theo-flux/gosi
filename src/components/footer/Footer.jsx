@@ -21,9 +21,9 @@ function Footer() {
                     <img src={zoboLogo} className="w-100%" alt="zobo-logo" />
                   </figure>
 
-                  <p className="font-gilmer font-bold text-primary-600 text-xl">
+                  {/* <p className="font-gilmer font-bold text-primary-600 text-xl">
                     Zobomap
-                  </p>
+                  </p> */}
                 </Hyperlink>
                 
 

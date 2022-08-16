@@ -26,7 +26,6 @@ function DataStyle({
 }) {
   const { parent, icon, children } = item;
   const isMobile = useMediaQuery({ maxWidth: 767 });
-  const [hoverOnOption, setHoverOnOption] = useState(false);
 
   function handleSidebarShowChart(arg) {
     if (openChild === index) {
@@ -43,24 +42,22 @@ function DataStyle({
           handleChild(index);
           handlePresentSidebarData(parent, children);
         }}
-        onMouseEnter={() => setHoverOnOption((prev) => !prev)}
-        onMouseLeave={() => setHoverOnOption((prev) => !prev)}
         className={`${
           openChild === index && "bg-eerie"
-        } group cursor-pointer py-[12px] px-8 flex justify-between items-center hover:bg-eerie active:bg-eerie focus:bg-eerie`}
+        } cursor-pointer py-[12px] px-8 flex justify-between items-center hover:bg-eerie active:bg-eerie focus:bg-eerie`}
       >
         <div className={`flex justify-between items-center`}>
           <figure className="mr-1">
             <img
               className="w-[100%]"
-              src={openChild === index || hoverOnOption ? icon[1] : icon[0]}
+              src={openChild === index ? icon[1] : icon[0]}
               alt={`${parent}-icon`}
             />
           </figure>
           <p
             className={`${
-              openChild === index ? "text-white" : "text-neutral-600"
-            } text-xs font-medium md:text-xs group-hover:text-white`}
+              openChild === index ? "text-white" : "text-neutral-400"
+            } text-xs font-medium md:text-xs`}
           >
             {parent}
           </p>
@@ -112,9 +109,9 @@ function DataStyle({
                           }}
                           className={`cursor-pointer text-xs rounded-md py-2 px-4 flex w-[190px] ${
                             openGrandChild === index
-                              ? "bg-neutral-100 text-primary-600"
+                              ? "bg-eerie text-primary-600"
                               : "text-neutral-400 "
-                          } hover:bg-neutral-100 hover:text-primary-600`}
+                          } hover:bg-eerie hover:text-primary-600`}
                         >
                           {child}
                         </small>
@@ -131,7 +128,11 @@ function DataStyle({
   );
 }
 
-function ExploreNav({ className, handleShowchart, locationLevel }) {
+export default function ExploreNav({
+  className,
+  handleShowchart,
+  locationLevel,
+}) {
   const {
     showSidebar,
     handleSidebar,
@@ -165,7 +166,7 @@ function ExploreNav({ className, handleShowchart, locationLevel }) {
 
   return (
     <section className={className}>
-      <div className="py-4 md:py-[.7em] mx-auto w-11/12">
+      <div className="py-2 md:py-3 mx-auto w-11/12">
         <nav className="flex justify-between items-center">
           <Hyperlink
             to="/"
@@ -175,9 +176,9 @@ function ExploreNav({ className, handleShowchart, locationLevel }) {
               <img src={zoboLogo} className="w-100%" alt="zobo-logo" />
             </figure>
 
-            <p className="font-gilmer  font-bold text-primary-600 text-xl">
+            {/* <p className="font-gilmer  font-bold text-primary-600 text-xl">
               Zobomap
-            </p>
+            </p> */}
           </Hyperlink>
           <ExtrasOnMobile className=" md:hidden" />
 
@@ -237,7 +238,7 @@ function ExploreNav({ className, handleShowchart, locationLevel }) {
             showSidebar ? "left-0" : "left-[-400px]"
           } transition-all duration-300 ease-in-out md:z-[402] top-0 md:left-0 bg-neutral-50 w-[250px] md:w-[250px] h-full`}
         >
-          <div className="py-[2.1em] md:p-4 border-b border-b-[#EAEAEA]">
+          <div className="py-6 mt-5 md:mt-0 md:py-3 px-8 border-b border-[#EAEAEA]">
             <Hyperlink
               to="/"
               className="hidden md:flex justify-between items-center cursor-pointer w-[137px]"
@@ -246,14 +247,14 @@ function ExploreNav({ className, handleShowchart, locationLevel }) {
                 <img src={zoboLogo} className="w-100%" alt="zobo-logo" />
               </figure>
 
-              <p className="font-gilmer  font-bold text-primary-600 text-xl">
+              {/* <p className="font-gilmer  font-bold text-primary-600 text-xl">
                 Zobomap
-              </p>
+              </p> */}
             </Hyperlink>
           </div>
 
           <div className="h-[calc(100vh-95px)]">
-            <div className="overflow-x-hidden py-2 pt-[7.5px] h-[90%]">
+            <div className="overflow-x-hidden py-2 h-[90%]">
               {data.map((item, index) => {
                 return (
                   <DataStyle
@@ -293,7 +294,7 @@ function ExploreNav({ className, handleShowchart, locationLevel }) {
                   return (
                     <span
                       key={handle.id}
-                      className="cursor-pointer flex rounded-full justify-center items-center h-[32px] w-[32px] bg-neutral-100 mr-4"
+                      className="cursor-pointer flex rounded-full justify-center items-center h-[32px] w-[32px] bg-eerie mr-4"
                     >
                       <a
                         href={handle.url}
@@ -317,5 +318,3 @@ function ExploreNav({ className, handleShowchart, locationLevel }) {
     </section>
   );
 }
-
-export default ExploreNav;

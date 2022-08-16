@@ -47,9 +47,9 @@ function Navbar() {
             <img src={zoboLogo} className="w-6 md:w-[100%]" alt="zobo-logo" />
           </figure>
 
-          <p className="font-gilmer font-semibold text-primary-600 text-[17px] md:text-xl">
+          {/* <p className="font-gilmer font-semibold text-primary-600 text-[17px] md:text-xl">
             Zobomap
-          </p>
+          </p> */}
         </Hyperlink>
 
         {isDesktop && (
@@ -60,7 +60,7 @@ function Navbar() {
         )}
         <div className="flex justify-between items-center md:w-fit">
           <Link to="/profiles/nigeria">
-            <Button>Open Zobomap</Button>
+            <Button>Open Gosi</Button>
           </Link>
           {isMobile && (
             <figure

@@ -58,10 +58,10 @@ function Easy() {
           <div className="font-gilmer flex flex-col justify-center items-center mb-16">
             <SmallText className="">GETTING STARTED</SmallText>
             <Title className="text-center my-8 w-full md:max-w-[650px]">
-              Using Zobomap is easy
+              Using Gosi is easy
             </Title>
             <SubTitle className="text-center md:max-w-[613px]">
-              With an intuitive map navigation Zobomap presents data about
+              With an intuitive map navigation Gosi presents data about
               Nigeria in a way that is very easy to digest
             </SubTitle>
           </div>
