@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState, useContext, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
@@ -285,5 +286,3 @@ function ExploreNav({ className, handleShowchart, locationLevel }) {
     </section>
   );
 }
-
-export default ExploreNav;
