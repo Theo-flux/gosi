@@ -23,8 +23,6 @@ function GraphicalData({ className, activeSidebar, handleShowchart }) {
     setUrl(location.pathname);
   }
 
-  console.log(currentUrl);
-
   return (
     <div
       className={`${className} border-t border-t-[#EAEAEA] w-full lg:w-[620px] font-gilmer`}
@@ -76,6 +74,8 @@ function GraphicalData({ className, activeSidebar, handleShowchart }) {
             />
           </div>
         </div>
+
+        {presentSidebarData === "Election" && <Election />}
 
         {presentSidebarData === "Demography" && <Demography />}
 

@@ -21,28 +21,38 @@ import childrenInactive from "../../images/explorenav/noun-children-inactive.svg
 
 const data = [
   {
-    id: "1",
+    is: "1",
+    parent: "Election",
+    icon: [electionInactive, electionActive],
+    children: [
+      "2011 General Election",
+      "2015 General Election",
+      "2019 General Election",
+    ],
+  },
+  {
+    id: "2",
     parent: "Demography",
     icon: [demographyInctive, demographyActive],
     children: ["Age", "Population", "Language"],
   },
 
   {
-    id: "2",
+    id: "3",
     parent: "Service Delivery",
     icon: [serviceInactive, serviceActive],
-    children: [ "Water", "Electricity", "Toilet Facilities", "Refuse Disposal"],
+    children: ["Water", "Electricity", "Toilet Facilities", "Refuse Disposal"],
   },
 
   {
-    id: "3",
+    id: "4",
     parent: "Household",
     icon: [homeInactive, homeActive],
     children: ["Households", "Household Ownership"],
   },
 
   {
-    id: "4",
+    id: "5",
     parent: "Children",
     icon: [childrenInactive, childrenActive],
     children: ["Child Population", "School Attendance"],

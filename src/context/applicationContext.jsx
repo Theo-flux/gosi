@@ -1,84 +1,84 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 const App = React.createContext();
 
-function ApplicationProvider({children}){
-    let [showSidebar, setShowSidebar] = useState(false);
-    const [showChart, setShowChart] = useState(false);
-    const [graphData, setGraphData] = useState(false);
-    const [activeSidebar, setActiveSidebar] = useState("");
-    const [openChild, setChild] = useState(false);
-    const [openGrandChild, setGrandChild] = useState(false);
-    const [presentSidebarData, setPresentSidebarData] = useState("");
-    
-    
+function ApplicationProvider({ children }) {
+  let [showSidebar, setShowSidebar] = useState(false);
+  const [showChart, setShowChart] = useState(false);
+  const [graphData, setGraphData] = useState(false);
+  const [activeSidebar, setActiveSidebar] = useState("");
+  const [openChild, setChild] = useState(false);
+  const [openGrandChild, setGrandChild] = useState(false);
+  const [presentSidebarData, setPresentSidebarData] = useState("");
 
-    function handleSidebar(){
-        setShowSidebar(!showSidebar);
+  function handleSidebar() {
+    setShowSidebar(!showSidebar);
+  }
+
+  function handleShowchart() {
+    setShowChart(!showChart);
+  }
+
+  function handleGraphData(arg) {
+    setGraphData(arg);
+  }
+
+  function handleActiveSidebar(arg) {
+    setActiveSidebar(arg);
+  }
+
+  function handleChild(arg) {
+    if (openChild === arg) {
+      return setChild(null);
     }
+    setChild(arg);
+  }
 
-    function handleShowchart(){
-        setShowChart(!showChart);
+  function handleGrandChild(arg) {
+    if (openGrandChild === arg) {
+      return setGrandChild(arg);
     }
+    setGrandChild(arg);
+  }
 
-    function handleGraphData(arg){
-        setGraphData(arg);
-    }
+  function handlePresentSidebarData(parent, children) {
+    setPresentSidebarData(parent);
+    setActiveSidebar(`${parent} / ${children[0]}`);
+    setGrandChild(0);
+  }
 
-    function handleActiveSidebar(arg){
-        setActiveSidebar(arg)
-    }
+  return (
+    <App.Provider
+      value={{
+        showSidebar: showSidebar,
+        handleSidebar: handleSidebar,
 
-    function handleChild(arg){
-        if(openChild === arg){
-            return setChild(null)
-        }
-        setChild(arg)
-    }
+        showChart: showChart,
+        setShowChart: setShowChart,
+        handleShowchart: handleShowchart,
 
-    function handleGrandChild(arg){
-        if(openGrandChild === arg){
-            return setGrandChild(arg)
-        }
-        setGrandChild(arg)
-    }
+        graphData: graphData,
+        handleGraphData: handleGraphData,
 
-    function handlePresentSidebarData(parent, children){
-        setPresentSidebarData(parent);
-        setActiveSidebar(`${parent} / ${children[0]}`);
-        setGrandChild(0);
-    }
-    
-    return(
-        <App.Provider value={{
-            showSidebar: showSidebar, 
-            handleSidebar: handleSidebar,
+        activeSidebar: activeSidebar,
+        setActiveSidebar: setActiveSidebar,
+        handleActiveSidebar: handleActiveSidebar,
 
-            showChart: showChart,
-            setShowChart: setShowChart,
-            handleShowchart: handleShowchart,
+        openChild: openChild,
+        setChild: setChild,
+        handleChild: handleChild,
 
-            graphData: graphData,
-            handleGraphData: handleGraphData,
+        openGrandChild: openGrandChild,
+        setGrandChild: setGrandChild,
+        handleGrandChild: handleGrandChild,
 
-            activeSidebar: activeSidebar,
-            setActiveSidebar: setActiveSidebar,
-            handleActiveSidebar: handleActiveSidebar,
-
-            openChild: openChild,
-            setChild: setChild,
-            handleChild: handleChild,
-
-            openGrandChild: openGrandChild,
-            setGrandChild: setGrandChild,
-            handleGrandChild: handleGrandChild,
-
-            presentSidebarData: presentSidebarData,
-            setPresentSidebarData: setPresentSidebarData,
-            handlePresentSidebarData: handlePresentSidebarData,
-        }}>
-            {children}
-        </App.Provider>
-    );
+        presentSidebarData: presentSidebarData,
+        setPresentSidebarData: setPresentSidebarData,
+        handlePresentSidebarData: handlePresentSidebarData,
+      }}
+    >
+      {children}
+    </App.Provider>
+  );
 }
 
-export {App, ApplicationProvider};
+export { App, ApplicationProvider };

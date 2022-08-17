@@ -1,132 +1,13 @@
-import { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import { Hyperlink } from "../../shared";
 import zoboLogo from "../../images/zobomap-icon.svg";
-import downArrow from "../../images/explorenav/arrow-down.svg";
-import upArrow from "../../images/explorenav/arrow-up.svg";
 import { data, help, socials } from "./sidebarcontent";
 import { App } from "../../context/applicationContext";
+import { DataStyle } from "./DataStyle";
 import ExtrasOnMobile from "../../container/ExtrasOnMobile";
 import Search from "../Search";
-
-function DataStyle({
-  item,
-  index,
-  openChild,
-  handleChild,
-  openGrandChild,
-  handleGrandChild,
-  showChart,
-  handleShowchart,
-  graphData,
-  setShowChart,
-  handleActiveSidebar,
-  handlePresentSidebarData,
-}) {
-  const { parent, icon, children } = item;
-  const isMobile = useMediaQuery({ maxWidth: 767 });
-
-  function handleSidebarShowChart(arg) {
-    if (openChild === index) {
-      return setShowChart(null);
-    }
-    setShowChart(true);
-  }
-
-  return (
-    <div className={`mb-2 font-gilmer`}>
-      <div
-        onClick={() => {
-          handleSidebarShowChart(index);
-          handleChild(index);
-          handlePresentSidebarData(parent, children);
-        }}
-        className={`${
-          openChild === index && "bg-eerie"
-        } cursor-pointer py-[12px] px-8 flex justify-between items-center hover:bg-eerie active:bg-eerie focus:bg-eerie`}
-      >
-        <div className={`flex justify-between items-center`}>
-          <figure className="mr-1">
-            <img
-              className="w-[100%]"
-              src={openChild === index ? icon[1] : icon[0]}
-              alt={`${parent}-icon`}
-            />
-          </figure>
-          <p
-            className={`${
-              openChild === index ? "text-white" : "text-neutral-400"
-            } text-xs font-medium md:text-xs`}
-          >
-            {parent}
-          </p>
-        </div>
-
-        <figure>
-          <img src={openChild === index ? upArrow : downArrow} alt="arrow" />
-        </figure>
-      </div>
-
-      {openChild === index && (
-        <div className={`w-full transition-all duration-300 ml-[2em] mb-4`}>
-          <div className={``}>
-            {children.map((child, index) => {
-              return (
-                <>
-                  {isMobile ? (
-                    <div
-                      key={index}
-                      className="border-l border-b w-[100px] border-[#989CA5]"
-                    >
-                      <p className="bg-neutral-50 relative mx-4 top-[25px] w-[180px] left-0 mb-2">
-                        <small
-                          onClick={() => {
-                            handleActiveSidebar(`${parent} / ${child}`);
-                            handleGrandChild(index);
-                            handleShowchart();
-                          }}
-                          className={`cursor-pointer text-xs rounded-md py-2 px-4 flex w-[190px] ${
-                            openGrandChild === index
-                              ? "bg-eerie text-primary-600"
-                              : "text-neutral-400 "
-                          } hover:bg-neutral-100 hover:text-primary-600 active:bg-neutral-100 active:text-primary-600 focus:bg-neutral-100 focus:text-primary-600`}
-                        >
-                          {child}
-                        </small>
-                      </p>
-                    </div>
-                  ) : (
-                    <div
-                      key={index}
-                      className="border-l border-b w-[100px] border-[#989CA5]"
-                    >
-                      <p className="bg-neutral-50 relative mx-4 top-[25px] w-[180px] left-0 mb-2">
-                        <small
-                          onClick={() => {
-                            handleActiveSidebar(`${parent} / ${child}`);
-                            handleGrandChild(index);
-                          }}
-                          className={`cursor-pointer text-xs rounded-md py-2 px-4 flex w-[190px] ${
-                            openGrandChild === index
-                              ? "bg-eerie text-primary-600"
-                              : "text-neutral-400 "
-                          } hover:bg-eerie hover:text-primary-600`}
-                        >
-                          {child}
-                        </small>
-                      </p>
-                    </div>
-                  )}
-                </>
-              );
-            })}
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
 
 export default function ExploreNav({
   className,
@@ -257,21 +138,22 @@ export default function ExploreNav({
             <div className="overflow-x-hidden py-2 h-[90%]">
               {data.map((item, index) => {
                 return (
-                  <DataStyle
-                    key={item.id}
-                    index={index}
-                    item={item}
-                    handleActiveSidebar={handleActiveSidebar}
-                    showChart={showChart}
-                    setShowChart={setShowChart}
-                    graphData={graphData}
-                    handleShowchart={handleShowchart}
-                    handleChild={handleChild}
-                    openChild={openChild}
-                    openGrandChild={openGrandChild}
-                    handleGrandChild={handleGrandChild}
-                    handlePresentSidebarData={handlePresentSidebarData}
-                  />
+                  <React.Fragment key={index}>
+                    <DataStyle
+                      index={index}
+                      item={item}
+                      handleActiveSidebar={handleActiveSidebar}
+                      showChart={showChart}
+                      setShowChart={setShowChart}
+                      graphData={graphData}
+                      handleShowchart={handleShowchart}
+                      handleChild={handleChild}
+                      openChild={openChild}
+                      openGrandChild={openGrandChild}
+                      handleGrandChild={handleGrandChild}
+                      handlePresentSidebarData={handlePresentSidebarData}
+                    />
+                  </React.Fragment>
                 );
               })}
             </div>

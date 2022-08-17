@@ -1,34 +1,39 @@
-import React, {useContext} from "react";
-import {App} from "../../../context/applicationContext";
-import {DataCardsContainer, Pods} from "../../../shared";
-import {BarGraph, Pie} from "../../charts";
-import ChartOptions from "../../ChartOptions";
+import React, { useContext, useEffect } from "react";
+import { App } from "../../../context/applicationContext";
+import { DataCardsContainer, Pods } from "../../../shared";
+import Election11 from "./Election_11";
+import Election15 from "./Election_15";
+import Election19 from "./Election_19";
 
-function Election(){
-    const {chartType, showChartOptions, handleChartType, handleChartoptions} = useContext(App);
+function Election() {
+  const { graphData, openGrandChild } = useContext(App);
+  let data = graphData.data?.[0];
 
-    return (
-        <DataCardsContainer className="">
-            <div className="hidden lg:flex justify-between items-center w-[85%]">
-                <Pods data="192,190" text="Number of Registered Voters"/>
-                <Pods data="69.7%" text="% of Registered Voters who cast their vote"/>
-            </div>
+  useEffect(() => {
+    data = graphData.data?.[0];
+  }, [graphData]);
 
-            <div className="pt-1 md:pt-4 flex justify-between items-center mb-2">
-                <p className="text-sm md:text-md font-bold">Voters by Party</p>
-                <i className="text-2xl ri-arrow-down-s-fill"></i>
-            </div>
+  const ElectionData = {
+    election_data: data?.election_data,
+  };
 
-            <ChartOptions/>
+  const { election_data } = ElectionData;
 
-            {/* <div>
-                {
-                    chartType === "bar" ? <BarGraph/> :  <Pie/>
-                }
-            </div> */}
-            
-        </DataCardsContainer>
-    )
+  return (
+    <DataCardsContainer className="">
+      {openGrandChild === 0 && (
+        <Election11 data_11={election_data?.["2011_data"]} />
+      )}
+
+      {openGrandChild === 1 && (
+        <Election15 data_15={election_data?.["2015_data"]} />
+      )}
+
+      {openGrandChild === 2 && (
+        <Election19 data_19={election_data?.["2019_data"]} />
+      )}
+    </DataCardsContainer>
+  );
 }
 
 export default Election;
