@@ -44,7 +44,7 @@ function GraphicalData({ className, activeSidebar, handleShowchart }) {
           <div className="flex justify-between items-center w-[105px] md:w-[300px]">
             <RWebShare
               data={{
-                text: `zobomap - ${activeSidebar}`,
+                // text: `zobomap - ${activeSidebar}`,
                 url: `${currentUrl}`,
                 title: `zobomap - ${activeSidebar}`,
               }}
