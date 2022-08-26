@@ -48,7 +48,7 @@ export default function ExploreNav({
   return (
     <section className={className}>
       <div className="py-2 md:py-3 mx-auto w-11/12">
-        <nav className="flex justify-between items-center">
+        <nav className="fixed top-0 left-0 w-full bg-white p-2 flex justify-between items-center">
           <Hyperlink
             to="/"
             className="flex z-[405] justify-between items-center cursor-pointer md:z-[402]"
@@ -185,7 +185,7 @@ export default function ExploreNav({
         <div
           onClick={() => handleSidebar()}
           className={`${
-            showSidebar ? "left-0" : "left-[-400px]"
+            showSidebar ? "left-0" : "left-[-900px]"
           } transition-all duration-200 absolute top-0 bg-[#00000050]  w-full h-[100vh] md:hidden`}
         ></div>
       </div>
