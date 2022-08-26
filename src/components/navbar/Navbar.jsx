@@ -40,11 +40,12 @@ function Navbar() {
       {/* the leaflet map button container has a z index of 1000 */}
       <Nav className="relative md:static flex justify-between items-center w-11/12 ">
         <Hyperlink
+          onClick={() => setToggle(false)}
           to="/"
-          className="z-50 flex justify-between items-center cursor-pointer w-[110px] md:w-[136px]"
+          className="z-50 flex justify-between items-center cursor-pointer"
         >
           <figure>
-            <img src={zoboLogo} className="w-6 md:w-[100%]" alt="zobo-logo" />
+            <img src={zoboLogo} className="w-[80%]" alt="zobo-logo" />
           </figure>
 
           {/* <p className="font-gilmer font-semibold text-primary-600 text-[17px] md:text-xl">
@@ -65,7 +66,7 @@ function Navbar() {
           {isMobile && (
             <figure
               onClick={() => setToggle(!toggle)}
-              className="z-50 ml-4 w-[40px] h-[40px] rounded-full bg-neutral-100 flex justify-center items-center"
+              className="ml-4 w-[40px] h-[40px] rounded-full bg-neutral-100 flex justify-center items-center"
             >
               <img src={menu} className="w-100%" alt="menu" />
             </figure>
@@ -74,17 +75,29 @@ function Navbar() {
       </Nav>
 
       {isMobile && (
-        <div
-          ref={drawer}
-          className="absolute z-40 top-0 left-[-100%] w-[65%] h-[100vh]  py-4 flex flex-col bg-neutral-50"
-          style={{ boxShadow: "0px 1px 2px #999 ease-in-out" }}
-        >
-          <Hyperlink to="/about" className="w-full py-4 px-8 mb-4 mt-24">
-            About us
-          </Hyperlink>
-          {/* <Hyperlink to="/contact" className="w-full py-4 px-8">
+        <div>
+          <div
+            ref={drawer}
+            className="absolute z-40 top-0 left-[-100%] w-[65%] h-[100vh]  py-4 flex flex-col bg-neutral-50"
+            style={{ boxShadow: "0px 1px 2px #999 ease-in-out" }}
+          >
+            <Hyperlink
+              onClick={() => setToggle(!toggle)}
+              to="/about"
+              className="w-full py-4 px-8 mb-4 mt-24"
+            >
+              About us
+            </Hyperlink>
+            {/* <Hyperlink to="/contact" className="w-full py-4 px-8">
             Publication Hub
           </Hyperlink> */}
+          </div>
+          <div
+            onClick={() => setToggle(!toggle)}
+            className={`${
+              toggle ? "left-0" : "left-[-900px]"
+            } transition-all z-30 duration-200 absolute top-0 bg-[#00000050]  w-full h-[100vh] md:hidden`}
+          ></div>
         </div>
       )}
     </section>

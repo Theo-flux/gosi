@@ -35,12 +35,12 @@ export default function ExploreNav({
   const [lgaLocation, setLgaLocation] = useState("");
 
   useEffect(() => {
-    if (locationLevel.name == "state") {
+    if (locationLevel.name === "state") {
       setStateLocation(graphData.originalArgs?.state);
       setLgaLocation("");
     }
 
-    if (locationLevel.name == "lga") {
+    if (locationLevel.name === "lga") {
       setLgaLocation(graphData.originalArgs?.lga);
     }
   });
@@ -51,15 +51,13 @@ export default function ExploreNav({
         <nav className="flex justify-between items-center">
           <Hyperlink
             to="/"
-            className="flex z-[405] justify-between items-center cursor-pointer w-[137px] md:z-[402]"
+            className="flex z-[405] justify-between items-center cursor-pointer md:z-[402]"
           >
             <figure>
-              <img src={zoboLogo} className="w-100%" alt="zobo-logo" />
+              <img src={zoboLogo} className="w-[80%]" alt="zobo-logo" />
             </figure>
 
-            {/* <p className="font-gilmer  font-bold text-primary-600 text-xl">
-              Zobomap
-            </p> */}
+            
           </Hyperlink>
           <ExtrasOnMobile className=" md:hidden" />
 
@@ -101,13 +99,7 @@ export default function ExploreNav({
             </span>
             <div className="lg:hidden"></div>
 
-            {/* <div className="px-2 rounded-md overflow-hidden bg-neutral-100 flex justify-between items-center w-[350px]">
-              <i className="text-xl font-medium mr-2 text-neutral-400 ri-search-2-line"></i>
-              <input
-                className="py-2 text-sm outline-0 w-full bg-neutral-100"
-                placeholder="Search for a location e.g Lagos"
-              />
-            </div> */}
+          
             <span>
               <Search variant="nav" />
             </span>
@@ -122,10 +114,10 @@ export default function ExploreNav({
           <div className="py-6 mt-5 md:mt-0 md:py-3 px-8 border-b border-[#EAEAEA]">
             <Hyperlink
               to="/"
-              className="hidden md:flex justify-between items-center cursor-pointer w-[137px]"
+              className="hidden md:flex justify-between items-center cursor-pointer"
             >
               <figure>
-                <img src={zoboLogo} className="w-100%" alt="zobo-logo" />
+                <img src={zoboLogo} className="w-[80%]" alt="zobo-logo" />
               </figure>
 
               {/* <p className="font-gilmer  font-bold text-primary-600 text-xl">
@@ -194,7 +186,7 @@ export default function ExploreNav({
           onClick={() => handleSidebar()}
           className={`${
             showSidebar ? "left-0" : "left-[-400px]"
-          } transition-all duration-200 absolute top-0  w-full h-[100vh] md:hidden`}
+          } transition-all duration-200 absolute top-0 bg-[#00000050]  w-full h-[100vh] md:hidden`}
         ></div>
       </div>
     </section>

@@ -36,13 +36,13 @@ const Field = ({ className }) => {
         className={`bg-white overflow-hidden rounded-lg w-full flex justify-between items-center ${className}`}
       >
         <input
-          className="outline-0 p-4 h-full font-gilmer placeholder:text-sm"
+          className="w-[70%] outline-0 p-4 h-full font-gilmer placeholder:text-sm"
           placeholder="Email address"
           onChange={(e) => setEmail(e.target.value)}
           value={email}
         />
         <button
-          className="bg-primary-600 p-4 overflow-hidden justify-self-end"
+          className="bg-primary-600 p-4 justify-self-end"
           onClick={handleClick}
         >
           <i className="text-white ri-arrow-right-line font-bold text-xl"></i>
