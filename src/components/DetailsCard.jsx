@@ -17,7 +17,7 @@ function DetailsCard({className, current}) {
     return (
         <section className={`${className} rounded-lg overflow-hidden bg-white md:bg-neutral-100`} style={{boxShadow: "0px 4px 24px rgba(0, 0, 0, 0.1)"}}>
 
-            <div className="hidden md:flex justify-center items-center bg-white py-2 px-4">
+            <div className="md:flex justify-center items-center bg-white py-2 px-4">
                 {/* <div></div> */}
                 <p className="text-eerie font-bold">Details</p>
                 {/* <i className="ri-close-line"></i> */}

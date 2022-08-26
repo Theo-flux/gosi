@@ -95,10 +95,10 @@ function ApplicationContainer({
           } transition-all duration-200 absolute top-0 w-full h-[100vh] z-[403] md:hidden`}
         ></div>
       )}
-      <DetailsCard
+      {/* <DetailsCard
         current={current}
         className="absolute z-[401] left-[20px] top-[90px] w-[200px] md:w-[300px] md:top-[90px] md:left-[270px] bg-white"
-      />
+      /> */}
 
       <LeafletContainer locationLevel={locationLevel} />
     </div>
